@@ -19,6 +19,7 @@
                       <p>Search your account list</p>
                       <p>Values in this list are searched for EXACT matches only</p>                    
                       <form action="" method="post" novalidate>
+                            {{ form.hidden_tag() }} 
                           <p>
                             {{ form.username.label }}<br>
                             {{ form.username(size=32, placeholder="username") }}<br>
