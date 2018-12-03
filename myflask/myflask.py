@@ -37,8 +37,8 @@ def login2():
     form = LoginForm()
     if form.validate_on_submit():
         testResult = testFunction(form.testField)
-        flash('Login requested for user {}, remember_me={}, testResult={}'.format(
-            form.username.data, form.remember_me.data,testResult))
+        flash('Login requested for user {}, remember_me={}, testResult={}, radioExample={}'.format(
+            form.username.data, form.remember_me.data,testResult,form.radioExample.data))
         return redirect(url_for('index'))
     return render_template('login2.html', title='Sign In-2', form=form)
 
