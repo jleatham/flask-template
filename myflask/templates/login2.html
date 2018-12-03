@@ -13,27 +13,25 @@
   
         <table>
             <tr>
-              
                   <td valign="top">
-                      <p>Step 1</p>
-                      <p>Search your account list</p>
-                      <p>Values in this list are searched for EXACT matches only</p>                    
+                  </td>
+                  <td valign="top">                
                       <form action="" method="post" novalidate>
                             {{ form.hidden_tag() }} 
-                          <p>
-                            {{ form.username.label }}<br>
-                            {{ form.username(size=32, placeholder="username") }}<br>
+
+                            {{ form.username.label }}
+                            {{ form.username(size=32, placeholder="username") }}
                             {% for error in form.username.errors %}
                             <span style="color: red;">[{{ error }}]</span>
                             {% endfor %}
-                          </p>
-                          <p>
-                            {{ form.password.label }}<br>
-                            {{ form.password(size=32) }}<br>
+
+
+                            {{ form.password.label }}
+                            {{ form.password(size=32) }}
                             {% for error in form.password.errors %}
                             <span style="color: red;">[{{ error }}]</span>
                             {% endfor %}
-                            </p>
+
                             <p>
                             {{ form.testField.label }}</br>
                             {{ form.testField(size=32) }}</br>
@@ -44,31 +42,10 @@
 
                       </form>
                   </td>
+                  <td valign="top">
+                    </td>
               
               
-                  <td valign="top">
-                      <p>Step 2</p>
-                      <p>Add Account to List</p>
-                      <form action="/amlist" id="accountAction">
-                          <label>CCO ID:</label>
-                          <input name="email" type="text" placeholder="jleatham" autocorrect="off" autocapitalize="none" />
-                          <label>Account Name:</label>
-                          <input name="account" type="text" placeholder="ACME INC" autocorrect="off" autocapitalize="none" />                
-                          <label>Add or Remove</label>
-                          <input type="radio" name="action" value="add" id="action_add" checked="checked"><label for="action_add">Add</label>
-                          <input type="radio" name="action" value="remove" id="action_remove"><label for="action_remove">Remove</label>                    
-                          <input class="success button" type="submit" value="Add/Remove">
-                      </form>
-                  </td>
-                  <td valign="top">
-                      <p>Step 3</p>
-                      <p>Re-run report</p>       
-                      <form action="/amlist" id="runReport">
-                          <label>CCO ID:</label>      
-                          <input name="email" type="text" placeholder="jleatham" autocorrect="off" autocapitalize="none" />
-                          <input class="success button" type="submit" value="Run Report"> 
-                      </form>                        
-                  </td>
            
             </tr>
         </table>
