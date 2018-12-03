@@ -1,0 +1,4 @@
+*.sock
+__pycache__
+backup
+.venv
