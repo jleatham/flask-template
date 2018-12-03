@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, RadioField, SelectField SubmitField
+from wtforms import StringField, PasswordField, BooleanField, RadioField, SelectField, SubmitField
 from wtforms.validators import DataRequired
 
 #Could possibly use Marshmallow to create schema, but is not built for forms so 
