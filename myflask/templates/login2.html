@@ -14,41 +14,56 @@
         <table>
             <tr>
                   <td valign="top">
+                      hello
                   </td>
                   <td valign="top">                
-                      <form action="" method="post" novalidate>
-                            {{ form.hidden_tag() }} 
-
-                            {{ form.username.label }}
-                            {{ form.username(size=32, placeholder="username") }}
-                            {% for error in form.username.errors %}
-                            <span style="color: red;">[{{ error }}]</span>
-                            {% endfor %}
-
-
-                            {{ form.password.label }}
-                            {{ form.password(size=32) }}
-                            {% for error in form.password.errors %}
-                            <span style="color: red;">[{{ error }}]</span>
-                            {% endfor %}
-
-                            <p>
-                            {{ form.testField.label }}</br>
-                            {{ form.testField(size=32) }}</br>
-                            </p>
-                            <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-                            <p>{{ form.submit(class="success button") }}</p>
-
-
-                      </form>
+                    hello
                   </td>
                   <td valign="top">
+                      hello
                     </td>
               
               
            
             </tr>
         </table>
+
+
+        <div class="grid-x grid-margin-x">
+                <div class="cell auto">Whatever's left!</div>
+                <div class="cell small-4">
+                        <form action="" method="post" novalidate>
+                                {{ form.hidden_tag() }} 
+    
+                                {{ form.username.label }}
+                                {{ form.username(size=32, placeholder="username") }}
+                                {% for error in form.username.errors %}
+                                <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+    
+    
+                                {{ form.password.label }}
+                                {{ form.password(size=32) }}
+                                {% for error in form.password.errors %}
+                                <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+    
+    
+                                {{ form.testField.label }}
+                                {{ form.testField(size=32) }}
+    
+                                {{ form.remember_me() }} {{ form.remember_me.label }}
+                                <p>{{ form.submit(class="success button") }}</p>
+    
+    
+                          </form>
+                </div>
+                <div class="cell auto">Whatever's left!</div>
+              </div>
+
+
+
+
         </div>
         
         {% endblock %}
