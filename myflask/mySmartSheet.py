@@ -264,7 +264,7 @@ def ss_get_sheet_parsed(ss_client,sheet):
         #after each cell is saved in whole row, create a data object
         archObject = Architecture(date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link, rowID)
         schema = ArchitectureSchema()
-        archDict = schema.dump(archObject)
+        archDict, errors = schema.dump(archObject)
         if arch == 'EN':
             EN_list.append(archDict)    
                     ###Add the rest
