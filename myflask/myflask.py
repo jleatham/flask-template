@@ -43,11 +43,20 @@ def login2():
         return redirect(url_for('index'))
     return render_template('login2.html', title='Sign In-2', form=form)
 
-@app.route('/rendertest')
+@app.route('/rendertest', methods=['GET','POST'])
 def rendertest():
+    #SmartSheet API calls
     ss_client = ss_get_client()
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)
-    return render_template('rendertest.html', title='Render Test', EN_list=EN_list)
+
+    #prep forms to flash return to index for now
+    form = LoginForm()
+    if form.validate_on_submit():
+        testResult = testFunction(form.testField)
+        flash('Login requested for user {}, remember_me={}, testResult={}, radioExample={}, selectExample={}'.format(
+            form.username.data, form.remember_me.data,testResult,form.radioExample.data, form.selectExample.data))
+        return redirect(url_for('index'))    
+    return render_template('rendertest.html', title='Render Test', EN_list=EN_list, form=form)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')

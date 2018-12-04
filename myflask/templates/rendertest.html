@@ -14,10 +14,13 @@
 
 
         <div class="grid-x grid-margin-x">
+                <div class="cell small-6">
+                        {% include 'navigation.html' %}
+                </div>
                 <div class="cell auto"></div>
                 <div class="cell small-6">
                         
-                            news, demo, services, spiff, capital, ea, proposal, promo
+
                             <strong>news</strong></br>
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}
@@ -126,7 +129,7 @@
 
 
                 </div>
-                <div class="cell auto"></div>
+                
               </div>
 
 
