@@ -184,7 +184,7 @@ def ss_get_sheet_parsed(ss_client,sheet):
             #print(i.mainBullet)
     
     
-    jsonSheet = json.loads(str(sheet))
+    jsonSheet = json.loads(str(ss_client.Sheets.get_sheet(sheet)))
 
     EN_list     = []
     SEC_list    = []
