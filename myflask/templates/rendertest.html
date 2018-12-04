@@ -16,17 +16,38 @@
         <div class="grid-x grid-margin-x">
                 <div class="cell auto"></div>
                 <div class="cell small-6">
-                        <ul>
+                        
                             {% for i in EN_list %}
-                                <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
-                                {% if i['subBullet1'] %}
-                                <ul>
-                                    <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
-                                </ul>
+                                {% if i.category == 'news' %}
+                                    {% i.category %}</br>
+                                    <ul>
+                                        <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                        {% if i['subBullet1'] %}
+                                            <ul>
+                                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                            </ul>
+                                        {% endif %}
+                                    </ul>
                                 {% endif %}
                                 
                             {% endfor %}
-                        </ul>
+
+                            
+                            {% for i in EN_list %}
+                                {% if i.category == 'proposal' %}
+                                    {% i.category %}</br>
+                                    <ul>
+                                        <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                        {% if i['subBullet1'] %}
+                                            <ul>
+                                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                            </ul>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+                                
+                            {% endfor %}                            
+
                 </div>
                 <div class="cell auto"></div>
               </div>
