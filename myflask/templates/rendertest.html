@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="large-12 cell">
+            <h1>{{ title }}</h1>
+          </div>
+        </div>
+
+
+
+        <div class="grid-x grid-margin-x">
+                <div class="cell auto"></div>
+                <div class="cell small-6">
+                        <ul>
+                            {% for dict in EN_list %}
+                                {% for i in dict %}
+                                    <li>{{ i.date }}  {{ i.bullet }}</li>
+                                    <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                </div>
+                <div class="cell auto"></div>
+              </div>
+
+
+
+
+        </div>
+        
+        {% endblock %}
+

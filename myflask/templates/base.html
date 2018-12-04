@@ -23,6 +23,15 @@
             <li class="menu-text">Flask Template</li>
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li>
+                    <a href="#">ArchWeek</a>
+                    <ul class="menu">
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        <li><a href="{{ url_for('login2') }}">Login2</a></li>
+                        <li><a href="{{ url_for('rendertest') }}">rendertest</a></li>
+                    </ul>
+                </li> 
+
+            <li>
                 <a href="{{ url_for('login') }}">Login</a>
               <ul class="menu">        
             <li>
@@ -45,14 +54,7 @@
             </li>
             </ul>
             </li>
-            <li>
-                <a href="#">Tools</a>
-                <ul class="menu">
-                    <li><a href="/amlist">AM Customer List Tool</a></li>
-                    <li><a href="/aggsearch">Aggressive Search Tool</a></li>
-                    <li><a href="/realtime">Real Time Search Tool</a></li>
-                </ul>
-            </li>        
+       
           </ul>
         </div>
         <div class="top-bar-right">

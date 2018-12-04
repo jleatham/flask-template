@@ -47,7 +47,7 @@ def login2():
 def rentertest():
     ss_client = ss_get_client()
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)
-    return
+    return render_template('rendertest.html', title='Render Test', EN_list=EN_list)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
