@@ -17,12 +17,13 @@
                 <div class="cell auto"></div>
                 <div class="cell small-6">
                         
+                            news, demo, services, spiff, capital, ea, proposal, promo
+                            <strong>news</strong></br>
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}
-                                    {{ i.category }}</br>
                                     <ul>
                                         <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
-                                        {% if i['subBullet1'] %}
+                                        {% if i.subBullet1 %}
                                             <ul>
                                                 <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
                                             </ul>
@@ -32,13 +33,73 @@
                                 
                             {% endfor %}
 
-                            
+                            <strong>Demonstrations</strong></br>
                             {% for i in EN_list %}
-                                {% if i.category == 'proposal' %}
-                                    {{ i.category }}</br>
+                                {% if i.category == 'demo' %}
                                     <ul>
                                         <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
-                                        {% if i['subBullet1'] %}
+                                        {% if i.subBullet1 %}
+                                            <ul>
+                                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                            </ul>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+                                
+                            {% endfor %}
+
+                            <strong>Services</strong></br>
+                            {% for i in EN_list %}
+                                {% if i.category == 'services' %}
+                                    <ul>
+                                        <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                        {% if i.subBullet1 %}
+                                            <ul>
+                                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                            </ul>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+                                
+                            {% endfor %}
+
+                            <strong>SPIFFs</strong></br>
+                            {% for i in EN_list %}
+                                {% if i.category == 'spiffs' %}
+                                    <ul>
+                                        <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                        {% if i.subBullet1 %}
+                                            <ul>
+                                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                            </ul>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+                                
+                            {% endfor %}
+
+                            <strong>EA</strong></br>
+                            {% for i in EN_list %}
+                                {% if i.category == 'ea' %}
+                                    <ul>
+                                        <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                        {% if i.subBullet1 %}
+                                            <ul>
+                                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                            </ul>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+                                
+                            {% endfor %}
+
+
+                            <strong>proposal</strong></br>
+                            {% for i in EN_list %}
+                                {% if i.category == 'proposal' %}
+                                    <ul>
+                                        <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                        {% if i.subBullet1 %}
                                             <ul>
                                                 <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
                                             </ul>
@@ -47,6 +108,22 @@
                                 {% endif %}
                                 
                             {% endfor %}                            
+
+                            <strong>Promotions</strong></br>
+                            {% for i in EN_list %}
+                                {% if i.category == 'promo' %}
+                                    <ul>
+                                        <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                        {% if i.subBullet1 %}
+                                            <ul>
+                                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                            </ul>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+                                
+                            {% endfor %}
+
 
                 </div>
                 <div class="cell auto"></div>
