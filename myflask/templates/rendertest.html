@@ -20,7 +20,7 @@
                 <div class="cell auto">
                         
 
-                            <p><strong>news</strong></p>
+                            <p class="external"><strong>news</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}
                                     <ul>
@@ -35,7 +35,7 @@
                                 
                             {% endfor %}
 
-                            <strong>Demonstrations</strong></br>
+                            <p class="external"><strong>Demonstration</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'demo' %}
                                     <ul>
@@ -50,7 +50,7 @@
                                 
                             {% endfor %}
 
-                            <strong>Services</strong></br>
+                            <p class="external"><strong>Services</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'services' %}
                                     <ul>
@@ -65,22 +65,7 @@
                                 
                             {% endfor %}
 
-                            <p class="internal"><strong>SPIFFs</strong></p>
-                            {% for i in EN_list %}
-                                {% if i.category == 'spiffs' %}
-                                    <ul>
-                                        <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
-                                        {% if i.subBullet1 %}
-                                            <ul>
-                                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
-                                            </ul>
-                                        {% endif %}
-                                    </ul>
-                                {% endif %}
-                                
-                            {% endfor %}
-
-                            <strong>EA</strong></br>
+                            <p class="external"><strong>EA</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'ea' %}
                                     <ul>
@@ -96,7 +81,23 @@
                             {% endfor %}
 
 
-                            <strong>proposal</strong></br>
+                            <p class="external"><strong>Promotions</strong></p>
+                            {% for i in EN_list %}
+                                {% if i.category == 'promo' %}
+                                    <ul>
+                                        <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                        {% if i.subBullet1 %}
+                                            <ul>
+                                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                            </ul>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+                                
+                            {% endfor %}
+
+                            
+                            <p class="internal"><strong>proposal</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'proposal' %}
                                     <ul>
@@ -111,9 +112,9 @@
                                 
                             {% endfor %}                            
 
-                            <strong>Promotions</strong></br>
+                            <p class="internal"><strong>SPIFFs</strong></p>
                             {% for i in EN_list %}
-                                {% if i.category == 'promo' %}
+                                {% if i.category == 'spiffs' %}
                                     <ul>
                                         <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
                                         {% if i.subBullet1 %}
@@ -124,7 +125,10 @@
                                     </ul>
                                 {% endif %}
                                 
-                            {% endfor %}
+                            {% endfor %}                            
+
+
+
 
 
                 </div>
