@@ -2,5 +2,8 @@
 p { margin: 0 !important; }
 
 ul {
-line-height:80%
+    line-height:100%
+}
+li {
+    margin:0 0 2px 0;
 }
