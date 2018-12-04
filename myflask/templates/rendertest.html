@@ -17,11 +17,9 @@
                 <div class="cell auto"></div>
                 <div class="cell small-6">
                         <ul>
-                            {% for dict in EN_list %}
-                                {% for i in dict %}
-                                    <li>{{ i.date }}  {{ i.bullet }}</li>
-                                    <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
-                                {% endfor %}
+                            {% for i in EN_list %}
+                                <li>{{ i.date }}  {{ i.bullet }}</li>
+                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
                             {% endfor %}
                         </ul>
                 </div>
