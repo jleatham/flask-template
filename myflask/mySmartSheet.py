@@ -11,7 +11,8 @@ archSheet = 2089577960761220
 #from mySmartSheet import archSheet, ss_get_client, ss_get_sheet_parsed
 #ss_client = ss_get_client()
 #EN_list = ss_get_sheet_parsed(ss_client, archSheet)
-
+#for i in EN_list:
+#   print(i.bullet)
 
 # Initialize client
 def ss_get_client():
@@ -194,7 +195,7 @@ def ss_get_sheet_parsed(ss_client,sheet):
         #if i.type == 'intro':
             #print(i.mainBullet)
     
-    
+
     jsonSheet = json.loads(str(ss_client.Sheets.get_sheet(sheet)))
 
     EN_list     = []
@@ -207,7 +208,7 @@ def ss_get_sheet_parsed(ss_client,sheet):
 
     for x in jsonSheet['rows']:
         #print("id: {}    rowNumber: {}".format(x['id'],x['rowNumber']))
-        #reset all vars to empty
+        #reset all vars to empty for each row loop
         date        = ""
         arch        = ""
         internal    = ""
@@ -224,7 +225,7 @@ def ss_get_sheet_parsed(ss_client,sheet):
         sb4Link     = ""
         subBullet5  = ""
         sb5Link     = ""
-        ss_dict= {}  
+        rowID = x['id']
         for i in x['cells']:
             if 'value' in i:
                 #print("\tcell id:{}    value: {}".format(i['columnId'],i['value']))
@@ -260,9 +261,12 @@ def ss_get_sheet_parsed(ss_client,sheet):
                     sb5Link = i['value']
                 if i['columnId'] == 3752783078811524:   #arch
                     arch = i['value']
-        archObject = Architecture(date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link)
+        #after each cell is saved in whole row, create a data object
+        archObject = Architecture(date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link, rowID)
+        schema = ArchitectureSchema()
+        archDict = schema.dump(archObject)
         if arch == 'EN':
-            EN_list.append(archObject)    
+            EN_list.append(archDict)    
                     ###Add the rest
     return EN_list
 

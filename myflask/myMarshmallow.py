@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields, pprint, post_load
 
 class Architecture(object):
-    def __init__(self, date, internal, category, bullet, bLink, subBullet1, sb1Link, subBullet2, sb2Link, subBullet3, sb3Link, subBullet4, sb4Link, subBullet5, sb5Link):
+    def __init__(self, date, internal, category, bullet, bLink, subBullet1, sb1Link, subBullet2, sb2Link, subBullet3, sb3Link, subBullet4, sb4Link, subBullet5, sb5Link, rowID):
         self.date       = date
         self.internal   = internal
         self.category   = category
@@ -17,9 +17,10 @@ class Architecture(object):
         self.sb4Link    = sb4Link
         self.subBullet5 = subBullet5
         self.sb5Link    = sb5Link
+        self.rowID      = rowID
     
     def __repr__(self):
-        return "{} category , date:{}  , bullet:{}".format(self.category, self.date, self.bullet)
+        return "rowID: {} , date: {}  , bullet: {}".format(str(self.rowID), self.date, self.bullet)
 
 
 class ArchitectureSchema(Schema):
@@ -38,6 +39,7 @@ class ArchitectureSchema(Schema):
     sb4Link     = fields.String()
     subBullet5  = fields.String()
     sb5Link     = fields.String()
+    rowID       = fields.Integer()
 
     @post_load
     def createArchitecture(self, data):
