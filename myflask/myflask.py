@@ -55,9 +55,9 @@ def rendertest():
     now  = datetime.now()
     date = now.strftime("%d %b %Y")
     arch = "EN"
-    form = archWeekForm()
+    form = archWeekForm(request.form)
     print('test comment')
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate():
         print('Date: {},  \nArchitecture: {}, \ninternal: {}, \ncategory: {}, \nbullet: {}, \nbLink: {}, \nsubBullet1: {}, \nsb1Link: {}, \nsubBullet2: {}, \nsb2Link: {}, \nsubBullet3: {}, \nsb3Link: {}, \nsubBullet4: {}, \nsb4Link: {}, \nsubBullet5: {}, \nsb5Link: {}'.format(
             date, arch,form.internal.data, form.category.data, form.bullet.data, form.bLink.data,
             form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
