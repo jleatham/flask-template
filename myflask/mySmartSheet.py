@@ -7,6 +7,12 @@ import json
 access_token = SECRET_KEY = os.environ.get('SMARTSHEET_TOKEN')
 archSheet = 2089577960761220
 
+#testing, delete
+#from mySmartSheet import archSheet, ss_get_client, ss_get_sheet_parsed
+#ss_client = ss_get_client()
+#EN_list = ss_get_sheet_parsed(ss_client, archSheet)
+
+
 # Initialize client
 def ss_get_client():
     ss_client = smartsheet.Smartsheet(access_token)
@@ -200,9 +206,10 @@ def ss_get_sheet_parsed(ss_client,sheet):
 
 
     for x in jsonSheet['rows']:
-        print("id: {}    rowNumber: {}".format(x['id'],x['rowNumber']))
+        #print("id: {}    rowNumber: {}".format(x['id'],x['rowNumber']))
         #reset all vars to empty
         date        = ""
+        arch        = ""
         internal    = ""
         category    = ""
         bullet      = ""
@@ -220,7 +227,7 @@ def ss_get_sheet_parsed(ss_client,sheet):
         ss_dict= {}  
         for i in x['cells']:
             if 'value' in i:
-                print("\tcell id:{}    value: {}".format(i['columnId'],i['value']))
+                #print("\tcell id:{}    value: {}".format(i['columnId'],i['value']))
                 if i['columnId'] == 6004582892496772:
                     date = i['value']            
                 if i['columnId'] == 8256382706182020:
@@ -251,14 +258,11 @@ def ss_get_sheet_parsed(ss_client,sheet):
                     subBullet5 = i['value']
                 if i['columnId'] == 8025141666965380:
                     sb5Link = i['value']
-                arch = Architecture(date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link)
-                
-                #ss_dict = {'date':date,'internal':internal,'category':category,'bullet':bullet,'bLink':bLink,'subBullet1':subBullet1,'sb1Link':sb1Link,'subBullet2':subBullet2,'sb2Link':sb2Link,'subBullet3':subBullet3,'sb3Link':sb3Link,'subBullet4':subBullet4,'sb4Link':sb4Link,'subBullet5':subBullet5,'sb5Link':sb5Link}         
-                #schema = ArchitectureSchema()
-                #archResult = schema.load(ss_dict)
                 if i['columnId'] == 3752783078811524:   #arch
-                    if i['value'] == 'EN':
-                        EN_list.append(arch)    
+                    arch = i['value']
+        archObject = Architecture(date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link)
+        if arch == 'EN':
+            EN_list.append(archObject)    
                     ###Add the rest
     return EN_list
 
