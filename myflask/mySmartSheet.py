@@ -151,6 +151,10 @@ for x in jsonSheet['rows']:
                 if i['value'] == 'EN':
                     EN_list.append(archResult)
 
+
+#test
+ss_dict = {'date':'a','internal':'a','category':'b','bullet':'c','bLink':'bLink','subBullet1':'subBullet1','sb1Link':'sb1Link','subBullet2':'subBullet2','sb2Link':'sb2Link','subBullet3':'subBullet3','sb3Link':'sb3Link','subBullet4':'subBullet4','sb4Link':'sb4Link','subBullet5':'subBullet5','sb5Link':'sb5Link'}
+date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
 '''
 
 def ss_get_sheet_parsed(ss_client,sheet):
@@ -247,12 +251,14 @@ def ss_get_sheet_parsed(ss_client,sheet):
                     subBullet5 = i['value']
                 if i['columnId'] == 8025141666965380:
                     sb5Link = i['value']
-                ss_dict = {'date':date,'internal':internal,'category':category,'bullet':bullet,'bLink':bLink,'subBullet1':subBullet1,'sb1Link':sb1Link,'subBullet2':subBullet2,'sb2Link':sb2Link,'subBullet3':subBullet3,'sb3Link':sb3Link,'subBullet4':subBullet4,'sb4Link':sb4Link,'subBullet5':subBullet5,'sb5Link':sb5Link}         
-                schema = ArchitectureSchema()
-                archResult = schema.load(ss_dict)
+                arch = Architecture(date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link)
+                
+                #ss_dict = {'date':date,'internal':internal,'category':category,'bullet':bullet,'bLink':bLink,'subBullet1':subBullet1,'sb1Link':sb1Link,'subBullet2':subBullet2,'sb2Link':sb2Link,'subBullet3':subBullet3,'sb3Link':sb3Link,'subBullet4':subBullet4,'sb4Link':sb4Link,'subBullet5':subBullet5,'sb5Link':sb5Link}         
+                #schema = ArchitectureSchema()
+                #archResult = schema.load(ss_dict)
                 if i['columnId'] == 3752783078811524:   #arch
                     if i['value'] == 'EN':
-                        EN_list.append(archResult)    
+                        EN_list.append(arch)    
                     ###Add the rest
     return EN_list
 
