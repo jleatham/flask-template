@@ -18,7 +18,7 @@ class LoginForm(FlaskForm):
     submit      = SubmitField('Sign In')
 
 class archWeekForm(FlaskForm):
-    architecture  =	SelectField('Architecture', choices=[('EN','Enterprise Networking'),('SEC','Security'),('DC','Data Center'),('COLLAB','Collaboration'),('APP','Applications / Other')], validators=[DataRequired()])
+    #architecture  =	SelectField('Architecture', choices=[('EN','Enterprise Networking'),('SEC','Security'),('DC','Data Center'),('COLLAB','Collaboration'),('APP','Applications / Other')], validators=[DataRequired()])
     internal	  = RadioField('Internal?', choices=[('internal','Internal'),('external','External')], validators=[DataRequired()]) 
     category	  = SelectField('Category', choices=[('news','News'),('demo','Demonstrations'),('services','Services / AS'),('spiff','SPIFFs'),('capital','Capital'),('ea','EA'),('proposal','Unsolicitad BoMs / Proposals'),('promo','Product Promotions')], validators=[DataRequired()])
     bullet	      = StringField('Main Bullet', validators=[DataRequired()])
@@ -33,3 +33,4 @@ class archWeekForm(FlaskForm):
     sb4Link	      = StringField('URL or Box link, if any')
     subBullet5	  = StringField('Sub Bullet, if any')
     sb5Link       = StringField('URL or Box link, if any')
+    submit        = SubmitField('Update')

@@ -1,41 +1,58 @@
             <form action="" method="post" novalidate></form>
             {{ form.hidden_tag() }} 
-            <div class="cell auto">       
+            <div class="cell auto">   
+                {{ form.internal.label }}
+                {{ form.internal(class="radio", id="radio") }} 
+                {% for error in form.internal.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}      
+                {{ form.category.label }}
+                {{ form.category(size=32) }}  
+                {% for error in form.category.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}                               
                 <div class="grid-x grid-margin-x">
                         <div class="cell auto">
-                                {{ form.username.label }}
-                                {{ form.username(size=32, placeholder="username") }}
-                                {% for error in form.username.errors %}
+                                {{ form.bullet.label }}
+                                {{ form.bullet(size=32, placeholder="Main Bullet Point") }}
+                                {% for error in form.bullet.errors %}
                                 <span style="color: red;">[{{ error }}]</span>
                                 {% endfor %}                                    
                             </div>
                         <div class="cell auto">
-                                {{ form.password.label }}
-                                {{ form.password(size=32) }}
-                                {% for error in form.password.errors %}
-                                <span style="color: red;">[{{ error }}]</span>
-                                {% endfor %}                                    
+                                {{ form.bLink.label }}
+                                {{ form.bLink(size=32) }}
+                                 
                             </div>                                   
                     </div>
-
-
-
-
-
-
-
-
-                        {{ form.testField.label }}
-                        {{ form.testField(size=32) }}
-
-                        {{ form.radioExample.label }}
-                        {{ form.radioExample(class="radio", id="radio") }}
-
-                        {{ form.selectExample.label }}
-                        {{ form.selectExample() }}
-
-                        {{ form.remember_me() }} {{ form.remember_me.label }}
-                        <p>{{ form.submit(class="success button") }}</p>
+                    <div class="grid-x grid-margin-x">
+                            <div class="cell auto">
+                                    {{ form.subBullet1.label }}
+                                    {{ form.subBullet1(size=32, placeholder="Optional SubBullet") }}
+                                    {{ form.subBullet2.label }}
+                                    {{ form.subBullet2(size=32, placeholder="Optional SubBullet") }}
+                                    {{ form.subBullet3.label }}
+                                    {{ form.subBullet3(size=32, placeholder="Optional SubBullet") }}
+                                    {{ form.subBullet4.label }}
+                                    {{ form.subBullet4(size=32, placeholder="Optional SubBullet") }}
+                                    {{ form.subBullet5.label }}
+                                    {{ form.subBullet5(size=32, placeholder="Optional SubBullet") }}                                
+                                </div>
+                            <div class="cell auto">
+                                    {{ form.sb1Link.label }}
+                                    {{ form.sb1Link(size=32) }}
+                                    {{ form.sb2Link.label }}
+                                    {{ form.sb2Link(size=32) }}
+                                    {{ form.sb3Link.label }}
+                                    {{ form.sb3Link(size=32) }}
+                                    {{ form.sb4Link.label }}
+                                    {{ form.sb4Link(size=32) }}
+                                    {{ form.sb5Link.label }}
+                                    {{ form.sb5Link(size=32) }}
+                                
+                                </div>                                   
+                        </div>
+                        {{ form.submit(class="success button") }}
 
                     </div>
                   </form>

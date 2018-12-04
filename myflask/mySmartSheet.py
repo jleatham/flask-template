@@ -89,8 +89,7 @@ for x in jsonSheet['rows']:
 
 
 
-    #now  = datetime.now()
-    #date = now.strftime("%d %b %Y")
+
 EN_list     = []
 SEC_list    = []
 DC_list     = []
