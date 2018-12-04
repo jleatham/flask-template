@@ -18,8 +18,12 @@
                 <div class="cell small-6">
                         <ul>
                             {% for i in EN_list %}
-                                <li>{{ i.date }}  {{ i.bullet }}</li>
-                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                <li></li>
+                                <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                <ul>
+                                    <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                </ul>
+                                
                             {% endfor %}
                         </ul>
                 </div>
