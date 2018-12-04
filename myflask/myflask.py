@@ -1,6 +1,6 @@
 from flask import Flask, render_template, flash, redirect, url_for
 from config import Config
-from forms import LoginForm
+from forms import LoginForm, archWeekForm
 from test import testFunction
 
 app = Flask(__name__)
