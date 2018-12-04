@@ -20,7 +20,7 @@
                 <div class="cell auto">
                         
 
-                            <p  style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;"><strong>news</strong></p>
+                            <p><strong>news</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}
                                     <ul>
@@ -65,7 +65,7 @@
                                 
                             {% endfor %}
 
-                            <strong>SPIFFs</strong></br>
+                            <p class="internal"><strong>SPIFFs</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'spiffs' %}
                                     <ul>

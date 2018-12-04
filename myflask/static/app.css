@@ -1,8 +1,19 @@
 
-p { margin: 0 !important; }
+p.internal { margin: 0 !important; 
+    border:3px; 
+    border-style:solid; 
+    border-color:#FF0000; 
+    padding: 0em;"
+}
 
 ul {
     line-height:100%
+}
+ul.radio{
+    list-style-type: none;
+}
+ul#radioli{
+    display:inline;
 }
 li {
     margin:0 0 2px 0;
