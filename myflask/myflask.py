@@ -44,7 +44,7 @@ def login2():
     return render_template('login2.html', title='Sign In-2', form=form)
 
 @app.route('/rendertest')
-def rentertest():
+def rendertest():
     ss_client = ss_get_client()
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)
     return render_template('rendertest.html', title='Render Test', EN_list=EN_list)
