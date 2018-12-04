@@ -18,11 +18,12 @@
                 <div class="cell small-6">
                         <ul>
                             {% for i in EN_list %}
-                                <li></li>
                                 <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                {% if i['subBullet1'] %}
                                 <ul>
                                     <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
                                 </ul>
+                                {% endif %}
                                 
                             {% endfor %}
                         </ul>
