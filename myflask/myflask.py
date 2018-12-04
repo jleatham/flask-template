@@ -43,7 +43,7 @@ def login2():
         return redirect(url_for('index'))
     return render_template('login2.html', title='Sign In-2', form=form)
 
-@app.route('rendertest')
+@app.route('/rendertest')
 def rentertest():
     ss_client = ss_get_client()
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)
