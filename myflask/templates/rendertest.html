@@ -19,7 +19,7 @@
                         
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}
-                                    {% i.category %}</br>
+                                    {{ i.category }}</br>
                                     <ul>
                                         <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
                                         {% if i['subBullet1'] %}
@@ -35,7 +35,7 @@
                             
                             {% for i in EN_list %}
                                 {% if i.category == 'proposal' %}
-                                    {% i.category %}</br>
+                                    {{ i.category }}</br>
                                     <ul>
                                         <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
                                         {% if i['subBullet1'] %}
