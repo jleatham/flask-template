@@ -3,8 +3,11 @@ import os
 #from datetime import datetime
 from myMarshmallow import Architecture, ArchitectureSchema
 import json
+from secrets import SMARTSHEET_TOKEN
 
-access_token = os.environ.get('SMARTSHEET_TOKEN')
+#can't seem to get wsgi to accept environment var
+#access_token = os.environ.get('SMARTSHEET_TOKEN')
+access_token = SMARTSHEET_TOKEN
 archSheet = 2089577960761220
 
 #testing, delete
