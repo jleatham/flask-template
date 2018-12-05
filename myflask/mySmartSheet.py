@@ -3,7 +3,7 @@ import os
 #from datetime import datetime
 from myMarshmallow import Architecture, ArchitectureSchema
 import json
-from myflask import app.config
+from myflask import app
 
 access_token = app.config['SS_ACCESS_TOKEN']
 archSheet = 2089577960761220
