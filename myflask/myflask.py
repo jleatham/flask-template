@@ -13,18 +13,7 @@ app.config.from_object(Config)
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'username': 'Person'}
-    posts = [
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
-    return render_template('index.html', title='Flask Template', user=user, posts=posts)
+    return render_template('index.html', title='Flask Template')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -68,7 +57,7 @@ def rendertest():
         archDict, errors = schema.dump(archObject) 
         rowAddResult = ss_update_row(ss_client,archSheet, archDict)
         if rowAddResult == 'SUCCESS':
-            flash('Date: {},  \nArchitecture: {}, \ncategory: {}, \nbullet: {}, \nbLink: {}, \nsubBullet1: {}, \nsb1Link: {}, \nsubBullet2: {}, \nsb2Link: {}, \nsubBullet3: {}, \nsb3Link: {}, \nsubBullet4: {}, \nsb4Link: {}, \nsubBullet5: {}, \nsb5Link: {}'.format(
+            flash('Date: {},</br>  Architecture: {}, </br>category: {}, </br>bullet: {}, </br>bLink: {}, </br>subBullet1: {}, </br>sb1Link: {}, </br>subBullet2: {}, </br>sb2Link: {}, </br>subBullet3: {}, </br>sb3Link: {}, </br>subBullet4: {}, </br>sb4Link: {}, </br>subBullet5: {}, </br>sb5Link: {}'.format(
                 date, arch, form.category.data, form.bullet.data, form.bLink.data,
                 form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
                 form.subBullet3.data, form.sb3Link.data, form.subBullet4.data, form.sb4Link.data,
