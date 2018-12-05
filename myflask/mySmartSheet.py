@@ -213,7 +213,7 @@ def ss_get_sheet_parsed(ss_client,sheet):
         #reset all vars to empty for each row loop
         date        = ""
         arch        = ""
-        internal    = ""
+        #internal    = ""
         category    = ""
         bullet      = ""
         bLink       = ""
@@ -233,8 +233,8 @@ def ss_get_sheet_parsed(ss_client,sheet):
                 #print("\tcell id:{}    value: {}".format(i['columnId'],i['value']))
                 if i['columnId'] == 6004582892496772:
                     date = i['value']            
-                if i['columnId'] == 8256382706182020:
-                    internal = i['value']
+                #if i['columnId'] == 8256382706182020:
+                #    internal = i['value']
                 if i['columnId'] == 938033311704964:
                     category = i['value']                        
                 if i['columnId'] == 5441632939075460:
@@ -264,7 +264,8 @@ def ss_get_sheet_parsed(ss_client,sheet):
                 if i['columnId'] == 3752783078811524:   #arch
                     arch = i['value']
         #after each cell is saved in whole row, create a data object
-        archObject = Architecture(date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link, rowID)
+        #probably should just build the dict out manually as opposed to marshmall object first
+        archObject = Architecture(date,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link, rowID)
         schema = ArchitectureSchema()
         archDict, errors = schema.dump(archObject)
         if arch == 'EN':
@@ -274,7 +275,7 @@ def ss_get_sheet_parsed(ss_client,sheet):
 
 
 
-def ss_update_row():
+def ss_update_row(ss_client,archSheet,rowData):
     #would the above classes help me write a row of data based on form entry?
     #in the form, i would get all the specifc data for the row, I don't think
     #I would need it as a class, because I am just going to punt it to sheets
@@ -303,20 +304,106 @@ def ss_update_row():
     #   update_row_function([new_row])
 
     #Update Cells inside Row
-
-    # Build new cell value
-    new_cell = ss_client.models.Cell()
-    new_cell.column_id = 7036894123976580
-    new_cell.value = "new value"
-    new_cell.strict = False
-
-    # Build the row to update
     new_row = ss_client.models.Row()
-    new_row.id = 6809535313667972
+    new_row.to_bottom = True
+
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 6004582892496772:
+    new_cell.value = rowData['date']
+    new_cell.strict = False   
     new_row.cells.append(new_cell)
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 938033311704964:
+    new_cell.value = rowData['category']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)        
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 5441632939075460:
+    new_cell.value = rowData['bullet']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+                    
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 3189833125390212:
+    new_cell.value = rowData['bLink']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 425317295777668:
+    new_cell.value = rowData['subBullet1']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 8588091620386692:
+    new_cell.value = rowData['sb1Link']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 4084491993016196:
+    new_cell.value = rowData['subBullet2']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 6336291806701444:
+    new_cell.value = rowData['sb2Link']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 1832692179330948:
+    new_cell.value = rowData['subBullet3']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 7462191713544068:
+    new_cell.value = rowData['sb3Link']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 2958592086173572:
+    new_cell.value = rowData['subBullet4']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 5210391899858820:
+    new_cell.value = rowData['sb4Link']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 706792272488324:
+    new_cell.value = rowData['subBullet5']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 8025141666965380:
+    new_cell.value = rowData['sb5Link']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+    new_cell = ss_client.models.Cell()
+    new_cell.column_id = 3752783078811524:
+    new_cell.value = rowData['arch']
+    new_cell.strict = False   
+    new_row.cells.append(new_cell)  
+
+
 
     # Update rows
     updated_row = ss_client.Sheets.update_rows(
-    2068827774183300,      # sheet_id
+    archSheet,      # sheet_id
     [new_row])
+
+    return updated_row['message']
 

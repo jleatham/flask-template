@@ -2,7 +2,8 @@ from flask import Flask, render_template, flash, redirect, url_for, request
 from config import Config
 from forms import LoginForm, archWeekForm
 from test import testFunction
-from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed
+from myMarshmallow import Architecture, ArchitectureSchema
+from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row
 from datetime import datetime
 
 app = Flask(__name__)
@@ -59,12 +60,23 @@ def rendertest():
     form = archWeekForm(request.form)
     print('test comment')
     if request.method == 'POST' and form.validate():
-        flash('Date: {},  \nArchitecture: {}, \ncategory: {}, \nbullet: {}, \nbLink: {}, \nsubBullet1: {}, \nsb1Link: {}, \nsubBullet2: {}, \nsb2Link: {}, \nsubBullet3: {}, \nsb3Link: {}, \nsubBullet4: {}, \nsb4Link: {}, \nsubBullet5: {}, \nsb5Link: {}'.format(
-            date, arch, form.category.data, form.bullet.data, form.bLink.data,
+        archObject = Architecture(date, arch, form.category.data, form.bullet.data, form.bLink.data,
             form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
             form.subBullet3.data, form.sb3Link.data, form.subBullet4.data, form.sb4Link.data,
-            form.subBullet5.data, form.sb5Link.data))
-        return redirect(url_for('index'))    
+            form.subBullet5.data, form.sb5Link.data, 12345678) #random row ID since we just post to bottom
+        schema = ArchitectureSchema()
+        archDict, errors = schema.dump(archObject) 
+        rowAddResult = ss_update_row(ss_client,archSheet, archDict)
+        if rowAddResult == 'SUCCESS':
+            flash('Date: {},  \nArchitecture: {}, \ncategory: {}, \nbullet: {}, \nbLink: {}, \nsubBullet1: {}, \nsb1Link: {}, \nsubBullet2: {}, \nsb2Link: {}, \nsubBullet3: {}, \nsb3Link: {}, \nsubBullet4: {}, \nsb4Link: {}, \nsubBullet5: {}, \nsb5Link: {}'.format(
+                date, arch, form.category.data, form.bullet.data, form.bLink.data,
+                form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
+                form.subBullet3.data, form.sb3Link.data, form.subBullet4.data, form.sb4Link.data,
+                form.subBullet5.data, form.sb5Link.data))
+            return redirect(url_for('index'))    
+        else:
+            flash('Error adding row')
+            return redirect(url_for('index')) 
     return render_template('rendertest.html', title='Render Test', EN_list=EN_list, form=form)
 
 if __name__ == "__main__":
