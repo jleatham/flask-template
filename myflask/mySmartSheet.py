@@ -3,8 +3,9 @@ import os
 #from datetime import datetime
 from myMarshmallow import Architecture, ArchitectureSchema
 import json
+from myflask import app.config
 
-access_token = 'SS_ACCESS_TOKEN'
+access_token = app.config['SS_ACCESS_TOKEN']
 archSheet = 2089577960761220
 
 #testing, delete
