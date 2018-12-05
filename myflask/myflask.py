@@ -39,6 +39,7 @@ def login2():
 def rendertest():
     #dynamically rendered form : https://stackoverflow.com/questions/39640024/create-dynamic-fields-in-wtform-in-flask
     #SmartSheet API calls
+    #need to find a way to force this to update on each refresh
     ss_client = ss_get_client(access_token)
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)
     #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
@@ -57,6 +58,7 @@ def rendertest():
         archDict, errors = schema.dump(archObject) 
         rowAddResult = ss_update_row(ss_client,archSheet, archDict)
         if rowAddResult == 'SUCCESS':
+            #need to pop this up as a modal and keep going on forms
             flash('Date: {},</br>  Architecture: {}, </br>category: {}, </br>bullet: {}, </br>bLink: {}, </br>subBullet1: {}, </br>sb1Link: {}, </br>subBullet2: {}, </br>sb2Link: {}, </br>subBullet3: {}, </br>sb3Link: {}, </br>subBullet4: {}, </br>sb4Link: {}, </br>subBullet5: {}, </br>sb5Link: {}'.format(
                 date, arch, form.category.data, form.bullet.data, form.bLink.data,
                 form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
