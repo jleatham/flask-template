@@ -3,5 +3,5 @@ __pycache__
 backup
 .venv
 *.mp4
-
+secrets.py
 
