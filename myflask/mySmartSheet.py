@@ -326,7 +326,8 @@ def ss_update_row(ss_client,archSheet,rowData):
                 {"columnId": 3752783078811524, "value": '+ rowData['arch'] +', "strict": false}, \
                 ] }'
     response = requests.request("POST", url, data=payload, headers=headers)
-    return response.text['message']
+    responseJson = json.loads(response.text)
+    return responseJson['message']
     '''
     #Update Cells inside Row
     new_row = ss_client.models.Row()
