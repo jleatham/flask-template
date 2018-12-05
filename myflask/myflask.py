@@ -59,8 +59,8 @@ def rendertest():
     form = archWeekForm(request.form)
     print('test comment')
     if request.method == 'POST' and form.validate():
-        flash('Date: {},  \nArchitecture: {}, \ninternal: {}, \ncategory: {}, \nbullet: {}, \nbLink: {}, \nsubBullet1: {}, \nsb1Link: {}, \nsubBullet2: {}, \nsb2Link: {}, \nsubBullet3: {}, \nsb3Link: {}, \nsubBullet4: {}, \nsb4Link: {}, \nsubBullet5: {}, \nsb5Link: {}'.format(
-            date, arch,form.internal.data, form.category.data, form.bullet.data, form.bLink.data,
+        flash('Date: {},  \nArchitecture: {}, \ncategory: {}, \nbullet: {}, \nbLink: {}, \nsubBullet1: {}, \nsb1Link: {}, \nsubBullet2: {}, \nsb2Link: {}, \nsubBullet3: {}, \nsb3Link: {}, \nsubBullet4: {}, \nsb4Link: {}, \nsubBullet5: {}, \nsb5Link: {}'.format(
+            date, arch, form.category.data, form.bullet.data, form.bLink.data,
             form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
             form.subBullet3.data, form.sb3Link.data, form.subBullet4.data, form.sb4Link.data,
             form.subBullet5.data, form.sb5Link.data))

@@ -65,7 +65,7 @@
                                 
                             {% endfor %}
 
-                            <p class="external"><strong>EA</strong></p>
+                            <p class="internal"><strong>EA</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'ea' %}
                                     <ul>
@@ -80,8 +80,22 @@
                                 
                             {% endfor %}
 
+                            <p class="internal"><strong>Capital</strong></p>
+                            {% for i in EN_list %}
+                                {% if i.category == 'capital' %}
+                                    <ul>
+                                        <li>{{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                        {% if i.subBullet1 %}
+                                            <ul>
+                                                <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
+                                            </ul>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+                                
+                            {% endfor %}                            
 
-                            <p class="external"><strong>Promotions</strong></p>
+                            <p class="internal"><strong>Promotions</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'promo' %}
                                     <ul>
