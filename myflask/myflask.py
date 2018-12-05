@@ -2,7 +2,7 @@ from flask import Flask, render_template, flash, redirect, url_for, request
 from config import Config
 from forms import LoginForm, archWeekForm
 from test import testFunction
-from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed
+from mySmartSheet import archSheet, ss_get_client, ss_get_sheet_parsed
 from datetime import datetime
 
 app = Flask(__name__)
@@ -67,5 +67,6 @@ def rendertest():
     return render_template('rendertest.html', title='Render Test', EN_list=EN_list, form=form)
 
 if __name__ == "__main__":
+    access_token = app.config['SS_ACCESS_TOKEN']
     app.run(host='0.0.0.0')
     app.debug = True
