@@ -4,6 +4,7 @@ import os
 from myMarshmallow import Architecture, ArchitectureSchema
 import json
 from secrets import SMARTSHEET_TOKEN
+import requests
 
 #can't seem to get wsgi to accept environment var
 #access_token = os.environ.get('SMARTSHEET_TOKEN')
@@ -11,7 +12,7 @@ access_token = SMARTSHEET_TOKEN
 archSheet = 2089577960761220
 
 #testing, delete
-#from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed
+#from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row
 #ss_client = ss_get_client(access_token)
 #EN_list = ss_get_sheet_parsed(ss_client, archSheet)
 #for i in EN_list:
@@ -303,9 +304,17 @@ def ss_update_row(ss_client,archSheet,rowData):
     #
     #   update_row_function([new_row])
 
+
+    #trying with requests instead of SDK
+    #url = "https://api.smartsheet.com/2.0/sheets/"+str(archSheet)+"/rows"
+    #headers = {'Authorization': "Bearer "+access_token,'Content-Type': "application/json"}
+    #payload = '{"toBottom":true, "cells": [ {"columnId": 938033311704964, "value": "API Test"}, {"columnId": 5441632939075460, "value": "New status", "strict": false} ] }'
+    #response = requests.request("POST", url, data=payload, headers=headers)
+    #print(response.text)
+
     #Update Cells inside Row
     new_row = ss_client.models.Row()
-    new_row.to_bottom = True
+    new_row.toBottom = True
 
 
     new_cell = ss_client.models.Cell()
@@ -403,7 +412,7 @@ def ss_update_row(ss_client,archSheet,rowData):
     # Update rows
     updated_row = ss_client.Sheets.update_rows(
     archSheet,      # sheet_id
-    new_row)
+    new_row) #list of lists to update multiple rows at once if needed
 
     return updated_row['message']
 
