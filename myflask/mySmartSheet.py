@@ -4,7 +4,7 @@ import os
 from myMarshmallow import Architecture, ArchitectureSchema
 import json
 
-#access_token = app.config['SS_ACCESS_TOKEN']
+access_token = os.environ.get('SMARTSHEET_TOKEN')
 archSheet = 2089577960761220
 
 #testing, delete

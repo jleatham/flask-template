@@ -2,7 +2,7 @@ from flask import Flask, render_template, flash, redirect, url_for, request
 from config import Config
 from forms import LoginForm, archWeekForm
 from test import testFunction
-from mySmartSheet import archSheet, ss_get_client, ss_get_sheet_parsed
+from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed
 from datetime import datetime
 
 app = Flask(__name__)
@@ -49,7 +49,7 @@ def login2():
 def rendertest():
     #dynamically rendered form : https://stackoverflow.com/questions/39640024/create-dynamic-fields-in-wtform-in-flask
     #SmartSheet API calls
-    ss_client = ss_get_client(app.config['SS_ACCESS_TOKEN'])
+    ss_client = ss_get_client(access_token)
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)
     #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
     #prep forms to flash return to index for now
