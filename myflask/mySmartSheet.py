@@ -309,91 +309,91 @@ def ss_update_row(ss_client,archSheet,rowData):
 
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 6004582892496772:
+    new_cell.column_id = 6004582892496772
     new_cell.value = rowData['date']
     new_cell.strict = False   
     new_row.cells.append(new_cell)
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 938033311704964:
+    new_cell.column_id = 938033311704964
     new_cell.value = rowData['category']
     new_cell.strict = False   
     new_row.cells.append(new_cell)        
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 5441632939075460:
+    new_cell.column_id = 5441632939075460
     new_cell.value = rowData['bullet']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
                     
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 3189833125390212:
+    new_cell.column_id = 3189833125390212
     new_cell.value = rowData['bLink']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 425317295777668:
+    new_cell.column_id = 425317295777668
     new_cell.value = rowData['subBullet1']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 8588091620386692:
+    new_cell.column_id = 8588091620386692
     new_cell.value = rowData['sb1Link']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 4084491993016196:
+    new_cell.column_id = 4084491993016196
     new_cell.value = rowData['subBullet2']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 6336291806701444:
+    new_cell.column_id = 6336291806701444
     new_cell.value = rowData['sb2Link']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 1832692179330948:
+    new_cell.column_id = 1832692179330948
     new_cell.value = rowData['subBullet3']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 7462191713544068:
+    new_cell.column_id = 7462191713544068
     new_cell.value = rowData['sb3Link']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 2958592086173572:
+    new_cell.column_id = 2958592086173572
     new_cell.value = rowData['subBullet4']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 5210391899858820:
+    new_cell.column_id = 5210391899858820
     new_cell.value = rowData['sb4Link']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 706792272488324:
+    new_cell.column_id = 706792272488324
     new_cell.value = rowData['subBullet5']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 8025141666965380:
+    new_cell.column_id = 8025141666965380
     new_cell.value = rowData['sb5Link']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
 
     new_cell = ss_client.models.Cell()
-    new_cell.column_id = 3752783078811524:
+    new_cell.column_id = 3752783078811524
     new_cell.value = rowData['arch']
     new_cell.strict = False   
     new_row.cells.append(new_cell)  
