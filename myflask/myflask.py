@@ -7,6 +7,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config.from_object(Config)
+#access_token = app.config['SS_ACCESS_TOKEN']
 
 @app.route('/')
 @app.route('/index')
@@ -48,7 +49,7 @@ def login2():
 def rendertest():
     #dynamically rendered form : https://stackoverflow.com/questions/39640024/create-dynamic-fields-in-wtform-in-flask
     #SmartSheet API calls
-    ss_client = ss_get_client(access_token)
+    ss_client = ss_get_client(app.config['SS_ACCESS_TOKEN'])
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)
     #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
     #prep forms to flash return to index for now
@@ -67,6 +68,5 @@ def rendertest():
     return render_template('rendertest.html', title='Render Test', EN_list=EN_list, form=form)
 
 if __name__ == "__main__":
-    access_token = app.config['SS_ACCESS_TOKEN']
     app.run(host='0.0.0.0')
     app.debug = True
