@@ -4,7 +4,7 @@ import os
 from myMarshmallow import Architecture, ArchitectureSchema
 import json
 
-access_token = SECRET_KEY = os.environ.get('SMARTSHEET_TOKEN')
+access_token = os.environ.get('SMARTSHEET_TOKEN')
 archSheet = 2089577960761220
 
 #testing, delete
@@ -15,7 +15,7 @@ archSheet = 2089577960761220
 #   print(i.bullet)
 
 # Initialize client
-def ss_get_client():
+def ss_get_client(access_token):
     ss_client = smartsheet.Smartsheet(access_token)
     # Make sure we don't miss any errors
     ss_client.errors_as_exceptions(True)
