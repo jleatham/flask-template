@@ -4,12 +4,12 @@ import os
 from myMarshmallow import Architecture, ArchitectureSchema
 import json
 
-access_token = os.environ.get('SMARTSHEET_TOKEN')
+access_token = SS_ACCESS_TOKEN
 archSheet = 2089577960761220
 
 #testing, delete
-#from mySmartSheet import archSheet, ss_get_client, ss_get_sheet_parsed
-#ss_client = ss_get_client()
+#from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed
+#ss_client = ss_get_client(access_token)
 #EN_list = ss_get_sheet_parsed(ss_client, archSheet)
 #for i in EN_list:
 #   print(i.bullet)
