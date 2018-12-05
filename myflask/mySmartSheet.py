@@ -265,7 +265,7 @@ def ss_get_sheet_parsed(ss_client,sheet):
                     arch = i['value']
         #after each cell is saved in whole row, create a data object
         #probably should just build the dict out manually as opposed to marshmall object first
-        archObject = Architecture(date,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link, rowID)
+        archObject = Architecture(date,arch,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link, rowID)
         schema = ArchitectureSchema()
         archDict, errors = schema.dump(archObject)
         if arch == 'EN':
