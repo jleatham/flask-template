@@ -9,6 +9,11 @@ verify_ssl = true
 flask = "*"
 gunicorn = "*"
 flask-wtf = "*"
+smartsheet-python-sdk = "*"
+requests = "*"
+requests-toolbelt = "*"
+six = "*"
+marshmallow = "*"
 
 [requires]
 python_version = "3.7"

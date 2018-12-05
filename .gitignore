@@ -3,6 +3,5 @@ __pycache__
 backup
 .venv
 *.mp4
-wsgi.py
 
 
