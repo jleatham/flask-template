@@ -403,7 +403,7 @@ def ss_update_row(ss_client,archSheet,rowData):
     # Update rows
     updated_row = ss_client.Sheets.update_rows(
     archSheet,      # sheet_id
-    [new_row])
+    new_row)
 
     return updated_row['message']
 
