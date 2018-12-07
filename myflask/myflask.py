@@ -87,13 +87,14 @@ def rendertest2():
 
 @app.route('/add', methods=['POST'])
 def add():
+    ss_client = ss_get_client(access_token)
     addForm = archWeekForm()
     removeForm = removeArchWeekForm()
     if addForm.validate_on_submit():
         now  = datetime.now()
         date = now.strftime("%d %b %Y")
         arch = "EN"        
-        print('made it to addForm1 validate')
+        print('made it to addForm validate')
         archObject = Architecture(date, arch, addForm.category.data, addForm.bullet.data, addForm.bLink.data,
             addForm.subBullet1.data, addForm.sb1Link.data, addForm.subBullet2.data, addForm.sb2Link.data,
             addForm.subBullet3.data, addForm.sb3Link.data, addForm.subBullet4.data, addForm.sb4Link.data,
@@ -101,18 +102,17 @@ def add():
         schema = ArchitectureSchema()
         archDict, errors = schema.dump(archObject) 
         rowAddResult = ss_update_row(ss_client,archSheet, archDict)    
-    ss_client = ss_get_client(access_token)
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)    
     return render_template('rendertest2.html',title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
 
 @app.route('/remove', methods=['POST'])
 def remove():
+    ss_client = ss_get_client(access_token)
     addForm = archWeekForm()
     removeForm = removeArchWeekForm()
     if removeForm.validate_on_submit():
         print('made it to form2 validate')
         print (removeForm.rowID.data)  
-    ss_client = ss_get_client(access_token)
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)                
     return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
 
