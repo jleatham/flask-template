@@ -43,9 +43,12 @@ class MultiCheckboxField(SelectMultipleField):
 
 
 class removeArchWeekForm(FlaskForm):
-    string_of_files = ['one\r\ntwo\r\nthree\r\n']
-    list_of_files = string_of_files[0].split()
+    #string_of_files = ['one\r\ntwo\r\nthree\r\n']
+    #list_of_files = string_of_files[0].split()
     # create a list of value/description tuples
-    files = [(x, x) for x in list_of_files]
-    rowID = MultiCheckboxField('Label', choices=files)
+    #files = [(x, x) for x in list_of_files]
+    #rowID = MultiCheckboxField('Label', choices=files)
+
+    #going to add choices in the view
+    rowID = MultiCheckboxField()
     submit        = SubmitField('Remove')

@@ -82,6 +82,7 @@ def rendertest2():
 
     addForm = archWeekForm()
     removeForm = removeArchWeekForm()
+    removeForm.rowID.choices = [('',x['rowID']) for x in EN_list]  
     print('test comment')
     return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
 
