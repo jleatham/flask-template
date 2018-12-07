@@ -105,7 +105,7 @@ def rendertest2():
         print (form2.errors)
   
 
-    return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, form=form)
+    return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, form=form, form2=form2)
 
 
 if __name__ == "__main__":
