@@ -88,6 +88,7 @@
       <script src={{ url_for('static', filename='vendor/foundation.util.box.js') }}></script>
       <script src={{ url_for('static', filename='vendor/foundation.util.keyboard.js') }}></script>
       <script src={{ url_for('static', filename='vendor/foundation.util.nest.js') }}></script>  
+      {% block javascript %} {% endblock %}
     </body>
 </html>
 

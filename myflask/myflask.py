@@ -107,8 +107,8 @@ def add():
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)    
     return render_template('rendertest2.html',title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
 
-@app.route('/remove', methods=['POST'])
-def remove():
+@app.route('/removeOld', methods=['POST'])
+def removeOld():
     ss_client = ss_get_client(access_token)
     EN_list = ss_get_sheet_parsed(ss_client,archSheet) 
     addForm = archWeekForm()
@@ -124,6 +124,7 @@ def remove():
     return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
 
 
+
 @app.route('/rendertest3', methods=['GET'])
 def rendertest3():
     #dynamically rendered form : https://stackoverflow.com/questions/39640024/create-dynamic-fields-in-wtform-in-flask
@@ -133,9 +134,21 @@ def rendertest3():
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)
     #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
     #prep forms to flash return to index for now
-
     addForm = archWeekForm() 
     print('test comment')
+    return render_template('rendertest3.html', title='Render Test', EN_list=EN_list, addForm=addForm)
+
+@app.route('/remove', methods=['POST'])
+def remove():
+    ss_client = ss_get_client(access_token)
+    EN_list = ss_get_sheet_parsed(ss_client,archSheet) 
+    addForm = archWeekForm()
+
+    if request.method=='POST': #if one of the forms is submitted
+        if request.form['function'] == 'accountAction':
+            return jsonify({"status":"Update"})
+    
+                    
     return render_template('rendertest3.html', title='Render Test', EN_list=EN_list, addForm=addForm)
 
 

@@ -22,7 +22,7 @@
                     {% for i in EN_list %}    
                         <input type="checkbox" name="rowID" value="{{ i.rowID }}"> "{{ i.rowID }}" <br>
                     {% endfor %}
-                        <input type="submit" value="Submit">
+                        <input class="submit button" type="submit" value="Submit" id="submit">
                         </form>
 
                             <p class="external"><strong>news</strong></p>
@@ -160,4 +160,16 @@
         </div>
         
         {% endblock %}
+
+
+    {% block javascript %}
+       <!--  <script src={{ url_for('static',filename='myscript.js') }}></script> -->
+       <script>
+            $( document ).ready(function() {
+
+                console.log("Document Loaded");
+         
+            });        
+        </script>
+    {% endblock %}        
 
