@@ -99,7 +99,7 @@ def rendertest2():
             return redirect(url_for('index'))
 
     form2 = removeArchWeekForm(()
-    if form2.validate_on_submit():
+    if request.method == 'POST' and form2.validate():
         print (form2.rowID.data)
     else:
         print (form2.errors)
