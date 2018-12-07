@@ -83,26 +83,29 @@ def rendertest2():
     date = now.strftime("%d %b %Y")
     arch = "EN"
     form = archWeekForm(request.form)
-    print('test comment')
-    if request.method == 'POST' and form.validate():
-        archObject = Architecture(date, arch, form.category.data, form.bullet.data, form.bLink.data,
-            form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
-            form.subBullet3.data, form.sb3Link.data, form.subBullet4.data, form.sb4Link.data,
-            form.subBullet5.data, form.sb5Link.data, 12345678) #random row ID since we just post to bottom
-        schema = ArchitectureSchema()
-        archDict, errors = schema.dump(archObject) 
-        rowAddResult = ss_update_row(ss_client,archSheet, archDict)
-        if rowAddResult == 'SUCCESS':
-            return redirect(url_for('rendertest2'))    
-        else:
-            flash('Error adding row')
-            return redirect(url_for('index'))
-
     form2 = removeArchWeekForm()
-    if request.method == 'POST' and form2.validate():
-        print (form2.rowID.data)
-    else:
-        print (form2.errors)
+    print('test comment')
+    if request.method == 'POST' :
+        if form.validate():
+            archObject = Architecture(date, arch, form.category.data, form.bullet.data, form.bLink.data,
+                form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
+                form.subBullet3.data, form.sb3Link.data, form.subBullet4.data, form.sb4Link.data,
+                form.subBullet5.data, form.sb5Link.data, 12345678) #random row ID since we just post to bottom
+            schema = ArchitectureSchema()
+            archDict, errors = schema.dump(archObject) 
+            rowAddResult = ss_update_row(ss_client,archSheet, archDict)
+            if rowAddResult == 'SUCCESS':
+                return redirect(url_for('rendertest2'))    
+            else:
+                flash('Error adding row')
+                return redirect(url_for('index'))
+        elif form2.validate():
+            print (form2.rowID.data)
+    
+    #if request.method == 'POST' and form2.validate():
+        
+    #else:
+    #    print (form2.errors)
   
 
     return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, form=form, form2=form2)
