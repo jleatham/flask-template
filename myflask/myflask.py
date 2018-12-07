@@ -97,7 +97,7 @@ def rendertest2():
         else:
             flash('Error adding row')
             return redirect(url_for('index')) 
-    return render_template('rendertest.html', title='Render Test', EN_list=EN_list, form=form)
+    return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, form=form)
 
 
 if __name__ == "__main__":
