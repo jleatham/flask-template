@@ -82,7 +82,7 @@ def rendertest2():
 
     addForm = archWeekForm()
     removeForm = removeArchWeekForm()
-    removeForm.rowID.choices = [(x['rowID'],'') for x in EN_list]  
+    removeForm.rowID.choices = [(x['rowID'],x['rowID']) for x in EN_list]   
     print('test comment')
     return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
 
@@ -111,13 +111,14 @@ def remove():
     ss_client = ss_get_client(access_token)
     addForm = archWeekForm()
     removeForm = removeArchWeekForm()
+    removeForm.rowID.choices = [(x['rowID'],x['rowID']) for x in EN_list] 
     if removeForm.validate_on_submit():
         print('made it to form2 validate')
         print (removeForm.rowID.data)  
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)   
     
     
-    removeForm.rowID.choices = [(x['rowID'],'') for x in EN_list]                 
+                    
     return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
 
 if __name__ == "__main__":
