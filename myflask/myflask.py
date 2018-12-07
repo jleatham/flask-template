@@ -89,6 +89,7 @@ def rendertest2():
 @app.route('/add', methods=['POST'])
 def add():
     ss_client = ss_get_client(access_token)
+    
     addForm = archWeekForm()
     removeForm = removeArchWeekForm()
     if addForm.validate_on_submit():
@@ -109,6 +110,7 @@ def add():
 @app.route('/remove', methods=['POST'])
 def remove():
     ss_client = ss_get_client(access_token)
+    EN_list = ss_get_sheet_parsed(ss_client,archSheet) 
     addForm = archWeekForm()
     removeForm = removeArchWeekForm()
     removeForm.rowID.choices = [(x['rowID'],x['rowID']) for x in EN_list] 
