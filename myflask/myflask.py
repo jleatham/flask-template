@@ -1,6 +1,6 @@
 from flask import Flask, render_template, flash, redirect, url_for, request
 from config import Config
-from forms import LoginForm, archWeekForm
+from forms import LoginForm, archWeekForm, removeArchWeekForm
 from test import testFunction
 from myMarshmallow import Architecture, ArchitectureSchema
 from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row
