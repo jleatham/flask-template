@@ -83,7 +83,7 @@ def rendertest2():
     date = now.strftime("%d %b %Y")
     arch = "EN"
     form = archWeekForm(request.form)
-    form2 = removeArchWeekForm()
+    form2 = removeArchWeekForm(request.form2)
     print('test comment')
     if request.method == 'POST' :
         print('made it to post')
