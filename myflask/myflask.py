@@ -98,7 +98,7 @@ def rendertest2():
             flash('Error adding row')
             return redirect(url_for('index'))
 
-    form2 = removeArchWeekForm(()
+    form2 = removeArchWeekForm()
     if request.method == 'POST' and form2.validate():
         print (form2.rowID.data)
     else:
