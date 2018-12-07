@@ -86,7 +86,12 @@ def rendertest2():
     form2 = removeArchWeekForm()
     print('test comment')
     if request.method == 'POST' :
-        if form.validate():
+        print('made it to post')
+        if form2.validate():
+            print('made it to form2 validate')
+            print (form2.rowID.data)        
+        elif form.validate():
+            print('made it to form1 validate')
             archObject = Architecture(date, arch, form.category.data, form.bullet.data, form.bLink.data,
                 form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
                 form.subBullet3.data, form.sb3Link.data, form.subBullet4.data, form.sb4Link.data,
@@ -99,8 +104,7 @@ def rendertest2():
             else:
                 flash('Error adding row')
                 return redirect(url_for('index'))
-        elif form2.validate():
-            print (form2.rowID.data)
+
     
     #if request.method == 'POST' and form2.validate():
         
