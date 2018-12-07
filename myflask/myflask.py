@@ -83,7 +83,7 @@ def rendertest2():
     addForm = archWeekForm()
     removeForm = removeArchWeekForm()
     print('test comment')
-    return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, form=form, form2=form2)
+    return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
 
 @app.route('/add', methods=['POST'])
 def add():
