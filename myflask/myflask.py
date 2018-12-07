@@ -96,7 +96,15 @@ def rendertest2():
             return redirect(url_for('rendertest2'))    
         else:
             flash('Error adding row')
-            return redirect(url_for('index')) 
+            return redirect(url_for('index'))
+
+    form2 = removeArchWeekForm(()
+    if form2.validate_on_submit():
+        print (form2.rowID.data)
+    else:
+        print (form2.errors)
+  
+
     return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, form=form)
 
 

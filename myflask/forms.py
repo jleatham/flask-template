@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, RadioField, SelectField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, RadioField, SelectField, widgets, SelectMultipleField, SubmitField
 from wtforms.validators import DataRequired
 
 #Could possibly use Marshmallow to create schema, but is not built for forms so 
@@ -34,3 +34,18 @@ class archWeekForm(FlaskForm):
     subBullet5	  = StringField('Sub Bullet')
     sb5Link       = StringField('URL or Box link')
     submit        = SubmitField('Update')
+
+
+
+class MultiCheckboxField(SelectMultipleField):
+    widget = widgets.ListWidget(prefix_label=False)
+    option_widget = widgets.CheckboxInput()
+
+
+class removeArchWeekForm(FlaskForm):
+    string_of_files = ['one\r\ntwo\r\nthree\r\n']
+    list_of_files = string_of_files[0].split()
+    # create a list of value/description tuples
+    files = [(x, x) for x in list_of_files]
+    rowID = MultiCheckboxField('Label', choices=files)
+    submit        = SubmitField('Remove')
