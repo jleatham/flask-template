@@ -70,6 +70,36 @@ def rendertest():
             return redirect(url_for('index')) 
     return render_template('rendertest.html', title='Render Test', EN_list=EN_list, form=form)
 
+@app.route('/rendertest2', methods=['GET','POST'])
+def rendertest2():
+    #dynamically rendered form : https://stackoverflow.com/questions/39640024/create-dynamic-fields-in-wtform-in-flask
+    #SmartSheet API calls
+    #need to find a way to force this to update on each refresh
+    ss_client = ss_get_client(access_token)
+    EN_list = ss_get_sheet_parsed(ss_client,archSheet)
+    #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
+    #prep forms to flash return to index for now
+    now  = datetime.now()
+    date = now.strftime("%d %b %Y")
+    arch = "EN"
+    form = archWeekForm(request.form)
+    print('test comment')
+    if request.method == 'POST' and form.validate():
+        archObject = Architecture(date, arch, form.category.data, form.bullet.data, form.bLink.data,
+            form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
+            form.subBullet3.data, form.sb3Link.data, form.subBullet4.data, form.sb4Link.data,
+            form.subBullet5.data, form.sb5Link.data, 12345678) #random row ID since we just post to bottom
+        schema = ArchitectureSchema()
+        archDict, errors = schema.dump(archObject) 
+        rowAddResult = ss_update_row(ss_client,archSheet, archDict)
+        if rowAddResult == 'SUCCESS':
+            return redirect(url_for('rendertest2'))    
+        else:
+            flash('Error adding row')
+            return redirect(url_for('index')) 
+    return render_template('rendertest.html', title='Render Test', EN_list=EN_list, form=form)
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
     app.debug = True
