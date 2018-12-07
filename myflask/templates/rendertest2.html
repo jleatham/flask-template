@@ -18,9 +18,10 @@
                         {% include 'form.html' %}
                 </div>
                 <div class="medium-4 large-4 small-12 cell">
-                        {{ form2.hidden_tag() }}
-                        {{ form2.rowID() }} 
-                        {{ form2.submit(class="success button") }}
+                        <form action="{{ url_for('remove') }}" method="post"></form>
+                        {{ removeForm.hidden_tag() }}
+                        {{ removeForm.rowID() }} 
+                        {{ removeForm.submit(class="success button") }}
                             <p class="external"><strong>news</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}

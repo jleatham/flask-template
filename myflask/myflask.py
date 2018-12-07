@@ -70,7 +70,7 @@ def rendertest():
             return redirect(url_for('index')) 
     return render_template('rendertest.html', title='Render Test', EN_list=EN_list, form=form)
 
-@app.route('/rendertest2', methods=['GET','POST'])
+@app.route('/rendertest2', methods=['GET'])
 def rendertest2():
     #dynamically rendered form : https://stackoverflow.com/questions/39640024/create-dynamic-fields-in-wtform-in-flask
     #SmartSheet API calls
@@ -79,41 +79,42 @@ def rendertest2():
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)
     #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
     #prep forms to flash return to index for now
-    now  = datetime.now()
-    date = now.strftime("%d %b %Y")
-    arch = "EN"
-    form = archWeekForm(request.form)
-    form2 = removeArchWeekForm(request.form)
+
+    addForm = archWeekForm()
+    removeForm = removeArchWeekForm()
     print('test comment')
-    if request.method == 'POST' :
-        print('made it to post')
-        if form2.validate():
-            print('made it to form2 validate')
-            print (form2.rowID.data)        
-        elif form.validate():
-            print('made it to form1 validate')
-            archObject = Architecture(date, arch, form.category.data, form.bullet.data, form.bLink.data,
-                form.subBullet1.data, form.sb1Link.data, form.subBullet2.data, form.sb2Link.data,
-                form.subBullet3.data, form.sb3Link.data, form.subBullet4.data, form.sb4Link.data,
-                form.subBullet5.data, form.sb5Link.data, 12345678) #random row ID since we just post to bottom
-            schema = ArchitectureSchema()
-            archDict, errors = schema.dump(archObject) 
-            rowAddResult = ss_update_row(ss_client,archSheet, archDict)
-            if rowAddResult == 'SUCCESS':
-                return redirect(url_for('rendertest2'))    
-            else:
-                flash('Error adding row')
-                return redirect(url_for('index'))
-
-    
-    #if request.method == 'POST' and form2.validate():
-        
-    #else:
-    #    print (form2.errors)
-  
-
     return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, form=form, form2=form2)
 
+@app.route('/add', methods=['POST'])
+def add():
+    addForm = archWeekForm()
+    removeForm = removeArchWeekForm()
+    if addForm.validate_on_submit():
+        now  = datetime.now()
+        date = now.strftime("%d %b %Y")
+        arch = "EN"        
+        print('made it to addForm1 validate')
+        archObject = Architecture(date, arch, addForm.category.data, addForm.bullet.data, addForm.bLink.data,
+            addForm.subBullet1.data, addForm.sb1Link.data, addForm.subBullet2.data, addForm.sb2Link.data,
+            addForm.subBullet3.data, addForm.sb3Link.data, addForm.subBullet4.data, addForm.sb4Link.data,
+            addForm.subBullet5.data, addForm.sb5Link.data, 12345678) #random row ID since we just post to bottom
+        schema = ArchitectureSchema()
+        archDict, errors = schema.dump(archObject) 
+        rowAddResult = ss_update_row(ss_client,archSheet, archDict)    
+    ss_client = ss_get_client(access_token)
+    EN_list = ss_get_sheet_parsed(ss_client,archSheet)    
+    return render_template('rendertest2.html',title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
+
+@app.route('/remove', methods=['POST'])
+def remove():
+    addForm = archWeekForm()
+    removeForm = removeArchWeekForm()
+    if removeForm.validate_on_submit():
+        print('made it to form2 validate')
+        print (removeForm.rowID.data)  
+    ss_client = ss_get_client(access_token)
+    EN_list = ss_get_sheet_parsed(ss_client,archSheet)                
+    return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
