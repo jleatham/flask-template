@@ -28,7 +28,7 @@
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}
                                     <ul>
-                                        <input type="checkbox" name="rowID" value="{{ i.rowID }}"> "{{ i.rowID }}" <br>
+                                        <input type="checkbox" name="rowID" value="{{ i.rowID }}"> 
                                         <li>{{ i.bullet }}   --  <strong>{{ i.date }}  -- Row ID: {{ i.rowID }} </strong></li>
                                         {% if i.subBullet1 %}
                                             <ul>
