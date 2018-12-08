@@ -188,7 +188,7 @@
             if (form_id == 'remove'){
                 console.log("This is the remove function");
                 
-                var rows = $form.find( "input[name='rowID']" ); //remove the filed input on submit   
+                var rows = $form.find( "input[name='rowID']:checked" ).val(); //remove the filed input on submit   
                 //$form.find( "input[name='rowID']" ).val(""); //remove the filed input on submit 
                                      
                 $.ajax({
