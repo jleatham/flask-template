@@ -19,16 +19,16 @@
                 </div>
                 <div class="medium-4 large-4 small-12 cell">
                     <form action="{{ url_for('remove') }}" method="post" id="remove">    
-                    {% for i in EN_list %}    
-                        <input type="checkbox" name="rowID" value="{{ i.rowID }}"> "{{ i.rowID }}" <br>
-                    {% endfor %}
-                        <input class="submit button" type="submit" value="Submit" id="submit">
-                        </form>
+  
+                        
+
+
 
                             <p class="external"><strong>news</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}
                                     <ul>
+                                        <input type="checkbox" name="rowID" value="{{ i.rowID }}"> "{{ i.rowID }}" <br>
                                         <li>{{ i.bullet }}   --  <strong>{{ i.date }}  -- Row ID: {{ i.rowID }} </strong></li>
                                         {% if i.subBullet1 %}
                                             <ul>
@@ -146,7 +146,8 @@
                                 
                             {% endfor %}                            
 
-
+                        <input class="submit button" type="submit" value="Submit" id="submit">
+                        </form>
 
 
 
