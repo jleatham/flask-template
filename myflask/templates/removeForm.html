@@ -1,7 +1,5 @@
 <form action="{{ url_for('remove') }}" method="post" id="remove">    
 
-        <input class="submit button round alert" type="submit" value="Delete" id="submit">
-
         <p class="external"><strong>news</strong></p>
         {% for i in EN_list %}
         {% if i.category == 'news' %}
@@ -161,5 +159,6 @@
                 </ul>
         {% endif %}
         
-        {% endfor %}                            
+        {% endfor %}     
+        <input class="button round alert" type="submit" value="Delete" id="submit">                       
 </form>
