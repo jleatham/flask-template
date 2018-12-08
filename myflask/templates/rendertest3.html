@@ -190,6 +190,7 @@
                 var myCheckboxes = new Array();
                 $form.find( "input[name='rowID']:checked" ).each(function() {
                     myCheckboxes.push($(this).val());
+                    $(this).prop("checked", false)
                 });
                 //var rows = $form.find( "input[name='rowID']:checked" ).val(); //remove the filed input on submit   
                 //$form.find( "input[name='rowID']" ).val(""); //remove the filed input on submit 
