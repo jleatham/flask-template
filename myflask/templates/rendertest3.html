@@ -74,6 +74,7 @@
                     timeout: 10000,
                     success: function(response){
                         console.log(response)
+                        $form.find("input[type=text], textarea").val("");
                         
                     },
                     error: function(jqXHR, textStatus, errorThrown){
