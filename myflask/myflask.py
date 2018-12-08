@@ -153,7 +153,7 @@ def rendertest4():
     return render_template('rendertest4.html', title='Render Test', EN_list=EN_list)
 
 @app.route('/archSelect', methods=['POST'])
-def add():
+def archSelect():
     ss_client = ss_get_client(access_token)
     EN_list = ss_get_sheet_parsed(ss_client,archSheet) 
     #addForm = archWeekForm()
