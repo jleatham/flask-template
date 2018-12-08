@@ -185,12 +185,15 @@
             var url = $form.attr( "action" ); //for  flask to know what URL is associated with POST  
             console.log(url);              
 
-            if (form_id == 'accountAction'){
-                console.log("This is the accountAction function");
-                $form.find( "input[name='account']" ).val(""); //remove the filed input on submit                        
-                $.ajax({
+            if (form_id == 'remove'){
+                console.log("This is the remove function");
+                
+                var rows = $form.find( "input[name='rowID']" ); //remove the filed input on submit   
+                //$form.find( "input[name='rowID']" ).val(""); //remove the filed input on submit 
+                console.log(rows)                     
+                /*$.ajax({
                     url: url,
-                    data: {'function':form_id ,'email': email,'account':account,'action':action},
+                    data: {'function':form_id ,'rows': rows},
                     type: 'POST',
                     timeout: 10000,
                     success: function(response){
@@ -202,7 +205,7 @@
                         console.log(textStatus);
                         document.getElementById('display').innerHTML = textStatus;
                     }
-                });                         
+                });  */                       
             } 
 
         return false; //not sure why this is needed, maybe saying if no ajax post then do nothing
