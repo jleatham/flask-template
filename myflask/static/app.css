@@ -22,7 +22,7 @@ ul.first{
 
 }
 li.first {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 ul.second{
     list-style-type: none;
