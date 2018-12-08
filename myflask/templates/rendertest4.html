@@ -15,6 +15,15 @@
 
         <div class="grid-x grid-margin-x">
                 <div class="medium-8 large-8 small-12 cell">
+                        <form action="{{ url_for('archSelect') }}" method="post" id="archSelect">
+                                <select name="myselect" id="myselect" onchange="this.form.submit()">
+                                    <option value="EN">EN</option>
+                                    <option value="SEC">SEC</option>
+                                    <option value="DC">DC</option>
+                                    <option value="COLLAB">COLLAB</option>
+                                    <option value="APP">APP</option>
+                                </select>
+                            </form>                    
                         <h2>Add Data</h2>
                         {% include 'addForm.html' %}
                 </div>
@@ -61,6 +70,12 @@
                     console.log(dataString)
                 var data = {'function':form_id ,'addRow': dataString}
             }
+            else if (form_id == 'archSelect') {
+                    console.log("This is the archSelect function");
+                var dataString = $form.serializeArray()
+                    console.log(dataString)
+                var data = {'function':form_id ,'addRow': dataString}
+            }            
             $.ajax({
                     url: url,
                     contentType: 'application/json',

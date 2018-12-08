@@ -139,6 +139,44 @@ def rendertest3():
     print('test comment')
     return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
 
+@app.route('/rendertest4', methods=['GET'])
+def rendertest4():
+    #dynamically rendered form : https://stackoverflow.com/questions/39640024/create-dynamic-fields-in-wtform-in-flask
+    #SmartSheet API calls
+    #need to find a way to force this to update on each refresh
+    ss_client = ss_get_client(access_token)
+    EN_list = ss_get_sheet_parsed(ss_client,archSheet)
+    #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
+    #prep forms to flash return to index for now
+
+    print('test comment')
+    return render_template('rendertest4.html', title='Render Test', EN_list=EN_list)
+
+@app.route('/archSelect', methods=['POST'])
+def add():
+    ss_client = ss_get_client(access_token)
+    EN_list = ss_get_sheet_parsed(ss_client,archSheet) 
+    #addForm = archWeekForm()
+
+    if request.method=='POST': #if one of the forms is submitted
+        #print('request = '+ str(request))
+        #print('request.form = '+ str(request.form))
+        #print('request.data = '+ request.data)
+        #print('request.data = '+ str(request.data))
+        print('request.data decoded = '+ request.data.decode())
+        
+        dataString = request.data.decode()
+        data = json.loads(dataString)
+        for i in data['addRow']:
+            print("{}    {}".format(i['name'],i['value']))       
+        if data['function'] == 'add':
+            return jsonify({"status":"Updated successfully"})
+        
+                    
+    return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
+
+
+
 @app.route('/remove', methods=['POST'])
 def remove():
     ss_client = ss_get_client(access_token)
@@ -146,10 +184,10 @@ def remove():
     #addForm = archWeekForm()
 
     if request.method=='POST': #if one of the forms is submitted
-        print('request = '+ str(request))
-        print('request.form = '+ str(request.form))
+        #print('request = '+ str(request))
+        #print('request.form = '+ str(request.form))
         #print('request.data = '+ request.data)
-        print('request.data decoded = '+ request.data.decode())
+        #print('request.data decoded = '+ request.data.decode())
         dataString = request.data.decode()
         data = json.loads(dataString)
         for i in data:
@@ -170,7 +208,7 @@ def add():
     #addForm = archWeekForm()
 
     if request.method=='POST': #if one of the forms is submitted
-        print('request = '+ str(request))
+        #print('request = '+ str(request))
         #print('request.form = '+ str(request.form))
         #print('request.data = '+ request.data)
         #print('request.data = '+ str(request.data))
