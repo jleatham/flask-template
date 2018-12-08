@@ -187,13 +187,16 @@
 
             if (form_id == 'remove'){
                 console.log("This is the remove function");
-                
-                var rows = $form.find( "input[name='rowID']:checked" ).val(); //remove the filed input on submit   
+                var myCheckboxes = new Array();
+                $form.find( "input[name='rowID']:checked" ).each(function() {
+                    myCheckboxes.push($(this).val());
+                });
+                //var rows = $form.find( "input[name='rowID']:checked" ).val(); //remove the filed input on submit   
                 //$form.find( "input[name='rowID']" ).val(""); //remove the filed input on submit 
                                      
                 $.ajax({
                     url: url,
-                    data: {'function':form_id ,'rows': rows},
+                    data: {'function':form_id ,'rows': myCheckboxes},
                     type: 'POST',
                     timeout: 10000,
                     success: function(response){
