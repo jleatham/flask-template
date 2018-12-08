@@ -61,7 +61,7 @@
             } 
             else if (form_id == 'add') {
                 console.log("This is the add function");
-                var dataString = $form.serialize()
+                var dataString = $form.serializeArray()
                 console.log(dataString)
                 var data = {'function':form_id ,'addRow': dataString}
             }
