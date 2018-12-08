@@ -173,18 +173,15 @@ def add():
         print('request = '+ str(request))
         #print('request.form = '+ str(request.form))
         #print('request.data = '+ request.data)
-        print('request.data = '+ str(request.data))
-        print('request.data decoded = '+ request.data.decode())
-        '''
+        #print('request.data = '+ str(request.data))
+        #print('request.data decoded = '+ request.data.decode())
+        
         dataString = request.data.decode()
         data = json.loads(dataString)
-        for i in data:
-            print(i)
-        for i in data['removeRows']:
-            print(i)        
-        if data['function'] == 'remove':
-        '''
-        return jsonify({"status":"Updated successfully"})
+        for i in data['addRow']:
+            print("{}    {}".format(i['name'],i['value']))       
+        if data['function'] == 'add':
+            return jsonify({"status":"Updated successfully"})
         
                     
     return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
