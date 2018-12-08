@@ -28,7 +28,7 @@
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}
                                     <ul class="first">
-                                        <li class="first"><input class="checkCSS" type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
+                                        <li class="first"><input class="checkCSS" type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>
                                         {% if i.subBullet1 %}
                                             <ul class="second">
                                                 <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
