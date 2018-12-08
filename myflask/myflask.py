@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect, url_for, request
+from flask import Flask, render_template, flash, redirect, url_for, request, jsonify
 from config import Config
 from forms import LoginForm, archWeekForm, removeArchWeekForm
 from test import testFunction
@@ -149,6 +149,8 @@ def remove():
             print('request = '+ str(request))
             print('request.form = '+ str(request.form))
             print('request.data = '+ str(request.data))
+            for i in request.form:
+                print(i)
 
             return jsonify({"status":"Updated successfully"})
     
