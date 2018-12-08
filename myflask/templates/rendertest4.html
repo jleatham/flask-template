@@ -15,13 +15,15 @@
 
         <div class="grid-x grid-margin-x">
                 <div class="medium-8 large-8 small-12 cell">
-                                <select name="archSelect" id="archSelect">
+                        <form action="{{ url_for('archSelect') }}" method="POST" id="archSelect"></form>
+                                <select name="mySelect" id="mySelect">
                                     <option value="EN">EN</option>
                                     <option value="SEC">SEC</option>
                                     <option value="DC">DC</option>
                                     <option value="COLLAB">COLLAB</option>
                                     <option value="APP">APP</option>
-                                </select>               
+                                </select> 
+                            </form>              
                         <h2>Add Data</h2>
                         {% include 'addForm.html' %}
                 </div>
@@ -43,28 +45,37 @@
         </script>
         
         <script>
-        $('#archSelect').on('change', function(){
-            //$(this).closest('form').submit();
-            var $arch = $( this );
-                console.log(arch)
-                var data = {'arch': arch}
+        $('form select').on('change', function(){
+            var $form = $( this );
+            var form_id = $form.attr('id');
+                console.log(form_id)
+            var url = $form.attr( "action" ); //for  flask to know what URL is associated with POST  
+                console.log(url);   
+            if (form_id == 'add') {
+                    console.log("This is the archSelect function");
+                var dataString = $form.serializeArray()
+                    console.log(dataString)
+                var data = {'function':form_id ,'addRow': dataString}   
+            }  
             $.ajax({
-                url: '/archSelect',
-                contentType: 'application/json',
-                dataType : 'json',
-                data: JSON.stringify(data),
-                type: 'POST',
-                timeout: 10000,
-                success: function(response){
-                    console.log(response)
-                    
-                },
-                error: function(jqXHR, textStatus, errorThrown){
-                    console.log(textStatus);
-                    //document.getElementById('display').innerHTML = textStatus;
-                }
-            });              
+                    url: url,
+                    contentType: 'application/json',
+                    dataType : 'json',
+                    data: JSON.stringify(data),
+                    type: 'POST',
+                    timeout: 10000,
+                    success: function(response){
+                        console.log(response)
+                        
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        console.log(textStatus);
+                        //document.getElementById('display').innerHTML = textStatus;
+                    }
+                });             
+
         });
+
         </script>
 
 <script>
