@@ -148,11 +148,12 @@ def remove():
         print('request = '+ str(request))
         print('request.form = '+ str(request.form))
         print('request.data = '+ str(request.data))
-        for i in request:
+        #json.loads(request.data)
+        for i in request.data:
             print(i)
-        for i in request.form['rows']:
+        for i in request.data['rows']:
             print(i)        
-        if request.form['function'] == 'remove':
+        if request.data['function'] == 'remove':
 
             return jsonify({"status":"Updated successfully"})
     
