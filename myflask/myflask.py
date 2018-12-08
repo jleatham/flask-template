@@ -146,9 +146,9 @@ def remove():
 
     if request.method=='POST': #if one of the forms is submitted
         if request.form['function'] == 'remove':
-            print('response = '+ str(response))
-            print('response.form = '+ str(response.form))
-            print('response.data = '+ str(response.data))
+            print('request = '+ str(request))
+            print('request.form = '+ str(request.form))
+            print('request.data = '+ str(request.data))
 
             return jsonify({"status":"Updated successfully"})
     
