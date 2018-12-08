@@ -15,15 +15,13 @@
 
         <div class="grid-x grid-margin-x">
                 <div class="medium-8 large-8 small-12 cell">
-                        <form action="{{ url_for('archSelect') }}" method="post" id="archSelect">
-                                <select name="myselect" id="myselect" onchange="archSelect.submit()">
+                                <select name="archSelect" id="archSelect">
                                     <option value="EN">EN</option>
                                     <option value="SEC">SEC</option>
                                     <option value="DC">DC</option>
                                     <option value="COLLAB">COLLAB</option>
                                     <option value="APP">APP</option>
-                                </select>
-                            </form>                    
+                                </select>               
                         <h2>Add Data</h2>
                         {% include 'addForm.html' %}
                 </div>
@@ -43,7 +41,31 @@
             $( document ).ready(function() {
                 console.log("Document Loaded");});        
         </script>
-
+        
+        <script>
+        $('#archSelect').on('change', function(){
+            //$(this).closest('form').submit();
+            var $arch = $( this );
+                console.log(arch)
+                var data = {'arch': arch}
+            $.ajax({
+                url: '/archSelect',
+                contentType: 'application/json',
+                dataType : 'json',
+                data: JSON.stringify(data),
+                type: 'POST',
+                timeout: 10000,
+                success: function(response){
+                    console.log(response)
+                    
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    console.log(textStatus);
+                    //document.getElementById('display').innerHTML = textStatus;
+                }
+            });              
+        });
+        </script>
 
 <script>
         $(document).on('submit','form',function(event){ //looks for any form on page that is submitted
