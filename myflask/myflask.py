@@ -145,12 +145,14 @@ def remove():
     #addForm = archWeekForm()
 
     if request.method=='POST': #if one of the forms is submitted
+        print('request = '+ str(request))
+        print('request.form = '+ str(request.form))
+        print('request.data = '+ str(request.data))
+        for i in requests:
+            print(i)
+        for i in request.form['rows']:
+            print(i)        
         if request.form['function'] == 'remove':
-            print('request = '+ str(request))
-            print('request.form = '+ str(request.form))
-            print('request.data = '+ str(request.data))
-            for i in request.form['rows']:
-                print(i)
 
             return jsonify({"status":"Updated successfully"})
     

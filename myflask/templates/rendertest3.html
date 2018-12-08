@@ -193,10 +193,12 @@
                 });
                 //var rows = $form.find( "input[name='rowID']:checked" ).val(); //remove the filed input on submit   
                 //$form.find( "input[name='rowID']" ).val(""); //remove the filed input on submit 
-                                     
+                var data = {'function':form_id ,'rows': myCheckboxes}
                 $.ajax({
                     url: url,
-                    data: {'function':form_id ,'rows': myCheckboxes},
+                    contentType: 'application/json',
+                    dataType : 'json',
+                    data: JSON.stringify(data),
                     type: 'POST',
                     timeout: 10000,
                     success: function(response){
