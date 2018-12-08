@@ -24,6 +24,11 @@ ul.radio{
 ul#radio li{
     display:inline;
 }
+
+ul.first{
+    list-style-type: none;
+}
+
 li {
     margin:0 0 2px 0;
 }

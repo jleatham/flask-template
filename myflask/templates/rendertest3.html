@@ -22,14 +22,13 @@
   
                         
 
-
+                        <input class="submit button" type="submit" value="Submit" id="submit">
 
                             <p class="external"><strong>news</strong></p>
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}
-                                    <ul>
-                                        <input type="checkbox" name="rowID" value="{{ i.rowID }}">
-                                        <li><input type="checkbox" name="rowID" value="{{ i.rowID }}">{{ i.bullet }}   --  <strong>{{ i.date }}  -- Row ID: {{ i.rowID }} </strong></li>
+                                    <ul class="first">
+                                        <li><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong>{{ i.date }}  -- Row ID: {{ i.rowID }} </strong></li>
                                         {% if i.subBullet1 %}
                                             <ul>
                                                 <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
@@ -151,7 +150,7 @@
                                 
                             {% endfor %}                            
 
-                        <input class="submit button" type="submit" value="Submit" id="submit">
+                        
                         </form>
 
 
