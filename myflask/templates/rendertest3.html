@@ -54,12 +54,18 @@
                 var myCheckboxes = new Array();
                 $form.find( "input[name='rowID']:checked" ).each(function() {
                     myCheckboxes.push($(this).val());
-                    $(this).prop("checked", false)
-                });
+                    $(this).prop("checked", false)});
                 //var rows = $form.find( "input[name='rowID']:checked" ).val(); //remove the filed input on submit   
                 //$form.find( "input[name='rowID']" ).val(""); //remove the filed input on submit 
-                var data = {'function':form_id ,'rows': myCheckboxes}
-                $.ajax({
+                var data = {'function':form_id ,'removeRows': myCheckboxes}                      
+            } 
+            else if (form_id == 'add') {
+                console.log("This is the add function");
+                var dataString = $form.serialize()
+                console.log(dataString)
+                var data = {'function':form_id ,'addRow': dataString}
+            }
+            $.ajax({
                     url: url,
                     contentType: 'application/json',
                     dataType : 'json',
@@ -74,8 +80,7 @@
                         console.log(textStatus);
                         //document.getElementById('display').innerHTML = textStatus;
                     }
-                });                         
-            } 
+                });               
 
         return false; //not sure why this is needed, maybe saying if no ajax post then do nothing
     });

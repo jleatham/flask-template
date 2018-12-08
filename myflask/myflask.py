@@ -87,8 +87,8 @@ def rendertest2():
     print('test comment')
     return render_template('rendertest2.html', title='Render Test', EN_list=EN_list, addForm=addForm, removeForm=removeForm)
 
-@app.route('/add', methods=['POST'])
-def add():
+@app.route('/addOld', methods=['POST'])
+def addOld():
     ss_client = ss_get_client(access_token)
     
     addForm = archWeekForm()
@@ -135,9 +135,9 @@ def rendertest3():
     EN_list = ss_get_sheet_parsed(ss_client,archSheet)
     #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
     #prep forms to flash return to index for now
-    addForm = archWeekForm() 
+
     print('test comment')
-    return render_template('rendertest3.html', title='Render Test', EN_list=EN_list, addForm=addForm)
+    return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
 
 @app.route('/remove', methods=['POST'])
 def remove():
@@ -154,7 +154,7 @@ def remove():
         data = json.loads(dataString)
         for i in data:
             print(i)
-        for i in data['rows']:
+        for i in data['removeRows']:
             print(i)        
         if data['function'] == 'remove':
 
@@ -163,6 +163,31 @@ def remove():
                     
     return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
 
+@app.route('/add', methods=['POST'])
+def add():
+    ss_client = ss_get_client(access_token)
+    EN_list = ss_get_sheet_parsed(ss_client,archSheet) 
+    #addForm = archWeekForm()
+
+    if request.method=='POST': #if one of the forms is submitted
+        print('request = '+ str(request))
+        #print('request.form = '+ str(request.form))
+        #print('request.data = '+ request.data)
+        print('request.data = '+ str(request.data))
+        print('request.data decoded = '+ request.data.decode())
+        '''
+        dataString = request.data.decode()
+        data = json.loads(dataString)
+        for i in data:
+            print(i)
+        for i in data['removeRows']:
+            print(i)        
+        if data['function'] == 'remove':
+        '''
+        return jsonify({"status":"Updated successfully"})
+        
+                    
+    return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
 
 
 if __name__ == "__main__":

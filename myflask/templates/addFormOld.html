@@ -1,0 +1,99 @@
+           <form action="{{ url_for('add') }}" method="post">
+            {{ addForm.hidden_tag() }} 
+            <div class="cell auto">       
+                {{ addForm.category.label }}
+                {{ addForm.category() }}  
+                {% for error in addForm.category.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}                               
+                <div class="grid-x grid-margin-x">
+                        <div class="large-9 cell">
+                                {{ addForm.bullet.label }}
+                                {{ addForm.bullet(size=500, placeholder="Main Bullet Point") }}
+                                {% for error in addForm.bullet.errors %}
+                                <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}                                    
+                            </div>
+                        <div class="large-3 cell">
+                                {{ addForm.bLink.label }}
+                                {{ addForm.bLink(size=10) }}
+                                 
+                            </div>                                   
+                    </div>
+                    <div class="grid-x grid-margin-x">
+                            <div class="large-1 small-1 cell"></div>
+                            <div class="large-8 small-11 cell">
+                                    {{ addForm.subBullet1.label }}
+                                    {{ addForm.subBullet1(size=32, placeholder="Optional SubBullet") }}
+                              
+                                </div>
+                            <div class="large-3 small-12 cell">
+                                    {{ addForm.sb1Link.label }}
+                                    {{ addForm.sb1Link(size=32) }}
+                                
+                            </div>   
+                            <div class="large-1 small-1 cell"></div>
+                            <div class="large-8 small-11 cell">
+
+                                    {{ addForm.subBullet2.label }}
+                                    {{ addForm.subBullet2(size=32, placeholder="Optional SubBullet") }}
+                            
+                                </div>
+                            <div class="large-3 small-12 cell">
+
+                                    {{ addForm.sb2Link.label }}
+                                    {{ addForm.sb2Link(size=32) }}
+
+                                    
+                            </div>    
+                            <div class="large-1 small-1 cell"></div>
+                            <div class="large-8 small-11 cell">
+                                    {{ addForm.subBullet3.label }}
+                                    {{ addForm.subBullet3(size=32, placeholder="Optional SubBullet") }}
+                        
+                                </div>
+                            <div class="large-3 small-12 cell">
+
+                                    {{ addForm.sb3Link.label }}
+                                    {{ addForm.sb3Link(size=32) }}
+
+                            
+                            </div>    
+                            <div class="large-1 small-1 cell"></div>
+                            <div class="large-8 small-11 cell">
+
+                                    {{ addForm.subBullet4.label }}
+                                    {{ addForm.subBullet4(size=32, placeholder="Optional SubBullet") }}
+                    
+                                </div>
+                            <div class="large-3 small-12 cell">
+
+                                    {{ addForm.sb4Link.label }}
+                                    {{ addForm.sb4Link(size=32) }}
+
+                            
+                            </div>    
+                            <div class="large-1 small-1 cell"></div>
+                            <div class="large-8 small-11 cell">
+
+                                    {{ addForm.subBullet5.label }}
+                                    {{ addForm.subBullet5(size=32, placeholder="Optional SubBullet") }}                                
+                                </div>
+                            <div class="large-3 small-12 cell">
+
+                                    {{ addForm.sb5Link.label }}
+                                    {{ addForm.sb5Link(size=32) }}
+                                
+                            </div> 
+                            <div class="large-1 small-1 cell"></div>
+                            <div class="large-2 small-12 cell">
+                                    {{ addForm.submit(class="success button") }}
+                            </div>   
+                            <div class="large-9 small-9 cell"></div>                                          
+                            
+                                    
+                        </div>
+                        
+
+                    </div>
+                  </form>

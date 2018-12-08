@@ -1,99 +1,95 @@
-           <form action="{{ url_for('add') }}" method="post">
-            {{ addForm.hidden_tag() }} 
-            <div class="cell auto">       
-                {{ addForm.category.label }}
-                {{ addForm.category() }}  
-                {% for error in addForm.category.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}                               
-                <div class="grid-x grid-margin-x">
-                        <div class="large-9 cell">
-                                {{ addForm.bullet.label }}
-                                {{ addForm.bullet(size=500, placeholder="Main Bullet Point") }}
-                                {% for error in addForm.bullet.errors %}
-                                <span style="color: red;">[{{ error }}]</span>
-                                {% endfor %}                                    
-                            </div>
-                        <div class="large-3 cell">
-                                {{ addForm.bLink.label }}
-                                {{ addForm.bLink(size=10) }}
-                                 
-                            </div>                                   
+<form action="/add" method="post" id="add">
+    <input id="csrf_token" name="csrf_token" type="hidden" value="ImM4YjlkODBkMTJjNzE2NmMwMTk2NDUwYTNmYzAwMjgzNjAwOTMyYTci.XAtZKA.xR9y4FxL-8VitbM8uWqrHr6X4_4"> 
+    <div class="cell auto">       
+        <label for="category">Category</label>
+        <select id="category" name="category" required><option value="news">News</option><option value="demo">Demonstrations</option><option value="services">Services / AS</option><option value="spiff">Internal - SPIFFs</option><option value="capital">Internal - Capital</option><option value="ea">Internal - EA</option><option value="proposal">Internal - Unsolicitad BoMs / Proposals</option><option value="promo">Internal - Product Promotions</option></select>  
+                                       
+        <div class="grid-x grid-margin-x">
+                <div class="large-9 cell">
+                        <label for="bullet">Main Bullet</label>
+                        <input id="bullet" name="bullet" placeholder="Main Bullet Point" required size="500" type="text" value="">
+                                                            
                     </div>
-                    <div class="grid-x grid-margin-x">
-                            <div class="large-1 small-1 cell"></div>
-                            <div class="large-8 small-11 cell">
-                                    {{ addForm.subBullet1.label }}
-                                    {{ addForm.subBullet1(size=32, placeholder="Optional SubBullet") }}
-                              
-                                </div>
-                            <div class="large-3 small-12 cell">
-                                    {{ addForm.sb1Link.label }}
-                                    {{ addForm.sb1Link(size=32) }}
-                                
-                            </div>   
-                            <div class="large-1 small-1 cell"></div>
-                            <div class="large-8 small-11 cell">
-
-                                    {{ addForm.subBullet2.label }}
-                                    {{ addForm.subBullet2(size=32, placeholder="Optional SubBullet") }}
-                            
-                                </div>
-                            <div class="large-3 small-12 cell">
-
-                                    {{ addForm.sb2Link.label }}
-                                    {{ addForm.sb2Link(size=32) }}
-
-                                    
-                            </div>    
-                            <div class="large-1 small-1 cell"></div>
-                            <div class="large-8 small-11 cell">
-                                    {{ addForm.subBullet3.label }}
-                                    {{ addForm.subBullet3(size=32, placeholder="Optional SubBullet") }}
-                        
-                                </div>
-                            <div class="large-3 small-12 cell">
-
-                                    {{ addForm.sb3Link.label }}
-                                    {{ addForm.sb3Link(size=32) }}
-
-                            
-                            </div>    
-                            <div class="large-1 small-1 cell"></div>
-                            <div class="large-8 small-11 cell">
-
-                                    {{ addForm.subBullet4.label }}
-                                    {{ addForm.subBullet4(size=32, placeholder="Optional SubBullet") }}
-                    
-                                </div>
-                            <div class="large-3 small-12 cell">
-
-                                    {{ addForm.sb4Link.label }}
-                                    {{ addForm.sb4Link(size=32) }}
-
-                            
-                            </div>    
-                            <div class="large-1 small-1 cell"></div>
-                            <div class="large-8 small-11 cell">
-
-                                    {{ addForm.subBullet5.label }}
-                                    {{ addForm.subBullet5(size=32, placeholder="Optional SubBullet") }}                                
-                                </div>
-                            <div class="large-3 small-12 cell">
-
-                                    {{ addForm.sb5Link.label }}
-                                    {{ addForm.sb5Link(size=32) }}
-                                
-                            </div> 
-                            <div class="large-1 small-1 cell"></div>
-                            <div class="large-2 small-12 cell">
-                                    {{ addForm.submit(class="success button") }}
-                            </div>   
-                            <div class="large-9 small-9 cell"></div>                                          
-                            
-                                    
+                <div class="large-3 cell">
+                        <label for="bLink">URL or Box link</label>
+                        <input id="bLink" name="bLink" size="10" type="text" value="">
+                         
+                    </div>                                   
+            </div>
+            <div class="grid-x grid-margin-x">
+                    <div class="large-1 small-1 cell"></div>
+                    <div class="large-8 small-11 cell">
+                            <label for="subBullet1">Sub Bullet</label>
+                            <input id="subBullet1" name="subBullet1" placeholder="Optional SubBullet" size="32" type="text" value="">
+                      
                         </div>
+                    <div class="large-3 small-12 cell">
+                            <label for="sb1Link">URL or Box link</label>
+                            <input id="sb1Link" name="sb1Link" size="32" type="text" value="">
                         
+                    </div>   
+                    <div class="large-1 small-1 cell"></div>
+                    <div class="large-8 small-11 cell">
 
-                    </div>
-                  </form>
+                            <label for="subBullet2">Sub Bullet</label>
+                            <input id="subBullet2" name="subBullet2" placeholder="Optional SubBullet" size="32" type="text" value="">
+                    
+                        </div>
+                    <div class="large-3 small-12 cell">
+
+                            <label for="sb2Link">URL or Box link</label>
+                            <input id="sb2Link" name="sb2Link" size="32" type="text" value="">
+
+                            
+                    </div>    
+                    <div class="large-1 small-1 cell"></div>
+                    <div class="large-8 small-11 cell">
+                            <label for="subBullet3">Sub Bullet</label>
+                            <input id="subBullet3" name="subBullet3" placeholder="Optional SubBullet" size="32" type="text" value="">
+                
+                        </div>
+                    <div class="large-3 small-12 cell">
+
+                            <label for="sb3Link">URL or Box link</label>
+                            <input id="sb3Link" name="sb3Link" size="32" type="text" value="">
+
+                    
+                    </div>    
+                    <div class="large-1 small-1 cell"></div>
+                    <div class="large-8 small-11 cell">
+
+                            <label for="subBullet4">Sub Bullet</label>
+                            <input id="subBullet4" name="subBullet4" placeholder="Optional SubBullet" size="32" type="text" value="">
+            
+                        </div>
+                    <div class="large-3 small-12 cell">
+
+                            <label for="sb4Link">URL or Box link</label>
+                            <input id="sb4Link" name="sb4Link" size="32" type="text" value="">
+
+                    
+                    </div>    
+                    <div class="large-1 small-1 cell"></div>
+                    <div class="large-8 small-11 cell">
+
+                            <label for="subBullet5">Sub Bullet</label>
+                            <input id="subBullet5" name="subBullet5" placeholder="Optional SubBullet" size="32" type="text" value="">                                
+                        </div>
+                    <div class="large-3 small-12 cell">
+
+                            <label for="sb5Link">URL or Box link</label>
+                            <input id="sb5Link" name="sb5Link" size="32" type="text" value="">
+                        
+                    </div> 
+                    <div class="large-1 small-1 cell"></div>
+                    <div class="large-2 small-12 cell">
+                            <input class="success button" id="submit" name="submit" type="submit" value="Update">
+                    </div>   
+                    <div class="large-9 small-9 cell"></div>                                          
+                    
+                            
+                </div>
+                
+
+            </div>
+          </form>
