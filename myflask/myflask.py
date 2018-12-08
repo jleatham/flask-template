@@ -142,14 +142,18 @@ def rendertest3():
 def remove():
     ss_client = ss_get_client(access_token)
     EN_list = ss_get_sheet_parsed(ss_client,archSheet) 
-    addForm = archWeekForm()
+    #addForm = archWeekForm()
 
     if request.method=='POST': #if one of the forms is submitted
-        if request.form['function'] == 'accountAction':
-            return jsonify({"status":"Update"})
+        if request.form['function'] == 'remove':
+            print('response = '+ str(response))
+            print('response.form = '+ str(response.form))
+            print('response.data = '+ str(response.data))
+
+            return jsonify({"status":"Updated successfully"})
     
                     
-    return render_template('rendertest3.html', title='Render Test', EN_list=EN_list, addForm=addForm)
+    return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
 
 
 

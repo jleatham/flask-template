@@ -190,22 +190,21 @@
                 
                 var rows = $form.find( "input[name='rowID']" ); //remove the filed input on submit   
                 //$form.find( "input[name='rowID']" ).val(""); //remove the filed input on submit 
-                console.log(rows.checked)                     
-                /*$.ajax({
+                                     
+                $.ajax({
                     url: url,
                     data: {'function':form_id ,'rows': rows},
                     type: 'POST',
                     timeout: 10000,
                     success: function(response){
-                        //filter_return_json_to_list(response,email)
-                        filter_return_json_to_list_v2(response,email)
-                        $("#sort").show();
+                        console.log(response)
+                        
                     },
                     error: function(jqXHR, textStatus, errorThrown){
                         console.log(textStatus);
-                        document.getElementById('display').innerHTML = textStatus;
+                        //document.getElementById('display').innerHTML = textStatus;
                     }
-                });  */                       
+                });                         
             } 
 
         return false; //not sure why this is needed, maybe saying if no ajax post then do nothing
