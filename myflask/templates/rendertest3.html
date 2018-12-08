@@ -30,12 +30,12 @@
                                     <ul class="first">
                                         <li><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong>{{ i.date }}  -- Row ID: {{ i.rowID }} </strong></li>
                                         {% if i.subBullet1 %}
-                                            <ul>
+                                            <ul class="second">
                                                 <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
                                             </ul>
                                         {% endif %}
                                         {% if i.subBullet2 %}
-                                            <ul>
+                                            <ul class="second">
                                                 <li>...</li>
                                             </ul>
                                         {% endif %}                                        
