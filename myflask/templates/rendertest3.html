@@ -17,7 +17,7 @@
                 <div class="medium-8 large-8 small-12 cell">
                        <!--  {% include 'form.html' %} -->
                 </div>
-                <div class="medium-4 large-4 small-12 cell">
+                <div class="medium-4 large-4 small-12 cell inputCSS">
                     <form action="{{ url_for('remove') }}" method="post" id="remove">    
   
                         
@@ -28,7 +28,7 @@
                             {% for i in EN_list %}
                                 {% if i.category == 'news' %}
                                     <ul class="first">
-                                        <li><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong>{{ i.date }}  -- Row ID: {{ i.rowID }} </strong></li>
+                                        <li class="first"><input class="checkCSS" type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong>{{ i.date }} </strong></li>
                                         {% if i.subBullet1 %}
                                             <ul class="second">
                                                 <li>{{ i.subBullet1 }}  {{ i.sb1Link }}</li>
