@@ -145,12 +145,12 @@ def rendertest4():
     #SmartSheet API calls
     #need to find a way to force this to update on each refresh
     ss_client = ss_get_client(access_token)
-    EN_list = ss_get_sheet_parsed(ss_client,archSheet)
+    archlist = ss_get_sheet_parsed(ss_client,archSheet='EN')
     #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
     #prep forms to flash return to index for now
 
     print('test comment')
-    return render_template('rendertest4.html', title='Render Test', EN_list=EN_list)
+    return render_template('rendertest4.html', title='Render Test', archListt=archList)
 
 @app.route('/archSelect', methods=['POST'])
 def archSelect():
@@ -176,7 +176,7 @@ def archSelect():
         if data['function'] == 'arch':
             #return jsonify({"status":"Updated successfully"})
             archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect=archSelect)
-            return render_template('rendertest4.html', title='Render Test', archList=archSelect)
+            return render_template('rendertest4.html', title='Render Test', archList=archList)
         else:
             return jsonify({"status":"Error"})
                     
@@ -187,7 +187,7 @@ def archSelect():
 @app.route('/remove', methods=['POST'])
 def remove():
     ss_client = ss_get_client(access_token)
-    EN_list = ss_get_sheet_parsed(ss_client,archSheet) 
+    archlist = ss_get_sheet_parsed(ss_client,archSheet, archSelect='EN') 
     #addForm = archWeekForm()
 
     if request.method=='POST': #if one of the forms is submitted
@@ -211,7 +211,7 @@ def remove():
 @app.route('/add', methods=['POST'])
 def add():
     ss_client = ss_get_client(access_token)
-    EN_list = ss_get_sheet_parsed(ss_client,archSheet) 
+    archlist = ss_get_sheet_parsed(ss_client,archSheet, archSelect='EN') 
     #addForm = archWeekForm()
 
     if request.method=='POST': #if one of the forms is submitted
