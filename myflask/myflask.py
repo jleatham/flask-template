@@ -183,40 +183,49 @@ def archSelect():
                     
     return jsonify({"status":"Error"})
 
-@app.route('/rendertest5EN', methods=['GET'])
-def rendertest5EN():
+@app.route('/EN', methods=['GET'])
+def EN():
 
     ss_client = ss_get_client(access_token)
     archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='EN')
-    #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
-    #prep forms to flash return to index for now
+    return render_template('archTemplate.html', title='EN', metaID='EN', archList=archList)
 
-    print('test comment')
-    return render_template('rendertest5.html', title='EN', metaID='EN', archList=archList)
-
-@app.route('/rendertest5SEC', methods=['GET'])
-def rendertest5SEC():
+@app.route('/SEC', methods=['GET'])
+def SEC():
 
     ss_client = ss_get_client(access_token)
     archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='SEC')
-    #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
-    #prep forms to flash return to index for now
+    return render_template('archTemplate.html', title='SEC', metaID='SEC', archList=archList)
 
-    print('test comment')
-    return render_template('rendertest5.html', title='SEC', metaID='SEC', archList=archList)
+@app.route('/DC', methods=['GET'])
+def DC():
+
+    ss_client = ss_get_client(access_token)
+    archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='DC')
+    return render_template('archTemplate.html', title='DC', metaID='DC', archList=archList)
+
+@app.route('/COLLAB', methods=['GET'])
+def COLLAB():
+
+    ss_client = ss_get_client(access_token)
+    archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='COLLAB')
+    return render_template('archTemplate.html', title='COLLAB', metaID='COLLAB', archList=archList)
+
+@app.route('/APP', methods=['GET'])
+def APP():
+
+    ss_client = ss_get_client(access_token)
+    archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='APP')
+    return render_template('archTemplate.html', title='APP', metaID='APP', archList=archList)
+
 
 
 @app.route('/remove', methods=['POST'])
 def remove():
     ss_client = ss_get_client(access_token)
-    #archlist = ss_get_sheet_parsed(ss_client,archSheet, archSelect='EN') 
-    #addForm = archWeekForm()
 
     if request.method=='POST': #if one of the forms is submitted
-        #print('request = '+ str(request))
-        #print('request.form = '+ str(request.form))
-        #print('request.data = '+ request.data)
-        #print('request.data decoded = '+ request.data.decode())
+
         dataString = request.data.decode()
         data = json.loads(dataString)
         removeRows = []
@@ -234,15 +243,9 @@ def remove():
 @app.route('/add', methods=['POST'])
 def add():
     ss_client = ss_get_client(access_token)
-    archlist = ss_get_sheet_parsed(ss_client,archSheet, archSelect='EN') 
-    #addForm = archWeekForm()
+
 
     if request.method=='POST': #if one of the forms is submitted
-        #print('request = '+ str(request))
-        #print('request.form = '+ str(request.form))
-        #print('request.data = '+ request.data)
-        #print('request.data = '+ str(request.data))
-        #print('request.data decoded = '+ request.data.decode())
 
         dataString = request.data.decode()
         data = json.loads(dataString)

@@ -21,44 +21,25 @@
     <div class="top-bar">
         <div class="top-bar-left">
           <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Flask Template</li>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="menu-text">Architecture Week</li>
             <li>
-                    <a href="#">ArchWeek</a>
+                    <a href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li>
+                    <a href="#">Architecture</a>
                     <ul class="menu">
-                        <li><a href="{{ url_for('rendertest') }}">rendertest</a></li>
-                        <li><a href="{{ url_for('rendertest2') }}">rendertest2</a></li>
-                        <li><a href="{{ url_for('rendertest3') }}">rendertest3</a></li>
-                        <li><a href="{{ url_for('rendertest4') }}">rendertest4</a></li>
-                        <li><a href="{{ url_for('rendertest5EN') }}">rendertest5EN</a></li>
-                        <li><a href="{{ url_for('rendertest5SEC') }}">rendertest5SEC</a></li>
+                        <li><a href="{{ url_for('EN') }}">EN</a></li>
+                        <li><a href="{{ url_for('SEC') }}">SEC</a></li>
+                        <li><a href="{{ url_for('DC') }}">DC</a></li>
+                        <li><a href="{{ url_for('COLLAB') }}">COLLAB</a></li>
+                        <li><a href="{{ url_for('APP') }}">APP</a></li>
 
                     </ul>
-                </li> 
+            </li> 
+            <li>
+                    <a href="{{ url_for('index') }}">Events</a>
+            </li>
 
-            <li>
-                <a href="{{ url_for('login') }}">Login</a>
-              <ul class="menu">        
-            <li>
-                <a href="{{ url_for('login2') }}">Login2</a>
-              <ul class="menu">
-                <li>
-                <a href="/reports/Americas/US_COMMERCIAL">US_COMMERCIAL</a>
-                <ul class="menu">  
-                  <li>       
-                  <a href="/reports/Americas/US_COMMERCIAL/COMMERCIAL_SOUTH_AREA">COMMERCIAL_SOUTH_AREA</a>
-                  <ul class="menu">
-                    <li><a href="/reports/Americas/US_COMMERCIAL/COMMERCIAL_SOUTH_AREA/South_West_Select_Operation">South_West_Select_Operation</a></li>
-                    <li><a href="/reports/Americas/US_COMMERCIAL/COMMERCIAL_SOUTH_AREA/South_East_Select_Operation">South_East_Select_Operation</a></li>
-                    <li><a href="/reports/Americas/US_COMMERCIAL/COMMERCIAL_SOUTH_AREA/South_Territory_Operation">South_Territory_Operation</a></li>
-                  </ul>
-                </li> 
-                </ul>
-              </li>
-              </ul>
-            </li>
-            </ul>
-            </li>
        
           </ul>
         </div>
