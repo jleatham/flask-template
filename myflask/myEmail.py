@@ -18,4 +18,4 @@ def create_email_html(arch):
         #data = data
         data = {'hello': 'hello','world':'world'}
     )
-    print htmlMsg
+    print (htmlMsg)
