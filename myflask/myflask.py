@@ -162,18 +162,19 @@ def archSelect():
         #print('request = '+ str(request))
         #print('request.form = '+ str(request.form))
         #print('request.data = '+ request.data)
+        print('Arch Select function')
         print('request.data = '+ str(request.data))
-        #print('request.data decoded = '+ request.data.decode())
+        print('request.data decoded = '+ request.data.decode())
         
-        '''
+        
         dataString = request.data.decode()
         data = json.loads(dataString)
-        for i in data['addRow']:
+        for i in data['arch']:
             print("{}    {}".format(i['name'],i['value']))       
-        if data['function'] == 'add':
+        if data['function'] == 'arch':
             return jsonify({"status":"Updated successfully"})
-        '''
-        return jsonify({"status":"Updated successfully"})
+        else:
+            return jsonify({"status":"Error"})
                     
     return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
 

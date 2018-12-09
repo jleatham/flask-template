@@ -16,7 +16,7 @@
         <div class="grid-x grid-margin-x">
                 <div class="medium-8 large-8 small-12 cell">
                         <form action="{{ url_for('archSelect') }}" method="POST" id="archSelect">
-                                <select name="mySelect" id="mySelect" action="{{ url_for('archSelect') }}">
+                                <select name="arch" id="arch" action="{{ url_for('archSelect') }}">
                                     <option value="EN">EN</option>
                                     <option value="SEC">SEC</option>
                                     <option value="DC">DC</option>
@@ -51,11 +51,11 @@
                 console.log(form_id)
             var url = $form.attr( "action" ); //for  flask to know what URL is associated with POST  
                 console.log(url);   
-            if (form_id == 'mySelect') {
+            if (form_id == 'arch') {
                     console.log("This is the archSelect function");
                 var dataString = $form.serializeArray()
                     console.log(dataString)
-                var data = {'function':form_id ,'addRow': dataString}   
+                var data = {'function':form_id ,'arch': dataString}   
             }  
             $.ajax({
                     url: url,
