@@ -225,7 +225,7 @@ def remove():
             #print(i)  
             removeRows.append(i)      
         if data['function'] == 'remove':
-
+            ss_remove_rows(ss_client,archSheet,removeRows)
             return jsonify({"status":"Updated successfully"})
     
                     
