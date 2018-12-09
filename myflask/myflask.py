@@ -176,6 +176,7 @@ def archSelect():
         if data['function'] == 'arch':
             #return jsonify({"status":"Updated successfully"})
             archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect=archSelect)
+            print(archList)
             return render_template('rendertest4.html', title='Render Test', archList=archList)
         else:
             return jsonify({"status":"Error"})
