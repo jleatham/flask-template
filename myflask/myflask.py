@@ -145,7 +145,7 @@ def rendertest4():
     #SmartSheet API calls
     #need to find a way to force this to update on each refresh
     ss_client = ss_get_client(access_token)
-    archlist = ss_get_sheet_parsed(ss_client,archSheet='EN')
+    archlist = ss_get_sheet_parsed(ss_client,archSheet,archSheet='EN')
     #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
     #prep forms to flash return to index for now
 
