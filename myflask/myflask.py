@@ -301,6 +301,12 @@ def add():
                     
     #return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
 
+@app.route('/emailTest', methods=['GET'])
+def emailTest():
+
+    return render_template('emailTest.html', title='email', metaID='email')
+
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
