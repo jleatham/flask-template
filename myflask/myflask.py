@@ -192,7 +192,7 @@ def rendertest5EN():
     #prep forms to flash return to index for now
 
     print('test comment')
-    return render_template('rendertest5.html', title='EN', metaID='EN' archList=archList)
+    return render_template('rendertest5.html', title='EN', metaID='EN', archList=archList)
 
 @app.route('/rendertest5SEC', methods=['GET'])
 def rendertest5SEC():
