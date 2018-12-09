@@ -450,3 +450,7 @@ def ss_update_row(ss_client,archSheet,rowData):
     return updated_row['message']
     '''
 
+def ss_remove_rows(ss_client,archSheet,removeRows):
+    ss_client.Sheets.delete_rows(
+        archSheet,                       # sheet_id
+        removeRows)     # row_ids

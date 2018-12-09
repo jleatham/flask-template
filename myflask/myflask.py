@@ -3,7 +3,7 @@ from config import Config
 from forms import LoginForm, archWeekForm, removeArchWeekForm
 from test import testFunction
 from myMarshmallow import Architecture, ArchitectureSchema
-from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row
+from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row, ss_remove_rows
 from datetime import datetime
 import json
 
@@ -209,7 +209,7 @@ def rendertest5SEC():
 @app.route('/remove', methods=['POST'])
 def remove():
     ss_client = ss_get_client(access_token)
-    archlist = ss_get_sheet_parsed(ss_client,archSheet, archSelect='EN') 
+    #archlist = ss_get_sheet_parsed(ss_client,archSheet, archSelect='EN') 
     #addForm = archWeekForm()
 
     if request.method=='POST': #if one of the forms is submitted
@@ -219,16 +219,17 @@ def remove():
         #print('request.data decoded = '+ request.data.decode())
         dataString = request.data.decode()
         data = json.loads(dataString)
-        for i in data:
-            print(i)
+        removeRows = []
+
         for i in data['removeRows']:
-            print(i)        
+            #print(i)  
+            removeRows.append(i)      
         if data['function'] == 'remove':
 
             return jsonify({"status":"Updated successfully"})
     
                     
-    return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
+    #return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
 
 @app.route('/add', methods=['POST'])
 def add():
