@@ -99,6 +99,8 @@
             } 
             else if (form_id == 'add') {
                     console.log("This is the add function");
+                var arch = $( "select#arch option:checked" ).val();
+                    console.log(arch)
                 var dataString = $form.serializeArray()
                     console.log(dataString)
                 var data = {'function':form_id ,'addRow': dataString}
