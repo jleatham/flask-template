@@ -1,7 +1,7 @@
 <form action="{{ url_for('remove') }}" method="post" id="remove">    
 
         <p class="external"><strong>news</strong></p>
-        {% for i in archList %}
+        {% for i in EN_list %}
         {% if i.category == 'news' %}
                 <ul class="first">
                 <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>
@@ -21,7 +21,7 @@
         {% endfor %}
 
         <p class="external"><strong>Demonstration</strong></p>
-        {% for i in archList %}
+        {% for i in EN_list %}
         {% if i.category == 'demo' %}
         <ul class="first">
                 <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>
@@ -41,7 +41,7 @@
         {% endfor %}
 
         <p class="external"><strong>Services</strong></p>
-        {% for i in archList %}
+        {% for i in EN_list %}
         {% if i.category == 'services' %}
         <ul class="first">
                 <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>
@@ -61,7 +61,7 @@
         {% endfor %}
 
         <p class="internal"><strong>EA</strong></p>
-        {% for i in archList %}
+        {% for i in EN_list %}
         {% if i.category == 'ea' %}
         <ul class="first">
                 <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>
@@ -81,7 +81,7 @@
         {% endfor %}
 
         <p class="internal"><strong>Capital</strong></p>
-        {% for i in archList %}
+        {% for i in EN_list %}
         {% if i.category == 'capital' %}
         <ul class="first">
                 <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>
@@ -101,7 +101,7 @@
         {% endfor %}                            
 
         <p class="internal"><strong>Promotions</strong></p>
-        {% for i in archList %}
+        {% for i in EN_list %}
         {% if i.category == 'promo' %}
         <ul class="first">
                 <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>
@@ -122,7 +122,7 @@
 
 
         <p class="internal"><strong>Proposals - Unsolicited BoMs</strong></p>
-        {% for i in archList %}
+        {% for i in EN_list %}
         {% if i.category == 'proposal' %}
         <ul class="first">
                 <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>
@@ -142,7 +142,7 @@
         {% endfor %}                            
 
         <p class="internal"><strong>SPIFFs</strong></p>
-        {% for i in archList %}
+        {% for i in EN_list %}
         {% if i.category == 'spiff' %}
         <ul class="first">
                 <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>

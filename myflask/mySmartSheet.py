@@ -167,7 +167,7 @@ ss_dict = {'date':'a','internal':'a','category':'b','bullet':'c','bLink':'bLink'
 date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
 '''
 
-def ss_get_sheet_parsed(ss_client,sheet):
+def ss_get_sheet_parsed(ss_client,sheet, archSelect='EN'):
     #Want to be able to get all archWeek info and seperate from json into dict
     #should I do this as a sheet all at once or function for seperate row
     #and then do multiple API calls 1 per row.  That would be ineffective I think
@@ -271,9 +271,25 @@ def ss_get_sheet_parsed(ss_client,sheet):
         archDict, errors = schema.dump(archObject)
         if arch == 'EN':
             EN_list.append(archDict)    
-                    ###Add the rest
-    return EN_list
+        elif arch == 'SEC':
+            SEC_list.append(archDict)  
+        elif arch == 'DC':
+            DC_list.append(archDict)  
+        elif arch == 'COLLAB':
+            COLLAB_list.append(archDict)  
+        elif arch == 'APP':
+            APP_list.append(archDict)  
 
+    if archSelect == 'EN':
+        return EN_list
+    elif archSelect == 'SEC':
+        return SEC_list
+    elif archSelect == 'DC':
+        return DC_list
+    elif archSelect == 'COLLAB':
+        return COLLAB_list
+    elif archSelect == 'APP':
+        return APP_list
 
 
 def ss_update_row(ss_client,archSheet,rowData):

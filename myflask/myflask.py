@@ -169,12 +169,14 @@ def archSelect():
         
         dataString = request.data.decode()
         data = json.loads(dataString)
-        for i in data['arch']:
-            print("{}    {}".format(i['name'],i['value']))       
+        #for i in data['arch']:
+        #    print("{}    {}".format(i['name'],i['value']))   
+        archSelect = data['arch'][0]['value']
+        print(archSelect)
         if data['function'] == 'arch':
             #return jsonify({"status":"Updated successfully"})
-            EN_list = ss_get_sheet_parsed(ss_client,archSheet)
-            return render_template('rendertest4.html', title='Render Test', EN_list=EN_list)
+            archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect=archSelect)
+            return render_template('rendertest4.html', title='Render Test', archList=archSelect)
         else:
             return jsonify({"status":"Error"})
                     
