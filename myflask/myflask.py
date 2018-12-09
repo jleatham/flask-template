@@ -155,7 +155,7 @@ def rendertest4():
 @app.route('/archSelect', methods=['POST'])
 def archSelect():
     ss_client = ss_get_client(access_token)
-    EN_list = ss_get_sheet_parsed(ss_client,archSheet) 
+     
     #addForm = archWeekForm()
 
     if request.method=='POST': #if one of the forms is submitted
@@ -172,7 +172,9 @@ def archSelect():
         for i in data['arch']:
             print("{}    {}".format(i['name'],i['value']))       
         if data['function'] == 'arch':
-            return jsonify({"status":"Updated successfully"})
+            #return jsonify({"status":"Updated successfully"})
+            EN_list = ss_get_sheet_parsed(ss_client,archSheet)
+            return render_template('rendertest4.html', title='Render Test', EN_list=EN_list)
         else:
             return jsonify({"status":"Error"})
                     
