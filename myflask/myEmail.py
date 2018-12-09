@@ -14,7 +14,7 @@ def create_email_html(arch):
         </html>
         """
     htmlMsg = Environment().from_string(htmlTemplate).render(
-        arch = arch
+        arch = arch,
         #data = data
         data = {'hello': 'hello','world':'world'}
     )
