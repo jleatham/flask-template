@@ -16,7 +16,7 @@
         <div class="grid-x grid-margin-x">
                 <div class="medium-8 large-8 small-12 cell">
                         <form action="{{ url_for('archSelect') }}" method="POST" id="archSelect">
-                                <select name="mySelect" id="mySelect">
+                                <select name="mySelect" id="mySelect" action="{{ url_for('archSelect') }}">
                                     <option value="EN">EN</option>
                                     <option value="SEC">SEC</option>
                                     <option value="DC">DC</option>
