@@ -181,8 +181,29 @@ def archSelect():
         else:
             return jsonify({"status":"Error"})
                     
-    return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
+    return jsonify({"status":"Error"})
 
+@app.route('/rendertest5EN', methods=['GET'])
+def rendertest5EN():
+
+    ss_client = ss_get_client(access_token)
+    archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='EN')
+    #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
+    #prep forms to flash return to index for now
+
+    print('test comment')
+    return render_template('rendertest5.html', title='EN', archList=archList)
+
+@app.route('/rendertest5SEC', methods=['GET'])
+def rendertest5SEC():
+
+    ss_client = ss_get_client(access_token)
+    archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='SEC')
+    #date,internal,category,bullet,bLink,subBullet1,sb1Link,subBullet2,sb2Link,subBullet3,sb3Link,subBullet4,sb4Link,subBullet5,sb5Link
+    #prep forms to flash return to index for now
+
+    print('test comment')
+    return render_template('rendertest5.html', title='SEC', archList=archList)
 
 
 @app.route('/remove', methods=['POST'])
