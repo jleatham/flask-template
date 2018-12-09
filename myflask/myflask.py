@@ -150,7 +150,7 @@ def rendertest4():
     #prep forms to flash return to index for now
 
     print('test comment')
-    return render_template('rendertest4.html', title='Render Test', archListt=archList)
+    return render_template('rendertest4.html', title='Render Test', archList=archList)
 
 @app.route('/archSelect', methods=['POST'])
 def archSelect():
