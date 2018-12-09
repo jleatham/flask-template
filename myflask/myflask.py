@@ -192,7 +192,7 @@ def rendertest5EN():
     #prep forms to flash return to index for now
 
     print('test comment')
-    return render_template('rendertest5.html', title='EN', archList=archList)
+    return render_template('rendertest5.html', title='EN', metaID='EN' archList=archList)
 
 @app.route('/rendertest5SEC', methods=['GET'])
 def rendertest5SEC():
@@ -203,7 +203,7 @@ def rendertest5SEC():
     #prep forms to flash return to index for now
 
     print('test comment')
-    return render_template('rendertest5.html', title='SEC', archList=archList)
+    return render_template('rendertest5.html', title='SEC', metaID='SEC', archList=archList)
 
 
 @app.route('/remove', methods=['POST'])
@@ -242,16 +242,60 @@ def add():
         #print('request.data = '+ request.data)
         #print('request.data = '+ str(request.data))
         #print('request.data decoded = '+ request.data.decode())
-        
+
         dataString = request.data.decode()
         data = json.loads(dataString)
+        print(data)
         for i in data['addRow']:
-            print("{}    {}".format(i['name'],i['value']))       
+            print("{}    {}".format(i['name'],i['value']))    
+
+        
+            if i['name'] == 'category':
+                category = i['value']                        
+            if i['name'] == 'bullet':
+                bullet = i['value']
+            if i['name'] == 'bLink':
+                bLink = i['value']
+            if i['name'] == 'subBullet1':
+                subBullet1 = i['value']
+            if i['name'] == 'sb1Link':
+                sb1Link = i['value']
+            if i['name'] == 'subBullet2':
+                subBullet2 = i['value']
+            if i['name'] == 'sb2Link':
+                sb2Link = i['value']
+            if i['name'] == 'subBullet3':
+                subBullet3 = i['value']
+            if i['name'] == 'sb3Link':
+                sb3Link = i['value']
+            if i['name'] == 'subBullet4':
+                subBullet4 = i['value']
+            if i['name'] == 'sb4Link':
+                sb4Link = i['value']
+            if i['name'] == 'subBullet5':
+                subBullet5 = i['value']
+            if i['name'] == 'sb5Link':
+                sb5Link = i['value']
+        arch = data['arch'][0]['value']
+        
         if data['function'] == 'add':
+
+            now  = datetime.now()
+            date = now.strftime("%d %b %Y")  
+            print('made it to addForm validate')
+            archObject = Architecture(date, arch, category, bullet, bLink,
+                subBullet1, sb1Link, subBullet2, sb2Link,
+                subBullet3, sb3Link, subBullet4, sb4Link,
+                subBullet5, sb5Link, 12345678) #random row ID since we just post to bottom
+            schema = ArchitectureSchema()
+            archDict, errors = schema.dump(archObject) 
+            rowAddResult = ss_update_row(ss_client,archSheet, archDict)    
+
+
             return jsonify({"status":"Updated successfully"})
         
                     
-    return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
+    #return render_template('rendertest3.html', title='Render Test', EN_list=EN_list)
 
 
 if __name__ == "__main__":
