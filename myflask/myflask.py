@@ -276,7 +276,7 @@ def add():
                 subBullet5 = i['value']
             if i['name'] == 'sb5Link':
                 sb5Link = i['value']
-        arch = data['arch'][0]['value']
+        arch = data['arch']['name']
         
         if data['function'] == 'add':
 
