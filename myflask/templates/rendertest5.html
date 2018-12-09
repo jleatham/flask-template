@@ -76,6 +76,7 @@
                     success: function(response){
                         console.log(response)
                         $form.find("input[type=text], textarea").val("");
+                        location.reload();
                         
                     },
                     error: function(jqXHR, textStatus, errorThrown){
