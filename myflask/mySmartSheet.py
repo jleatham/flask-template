@@ -461,9 +461,9 @@ def ss_remove_rows(ss_client,archSheet,removeRows):
 
 
 def ss_get_events_parsed(ss_client,eventSheet, eventSelect='ALL'):
-
+    print('made it to events_parsed Function')
     jsonSheet = json.loads(str(ss_client.Sheets.get_sheet(eventSheet)))
-
+    print('API returned')
     EN_list     = []
     SEC_list    = []
     DC_list     = []
