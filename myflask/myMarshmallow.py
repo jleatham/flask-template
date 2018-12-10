@@ -45,6 +45,45 @@ class ArchitectureSchema(Schema):
     def createArchitecture(self, data):
         return Architecture(**data) 
 
+
+
+class Event(object):
+    def __init__(self, date, arch, region, city, address, content, summary, reg, email, rowID):
+        self.date       = date
+        self.arch       = arch
+        self.region     = region
+        self.city       = city
+        self.address    = address
+        self.content    = content
+        self.summary    = summary
+        self.reg        = reg
+        self.email      = email
+        self.rowID      = rowID
+    
+    def __repr__(self):
+        return "rowID: {} , date: {}  , summary: {}".format(str(self.rowID), self.date, self.summary)
+
+        #reset all vars to empty for each row loop
+date, arch, region, city, address, content, summary, reg, email, rowID
+
+class EventSchema(Schema):
+    date       = fields.String()
+    arch       = fields.String()
+    region     = fields.String()
+    city       = fields.String()
+    address    = fields.String()
+    content    = fields.String()
+    summary    = fields.String()
+    reg        = fields.String()
+    email      = fields.String()
+    rowID      = fields.Integer()
+
+    @post_load
+    def createEvent(self, data):
+        return Event(**data) 
+
+
+
 #ss_dict = {'date':date,'internal':internal,'category':category,etc}
 #schema = ArchitectureSchema()
 #archResult = schema.load(ss_dict)

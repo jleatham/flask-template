@@ -3,7 +3,7 @@ from config import Config
 from forms import LoginForm, archWeekForm, removeArchWeekForm
 from test import testFunction
 from myMarshmallow import Architecture, ArchitectureSchema
-from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row, ss_remove_rows
+from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row, ss_remove_rows, ss_get_events_parsed
 from myEmail import create_html_msg
 from datetime import datetime
 import json
@@ -311,9 +311,29 @@ def emailTest():
 
     return render_template('emailTest.html', title='email', metaID='email', emailData=emailData)
 
-@app.route('/events', methods=['GET'])
+@app.route('/eventTemplate', methods=['GET'])
 def events():
-    return render_template('events.html', title='events', metaID='events')
+    ss_client = ss_get_client(access_token)
+    eventList = ss_get_events_parsed(ss_client,eventSheet,eventSelect='ALL')
+    return render_template('eventTemplate.html', title='events', metaID='events', eventList=eventList)
+
+@app.route('/eventRemove', methods=['POST'])
+def eventRemove():
+    print('eventRemove Route')
+    return render_template('eventTemplate.html', title='events', metaID='events')
+
+@app.route('/eventAdd', methods=['POST'])
+def eventAdd():
+    print('eventAdd Route')
+    
+    if request.method=='POST': #if one of the forms is submitted
+
+        dataString = request.data.decode()
+        data = json.loads(dataString)
+        print(data)
+        for i in data['addRow']:
+            print("{}    {}".format(i['name'],i['value']))       
+    return render_template('eventTemplate.html', title='events', metaID='events')
 
 
 if __name__ == "__main__":

@@ -10,6 +10,7 @@ import requests
 #access_token = os.environ.get('SMARTSHEET_TOKEN')
 access_token = SMARTSHEET_TOKEN
 archSheet = 2089577960761220
+eventSheet = 2175182816208772
 
 #testing, delete
 #from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row
@@ -456,3 +457,83 @@ def ss_remove_rows(ss_client,archSheet,removeRows):
     ss_client.Sheets.delete_rows(
         archSheet,                       # sheet_id
         removeRows)     # row_ids
+
+
+
+def ss_get_events_parsed(ss_client,eventSheet, eventSelect='ALL'):
+
+    jsonSheet = json.loads(str(ss_client.Sheets.get_sheet(eventSheet)))
+
+    EN_list     = []
+    SEC_list    = []
+    DC_list     = []
+    COLLAB_list = []
+    APP_list    = []
+
+
+
+    for x in jsonSheet['rows']:
+        #print("id: {}    rowNumber: {}".format(x['id'],x['rowNumber']))
+        #reset all vars to empty for each row loop
+        date        = ""
+        arch        = ""
+        region      = ""
+        city        = ""
+        address     = ""
+        content     = ""
+        summary     = ""
+        reg         = ""
+        email       = ""
+        rowID       = x['id']
+        for i in x['cells']:
+            if 'value' in i:
+                #print("\tcell id:{}    value: {}".format(i['columnId'],i['value']))
+                if i['columnId'] == 433964541339524:
+                    date = i['value']            
+                #if i['columnId'] == 8256382706182020:
+                #    internal = i['value']
+                if i['columnId'] == 4937564168710020:
+                    city = i['value']                        
+                if i['columnId'] == 2685764355024772:
+                    address = i['value']
+                if i['columnId'] == 7189363982395268:
+                    arch = i['value']
+                if i['columnId'] == 1559864448182148:
+                    summary = i['value']
+                if i['columnId'] == 6095620495697796:
+                    content = i['value']
+                if i['columnId'] == 3843820682012548:
+                    reg = i['value']
+                if i['columnId'] == 8347420309383044:
+                    email = i['value']
+                if i['columnId'] == 8596738865948548:
+                    region = i['value']
+        #after each cell is saved in whole row, create a data object
+        #probably should just build the dict out manually as opposed to marshmall object first
+        
+        eventObject = Event(date, arch, region, city, address, content, summary, reg, email, rowID)
+        schema = EventSchema()
+        eventDict, errors = schema.dump(eventObject)
+        if arch == 'EN':
+            EN_list.append(eventDict)    
+        elif arch == 'SEC':
+            SEC_list.append(eventDict)  
+        elif arch == 'DC':
+            DC_list.append(eventDict)  
+        elif arch == 'COLLAB':
+            COLLAB_list.append(eventDict)  
+        elif arch == 'APP':
+            APP_list.append(eventDict)  
+
+    if eventSelect == 'EN':
+        return EN_list
+    elif eventSelect == 'SEC':
+        return SEC_list
+    elif eventSelect == 'DC':
+        return DC_list
+    elif eventSelect == 'COLLAB':
+        return COLLAB_list
+    elif eventSelect == 'APP':
+        return APP_list
+    elif eventSelect == 'ALL':
+        return EN_list, SEC_list, DC_list, COLLAB_list, APP_list

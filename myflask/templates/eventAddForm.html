@@ -1,4 +1,4 @@
-<form action="/events" method="post" id="events">
+<form action="{{ url_for('eventAdd') }}" method="post" id="eventAdd">
     <input id="csrf_token" name="csrf_token" type="hidden" value="ImM4YjlkODBkMTJjNzE2NmMwMTk2NDUwYTNmYzAwMjgzNjAwOTMyYTci.XAtZKA.xR9y4FxL-8VitbM8uWqrHr6X4_4"> 
     <div class="cell auto">     
         <label for="date">Main Bullet</label>
@@ -58,7 +58,7 @@
         <input id="email" name="email" placeholder="Box Link to .eml file" required size="500" type="text" value="">  
 
 
-                
+        <input class="success button" id="submit" name="submit" type="submit" value="Update">
 
             </div>
           </form>
