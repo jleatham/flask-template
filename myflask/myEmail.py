@@ -10,7 +10,7 @@ def create_email_html(archList):
                             <span {{ spanStyleBlue }}>Cisco Enterprise Networking News</span>
                         </td>
                     </tr>
-            {{% for i in archList %}}
+            {% for i in archList %}
             {% if i.category == 'news' %}
 
                     <tr>
