@@ -1,19 +1,19 @@
 <form action="{{ url_for('eventRemove') }}" method="post" id="eventRemove">    
-
+        <h2>Debug to removeForm</h2>
         <table style="width:100%;">
                 <tbody>
                         {% if eventList %}
         <!-- Header  --><tr>
-                                {% for key in eventList[0] %}
+                                {% for key in eventList %}
                                 <th> {{ key }} </th>
                                 {% endfor %}
                         </tr>
                         {% endif %}
 
 
-                        {% for row in events %}
+                        {% for row in eventList %}
         <!-- Body    --><tr>
-                                {% for i in drow.values() %}
+                                {% for i in row.values() %}
                                 <td>{{ i }}</td>
                                 {% endfor %}
                                         
