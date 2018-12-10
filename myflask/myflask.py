@@ -312,7 +312,7 @@ def emailTest():
     return render_template('emailTest.html', title='email', metaID='email', emailData=emailData)
 
 @app.route('/eventTemplate', methods=['GET'])
-def events():
+def eventTemplate():
     ss_client = ss_get_client(access_token)
     eventList = ss_get_events_parsed(ss_client,eventSheet,eventSelect='ALL')
     return render_template('eventTemplate.html', title='events', metaID='events', eventList=eventList)
@@ -325,7 +325,7 @@ def eventRemove():
 @app.route('/eventAdd', methods=['POST'])
 def eventAdd():
     print('eventAdd Route')
-    
+
     if request.method=='POST': #if one of the forms is submitted
 
         dataString = request.data.decode()
