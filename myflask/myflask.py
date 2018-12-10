@@ -315,6 +315,7 @@ def emailTest():
 def eventTemplate():
     ss_client = ss_get_client(access_token)
     eventList = ss_get_events_parsed(ss_client,eventSheet,eventSelect='ALL')
+    print(eventList)
     return render_template('eventTemplate.html', title='events', metaID='events', eventList=eventList)
 
 @app.route('/eventRemove', methods=['POST'])
