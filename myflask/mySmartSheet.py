@@ -526,7 +526,9 @@ def ss_get_events_parsed(ss_client,eventSheet, eventSelect='ALL'):
         elif arch == 'COLLAB':
             COLLAB_list.append(eventDict)  
         elif arch == 'APP':
-            APP_list.append(eventDict)  
+            APP_list.append(eventDict)
+        else: 
+            ALL_list.append(eventDict)
 
     if eventSelect == 'EN':
         return EN_list
