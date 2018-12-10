@@ -470,7 +470,8 @@ def ss_get_events_parsed(ss_client,eventSheet, eventSelect='ALL'):
     COLLAB_list = []
     APP_list    = []
 
-
+    print(jsonSheet)
+    print(jsonSheet['rows'])
     #need a fix for if event sheet is ever empty
     for x in jsonSheet['rows']:
         #print("id: {}    rowNumber: {}".format(x['id'],x['rowNumber']))
@@ -508,6 +509,7 @@ def ss_get_events_parsed(ss_client,eventSheet, eventSelect='ALL'):
                     email = i['value']
                 if i['columnId'] == 8596738865948548:
                     region = i['value']
+                print(i)
         #after each cell is saved in whole row, create a data object
         #probably should just build the dict out manually as opposed to marshmall object first
         
@@ -536,4 +538,4 @@ def ss_get_events_parsed(ss_client,eventSheet, eventSelect='ALL'):
     elif eventSelect == 'APP':
         return APP_list
     elif eventSelect == 'ALL':
-        return EN_list, SEC_list, DC_list, COLLAB_list, APP_list
+        return ALL_list
