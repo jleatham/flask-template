@@ -1,5 +1,5 @@
 from jinja2 import Environment 
-from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed
+
 
 def create_email_table(archList,category, header):
     htmlTemplate = """
@@ -76,11 +76,8 @@ def create_email_table(archList,category, header):
     #print (htmlMsg)
     return htmlMsg
 
-def create_html_msg(archSelect):
+def create_html_msg(archList):
     htmlMsg = ""
-    ss_client = ss_get_client(access_token)
-    archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect=archSelect)
-    categoryHeaders = {}    
     emailTable = create_email_table(archList,'news', 'News')
     htmlMsg = htmlMsg + emailTable
     emailTable = create_email_table(archList,'demo', 'Demonstrations')
