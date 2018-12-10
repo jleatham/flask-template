@@ -6,7 +6,7 @@ def create_email_html(archList):
             <table {{ tableStyle }} >
                 <tbody>
                     <tr style="">
-                        <td {{ tdStyle }}>
+                        <td {{ tdStyleHeader }}>
                             <span {{ spanStyleBlue }}>Cisco Enterprise Networking News</span>
                         </td>
                     </tr>
@@ -14,7 +14,7 @@ def create_email_html(archList):
             {% if i.category == 'news' %}
 
                     <tr style="">
-                        <td {{ tdStyle }}>
+                        <td {{ tdStyleBody }}>
                             <ul  style="">
 
                                 <li  style="">
