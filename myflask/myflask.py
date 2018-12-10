@@ -304,7 +304,12 @@ def add():
 
 @app.route('/emailTest', methods=['GET'])
 def emailTest():
-    return render_template('emailTest.html', title='email', metaID='email')
+    #add an 'all' for archSelect and return ENList, SECList, etc all at once
+    ss_client = ss_get_client(access_token)
+    archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='EN')    
+    emailData = create_html_msg(archList)
+
+    return render_template('emailTest.html', title='email', metaID='email', emailData=emailData)
 
 @app.route('/events', methods=['GET'])
 def events():
