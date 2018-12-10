@@ -1,7 +1,7 @@
 import smartsheet
 import os
 #from datetime import datetime
-from myMarshmallow import Architecture, ArchitectureSchema
+from myMarshmallow import Architecture, ArchitectureSchema, Event, EventSchema
 import json
 from secrets import SMARTSHEET_TOKEN
 import requests
@@ -471,7 +471,7 @@ def ss_get_events_parsed(ss_client,eventSheet, eventSelect='ALL'):
     APP_list    = []
 
 
-
+    #need a fix for if event sheet is ever empty
     for x in jsonSheet['rows']:
         #print("id: {}    rowNumber: {}".format(x['id'],x['rowNumber']))
         #reset all vars to empty for each row loop
