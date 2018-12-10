@@ -1,7 +1,65 @@
-{% extends "base.html" %}
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="metaID" data-name="{{metaID}}" data-other="{{metaID}}">
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Flask Template</title>
+    {% endif %}
+    <link rel="stylesheet" href={{ url_for('static', filename='foundation.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='app.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='foundation-icons.css') }}>
+    <link rel="shortcut icon" href={{ url_for('static', filename='favicon.ico') }} />
+    
+  </head>
+  <body>
 
-{% block content %}
+    <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Architecture Week</li>
+            <li>
+                    <a href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li>
+                    <a href="#">Architecture</a>
+                    <ul class="menu">
+                        <li><a href="{{ url_for('EN') }}">EN</a></li>
+                        <li><a href="{{ url_for('SEC') }}">SEC</a></li>
+                        <li><a href="{{ url_for('DC') }}">DC</a></li>
+                        <li><a href="{{ url_for('COLLAB') }}">COLLAB</a></li>
+                        <li><a href="{{ url_for('APP') }}">APP</a></li>
+
+                    </ul>
+            </li> 
+            <li>
+                    <a href="{{ url_for('index') }}">Events</a>
+            </li>
+
+       
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+          </ul>
+        </div>
+      </div> 
 
 {{ emailData|safe }}
 
-{% endblock %}
+<script src={{ url_for('static', filename='vendor/jquery.js') }}></script>
+<script src={{ url_for('static', filename='vendor/what-input.js') }}></script>
+<script src={{ url_for('static', filename='vendor/foundation.js') }}></script>
+<script src={{ url_for('static', filename='app.js') }}></script>
+<script src={{ url_for('static', filename='vendor/foundation.core.js') }}></script>
+<script src={{ url_for('static', filename='vendor/foundation.dropdownMenu.js') }}></script>
+<script src={{ url_for('static', filename='vendor/foundation.util.box.js') }}></script>
+<script src={{ url_for('static', filename='vendor/foundation.util.keyboard.js') }}></script>
+<script src={{ url_for('static', filename='vendor/foundation.util.nest.js') }}></script>  
+
+</body>
+</html>
