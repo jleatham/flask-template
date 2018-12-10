@@ -249,7 +249,7 @@ def add():
     if request.method=='POST': #if one of the forms is submitted
         print('request = '+ str(request))
         print('request.form = '+ str(request.form))
-        #print('request.data = '+ request.data)
+        print('request.data = '+ str(request.data))
         dataString = request.data.decode()
         print('decoded: '+dataString)
         data = json.loads(dataString)
@@ -333,7 +333,7 @@ def eventAdd():
     if request.method=='POST': #if one of the forms is submitted
         print('request = '+ str(request))
         print('request.form = '+ str(request.form))
-        #print('request.data = '+ request.data)
+        print('request.data = '+ str(request.data))
         dataString = request.data.decode()
         print('decoded: '+ dataString)
         data = json.loads(dataString)
