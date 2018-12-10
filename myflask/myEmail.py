@@ -61,7 +61,7 @@ def create_email_html(archList):
         archList = archList,
         trStyle = 'style="background-color:transparent;"',
         spanStyle =  'style= "color:black;font-family:ciscosans,sans-serif;font-size:12pt;"',
-        tableStyle = 'width="50%" border="0" cellpadding="0" cellspacing="0" style="border-radius:1px;font-family:-webkit-standard;letter-spacing:normal;orphans:auto;text-indent:0px;text-transform:none;widows:auto;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px;text-decoration:none;border-collapse:collapse;"',
+        tableStyle = 'style="width:50%;border=0;cellpadding=0;cellspacing=0;border-radius:1px;font-family:-webkit-standard;letter-spacing:normal;orphans:auto;text-indent:0px;text-transform:none;widows:auto;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px;text-decoration:none;border-collapse:collapse;"',
         tdStyleHeader = 'style="width:100%;border:1pt solid windowtext;padding:0in 5.4pt;vertical-align:top;"',
         tdStyleBody = 'style="width:100%;border-style:none solid;border-left-width:1pt;border-right-width:1pt;padding:0in 5.4pt;vertical-align:top;"',
         spanStyleBlue = 'style="color:#00b0f0;font-family:ciscosans,sans-serif;font-size:12pt;"',
