@@ -4,6 +4,7 @@ from forms import LoginForm, archWeekForm, removeArchWeekForm
 from test import testFunction
 from myMarshmallow import Architecture, ArchitectureSchema
 from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row, ss_remove_rows
+from myEmail import create_email_html
 from datetime import datetime
 import json
 
@@ -303,8 +304,12 @@ def add():
 
 @app.route('/emailTest', methods=['GET'])
 def emailTest():
+    #add an 'all' for archSelect and return ENList, SECList, etc all at once
+    ss_client = ss_get_client(access_token)
+    archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='EN')    
+    emailData = create_email_html(archList)
 
-    return render_template('emailTest.html', title='email', metaID='email')
+    return render_template('emailTest.html', title='email', metaID='email', emailData=emailData)
 
 
 
