@@ -64,7 +64,7 @@ class Event(object):
         return "rowID: {} , date: {}  , summary: {}".format(str(self.rowID), self.date, self.summary)
 
         #reset all vars to empty for each row loop
-date, arch, region, city, address, content, summary, reg, email, rowID
+
 
 class EventSchema(Schema):
     date       = fields.String()
