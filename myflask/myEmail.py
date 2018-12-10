@@ -4,7 +4,7 @@ def create_email_html(archList):
     htmlTemplate = """
 
             <table {{ tableStyle }} >
-                <tbody>
+                <tbody style="">
                     <tr style="">
                         <td {{ tdStyleHeader }}>
                             <span {{ spanStyleBlue }}>Cisco Enterprise Networking News</span>
@@ -25,22 +25,22 @@ def create_email_html(archList):
                                             <span {{ spanStyle }}> {{ i.subBullet1 }}{% if i.sb1Link %} <a href="{{ i.sb1Link }}" {{ aStyle }}>Link</a>{% endif %}</span>
                                         </li>
                                         {% if i.subBullet2 %} 
-                                        <li>
+                                        <li style="">
                                             <span {{ spanStyle }}> {{ i.subBullet2 }}{% if i.sb2Link %} <a href="{{ i.sb2Link }}" {{ aStyle }}>Link</a>{% endif %}</span>
                                         </li>                                
                                         {% endif %}
                                         {% if i.subBullet3 %} 
-                                        <li>
+                                        <li style="">
                                             <span {{ spanStyle }}> {{ i.subBullet3 }}{% if i.sb3Link %} <a href="{{ i.sb3Link }}" {{ aStyle }}>Link</a>{% endif %}</span>
                                         </li>                                
                                         {% endif %}   
                                         {% if i.subBullet4 %} 
-                                        <li>
+                                        <li style="">
                                             <span {{ spanStyle }}> {{ i.subBullet4 }}{% if i.sb4Link %} <a href="{{ i.sb4Link }}" {{ aStyle }}>Link</a>{% endif %}</span>
                                         </li>                                
                                         {% endif %} 
                                         {% if i.subBullet5 %} 
-                                        <li>
+                                        <li style="">
                                             <span {{ spanStyle }}> {{ i.subBullet5 }}{% if i.sb5Link %} <a href="{{ i.sb5Link }}" {{ aStyle }}>Link</a>{% endif %}</span>
                                         </li>                                
                                         {% endif %}                                                                                                 
