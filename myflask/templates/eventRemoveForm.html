@@ -2,23 +2,40 @@
         <h2>Debug to removeForm</h2>
         <table style="width:100%;">
                 <tbody>
-                        {% if eventList %}
+                {% if eventList %}
         <!-- Header  --><tr>
-                                {% for key in eventList %}
-                                <th> {{ key }} </th>
-                                {% endfor %}
+
+                                <th>Region</th>
+                                <th>Date</th>
+                                <th>City</th>
+                                <th>Address</th>
+                                <th>Architecture</th>
+                                <th>Summary</th>
+                                <th>Content</th>
+                                <th>Registration</th>
+                                <th>Email Template</th>
+
                         </tr>
-                        {% endif %}
+                        
 
 
-                        {% for row in eventList %}
+                        {% for i in eventList %}
         <!-- Body    --><tr>
-                                {% for i in row.values() %}
-                                <td>{{ i }}</td>
-                                {% endfor %}
+
+                                <td>{{ i.region }}</td>
+                                <td>{{ i.date }}</td>
+                                <td>{{ i.city }}</td>
+                                <td>{{ i.address }}</td>
+                                <td>{{ i.arch }}</td>
+                                <td>{{ i.summary }}</td>
+                                <td>{{ i.content }}</td>
+                                <td>{{ i.reg }}</td>
+                                <td>{{ i.email }}</td>
+
                                         
                                 
                         </tr> 
+                {% endif %}
                         {% endfor %}               
                 </tbody>
         </table>
