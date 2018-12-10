@@ -3,7 +3,7 @@ from config import Config
 from forms import LoginForm, archWeekForm, removeArchWeekForm
 from test import testFunction
 from myMarshmallow import Architecture, ArchitectureSchema
-from mySmartSheet import access_token, archSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row, ss_remove_rows, ss_get_events_parsed
+from mySmartSheet import access_token, archSheet, eventSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row, ss_remove_rows, ss_get_events_parsed
 from myEmail import create_html_msg
 from datetime import datetime
 import json
