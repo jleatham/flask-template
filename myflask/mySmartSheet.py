@@ -290,6 +290,8 @@ def ss_get_sheet_parsed(ss_client,sheet, archSelect='EN'):
         return COLLAB_list
     elif archSelect == 'APP':
         return APP_list
+    elif archSelect == 'ALL':
+        return EN_list, SEC_list, DC_list, COLLAB_list, APP_list
 
 
 def ss_update_row(ss_client,archSheet,rowData):
