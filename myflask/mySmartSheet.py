@@ -469,6 +469,7 @@ def ss_get_events_parsed(ss_client,eventSheet, eventSelect='ALL'):
     DC_list     = []
     COLLAB_list = []
     APP_list    = []
+    ALL_list    = []
 
     print(jsonSheet)
     print(jsonSheet['rows'])
