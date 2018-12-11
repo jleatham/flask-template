@@ -327,38 +327,35 @@ def ss_update_row(ss_client,sheetSelect,rowData):
     #trying with requests instead of SDK
     headers = {'Authorization': "Bearer "+access_token,'Content-Type': "application/json"}
     url = "https://api.smartsheet.com/2.0/sheets/"+str(sheetSelect)+"/rows"
-    if sheetSelect == archSheet
+    if sheetSelect == archSheet:
         payload = '{"toBottom":true, "cells": [ \
-                    {"columnId": 6004582892496772, "value": "'+ rowData["date"] +'", "strict": false}, \
-                    {"columnId": 938033311704964, "value": "'+ rowData["category"] +'", "strict": false}, \
-                    {"columnId": 5441632939075460, "value": "'+ rowData["bullet"] +'", "strict": false}, \
-                    {"columnId": 3189833125390212, "value": "'+ rowData["bLink"] +'", "strict": false}, \
-                    {"columnId": 425317295777668, "value": "'+ rowData["subBullet1"] +'", "strict": false}, \
-                    {"columnId": 8588091620386692, "value": "'+ rowData["sb1Link"] +'", "strict": false}, \
+                    {"columnId": 6004582892496772, "value": "'+ rowData["date"] +'",       "strict": false}, \
+                    {"columnId": 938033311704964,  "value": "'+ rowData["category"] +'",   "strict": false}, \
+                    {"columnId": 5441632939075460, "value": "'+ rowData["bullet"] +'",     "strict": false}, \
+                    {"columnId": 3189833125390212, "value": "'+ rowData["bLink"] +'",      "strict": false}, \
+                    {"columnId": 425317295777668,  "value": "'+ rowData["subBullet1"] +'", "strict": false}, \
+                    {"columnId": 8588091620386692, "value": "'+ rowData["sb1Link"] +'",    "strict": false}, \
                     {"columnId": 4084491993016196, "value": "'+ rowData["subBullet2"] +'", "strict": false}, \
-                    {"columnId": 6336291806701444, "value": "'+ rowData["sb2Link"] +'", "strict": false}, \
+                    {"columnId": 6336291806701444, "value": "'+ rowData["sb2Link"] +'",    "strict": false}, \
                     {"columnId": 1832692179330948, "value": "'+ rowData["subBullet3"] +'", "strict": false}, \
-                    {"columnId": 7462191713544068, "value": "'+ rowData["sb3Link"] +'", "strict": false}, \
+                    {"columnId": 7462191713544068, "value": "'+ rowData["sb3Link"] +'",    "strict": false}, \
                     {"columnId": 2958592086173572, "value": "'+ rowData["subBullet4"] +'", "strict": false}, \
-                    {"columnId": 5210391899858820, "value": "'+ rowData["sb4Link"] +'", "strict": false}, \
-                    {"columnId": 706792272488324, "value": "'+ rowData["subBullet5"] +'", "strict": false}, \
-                    {"columnId": 8025141666965380, "value": "'+ rowData["sb5Link"] +'", "strict": false}, \
-                    {"columnId": 3752783078811524, "value": "'+ rowData["arch"] +'", "strict": false} \
+                    {"columnId": 5210391899858820, "value": "'+ rowData["sb4Link"] +'",    "strict": false}, \
+                    {"columnId": 706792272488324,  "value": "'+ rowData["subBullet5"] +'", "strict": false}, \
+                    {"columnId": 8025141666965380, "value": "'+ rowData["sb5Link"] +'",    "strict": false}, \
+                    {"columnId": 3752783078811524, "value": "'+ rowData["arch"] +'",       "strict": false} \
                     ] }'
     elif sheetSelect == eventSheet:
         payload = '{"toBottom":true, "cells": [ \
-                    {"columnId": 433964541339524, "value": "'+ rowData["date"] +'", "strict": false}, \
-                    {"columnId": 4937564168710020, "value": "'+ rowData["city"] +'", "strict": false}, \
+                    {"columnId": 433964541339524,  "value": "'+ rowData["date"] +'",    "strict": false}, \
+                    {"columnId": 4937564168710020, "value": "'+ rowData["city"] +'",    "strict": false}, \
                     {"columnId": 2685764355024772, "value": "'+ rowData["address"] +'", "strict": false}, \
                     {"columnId": 1559864448182148, "value": "'+ rowData["summary"] +'", "strict": false}, \
                     {"columnId": 6095620495697796, "value": "'+ rowData["content"] +'", "strict": false}, \
-                    {"columnId": 3843820682012548, "value": "'+ rowData["reg"] +'", "strict": false}, \
-                    {"columnId": 8347420309383044, "value": "'+ rowData["email"] +'", "strict": false}, \
-                    {"columnId": 8596738865948548, "value": "'+ rowData["region"] +'", "strict": false}, \
-                    {"columnId": 1832692179330948, "value": "'+ rowData["subBullet3"] +'", "strict": false}, \
-                    {"columnId": 7462191713544068, "value": "'+ rowData["sb3Link"] +'", "strict": false}, \
-
-                    {"columnId": 7189363982395268, "value": "'+ rowData["arch"] +'", "strict": false} \
+                    {"columnId": 3843820682012548, "value": "'+ rowData["reg"] +'",     "strict": false}, \
+                    {"columnId": 8347420309383044, "value": "'+ rowData["email"] +'",   "strict": false}, \
+                    {"columnId": 8596738865948548, "value": "'+ rowData["region"] +'",  "strict": false}, \
+                    {"columnId": 7189363982395268, "value": "'+ rowData["arch"] +'",    "strict": false} \
                     ] }' 
 
 
