@@ -323,8 +323,20 @@ def eventTemplate():
 
 @app.route('/eventRemove', methods=['POST'])
 def eventRemove():
-    print('eventRemove Route')
-    return render_template('eventTemplate.html', title='events', metaID='events')
+    ss_client = ss_get_client(access_token)
+
+    if request.method=='POST': #if one of the forms is submitted
+
+        dataString = request.data.decode()
+        data = json.loads(dataString)
+        removeRows = []
+
+        for i in data['removeRows']:
+            #print(i)  
+            removeRows.append(i)      
+        if data['function'] == 'remove':
+            ss_remove_rows(ss_client,eventSheet,removeRows)
+            return jsonify({"status":"Updated successfully"})
 
 @app.route('/eventAdd', methods=['POST'])
 def eventAdd():

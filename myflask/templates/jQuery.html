@@ -23,7 +23,15 @@ $( document ).ready(function() {
                     myCheckboxes.push($(this).val());
                     $(this).prop("checked", false)});
             var data = {'function':form_id ,'removeRows': myCheckboxes}                      
-        } 
+        }
+        else if (form_id == 'eventRemove'){
+                console.log("This is the eventRemove function");
+            var myCheckboxes = new Array();
+            $form.find( "input[name='rowID']:checked" ).each(function() {
+                    myCheckboxes.push($(this).val());
+                    $(this).prop("checked", false)});
+            var data = {'function':form_id ,'removeRows': myCheckboxes}                      
+        }          
         else if (form_id == 'add') {
                 console.log("This is the add function");
             //var arch = $( "select#arch option:checked" ).val();

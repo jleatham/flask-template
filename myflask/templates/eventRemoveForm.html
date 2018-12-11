@@ -4,7 +4,7 @@
                 <tbody>
                 {% if eventList %}
         <!-- Header  --><tr>
-
+                                <th>Remove</th>
                                 <th>Region</th>
                                 <th>Date</th>
                                 <th>City</th>
@@ -21,7 +21,7 @@
 
                         {% for i in eventList %}
         <!-- Body    --><tr>
-
+                                <td><input type="checkbox" name="rowID" value="{{ i.rowID }}"></td>
                                 <td>{{ i.region }}</td>
                                 <td>{{ i.date }}</td>
                                 <td>{{ i.city }}</td>
