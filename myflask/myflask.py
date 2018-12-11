@@ -339,8 +339,38 @@ def eventAdd():
         data = json.loads(dataString)
         print(data)
         for i in data['addRow']:
-            print("{}    {}".format(i['name'],i['value']))       
-    return render_template('eventTemplate.html', title='events', metaID='events')
+            print("{}    {}".format(i['name'],i['value']))  
+
+           if i['name'] == 'date':
+                date = i['value']                        
+            if i['name'] == 'arch':
+                arch = i['value']
+            if i['name'] == 'region':
+                region = i['value']
+            if i['name'] == 'city':
+                city = i['value']
+            if i['name'] == 'address':
+                address= i['value']
+            if i['name'] == 'content':
+                content = i['value']
+            if i['name'] == 'summary':
+                summary = i['value']
+            if i['name'] == 'reg':
+                reg = i['value']
+
+        
+        if data['function'] == 'eventAdd':
+
+            #now  = datetime.now()
+            #date = now.strftime("%d %b %Y")  
+
+            eventObject = Event(date, arch, region, city, address, content, summary, reg, email, rowID)
+            schema = EventSchema()
+            eventDict, errors = schema.dump(eventObject)
+            rowAddResult = ss_update_row(ss_client,archSheet, eventDict)    
+
+
+            return jsonify({"status":"Updated successfully"})            
 
 
 if __name__ == "__main__":
