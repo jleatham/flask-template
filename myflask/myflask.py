@@ -357,14 +357,15 @@ def eventAdd():
                 summary = i['value']
             if i['name'] == 'reg':
                 reg = i['value']
-
+            if i['name'] == 'email':
+                email = i['value']
         
         if data['function'] == 'eventAdd':
 
             #now  = datetime.now()
             #date = now.strftime("%d %b %Y")  
 
-            eventObject = Event(date, arch, region, city, address, content, summary, reg, email, rowID)
+            eventObject = Event(date, arch, region, city, address, content, summary, reg, email, 12345678) #random row, not used because added to bottom
             schema = EventSchema()
             eventDict, errors = schema.dump(eventObject)
             rowAddResult = ss_update_row(ss_client,eventSheet, eventDict)    
