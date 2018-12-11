@@ -189,7 +189,8 @@ def ENTEST():
 
     ss_client = ss_get_client(access_token)
     archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='EN')
-    return render_template('TESTarchTemplate.html', title='EN', metaID='EN', archList=archList)
+    emailData = create_html_msg(archList)
+    return render_template('TESTarchTemplate.html', title='EN', metaID='EN', archList=archList, emailData=emailData)
 
 
 
