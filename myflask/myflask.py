@@ -199,35 +199,40 @@ def EN():
 
     ss_client = ss_get_client(access_token)
     archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='EN')
-    return render_template('archTemplate.html', title='EN', metaID='EN', archList=archList)
+    emailData = create_html_msg(archList)
+    return render_template('archTemplate.html', title='EN', metaID='EN', archList=archList, emailData=emailData)
 
 @app.route('/SEC', methods=['GET'])
 def SEC():
 
     ss_client = ss_get_client(access_token)
     archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='SEC')
-    return render_template('archTemplate.html', title='SEC', metaID='SEC', archList=archList)
+    emailData = create_html_msg(archList)
+    return render_template('archTemplate.html', title='SEC', metaID='SEC', archList=archList, emailData=emailData)
 
 @app.route('/DC', methods=['GET'])
 def DC():
 
     ss_client = ss_get_client(access_token)
     archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='DC')
-    return render_template('archTemplate.html', title='DC', metaID='DC', archList=archList)
+    emailData = create_html_msg(archList)
+    return render_template('archTemplate.html', title='DC', metaID='DC', archList=archList, emailData=emailData)
 
 @app.route('/COLLAB', methods=['GET'])
 def COLLAB():
 
     ss_client = ss_get_client(access_token)
     archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='COLLAB')
-    return render_template('archTemplate.html', title='COLLAB', metaID='COLLAB', archList=archList)
+    emailData = create_html_msg(archList)
+    return render_template('archTemplate.html', title='COLLAB', metaID='COLLAB', archList=archList, emailData=emailData)
 
 @app.route('/APP', methods=['GET'])
 def APP():
 
     ss_client = ss_get_client(access_token)
     archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='APP')
-    return render_template('archTemplate.html', title='APP', metaID='APP', archList=archList)
+    emailData = create_html_msg(archList)
+    return render_template('archTemplate.html', title='APP', metaID='APP', archList=archList, emailData=emailData)
 
 
 
