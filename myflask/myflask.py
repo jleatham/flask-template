@@ -15,7 +15,7 @@ app.config.from_object(Config)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Flask Template')
+    return render_template('index.html', title='CSA Architecture Week')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

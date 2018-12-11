@@ -77,22 +77,31 @@ def create_email_table(archList,category, header):
     return htmlMsg
 
 def create_html_msg(archList):
+    spacer = add_html_component("spacer")
+    divider = add_html_component("divider")
     htmlMsg = ""
     emailTable = create_email_table(archList,'news', 'News')
-    htmlMsg = htmlMsg + emailTable
+    htmlMsg = htmlMsg + emailTable + spacer
     emailTable = create_email_table(archList,'demo', 'Demonstrations')
-    htmlMsg = htmlMsg + emailTable
+    htmlMsg = htmlMsg + emailTable + spacer
     emailTable = create_email_table(archList,'services', 'Services')
-    htmlMsg = htmlMsg + emailTable
+    htmlMsg = htmlMsg + emailTable + spacer + divider + spacer
     emailTable = create_email_table(archList,'ea', 'EA')
-    htmlMsg = htmlMsg + emailTable
+    htmlMsg = htmlMsg + emailTable + spacer
     emailTable = create_email_table(archList,'capital', 'Cisco Capital')
-    htmlMsg = htmlMsg + emailTable
+    htmlMsg = htmlMsg + emailTable + spacer
     emailTable = create_email_table(archList,'promo', 'Promotions')
-    htmlMsg = htmlMsg + emailTable
+    htmlMsg = htmlMsg + emailTable + spacer
     emailTable = create_email_table(archList,'proposal', 'Proposals - Unsolicited BoMs')
-    htmlMsg = htmlMsg + emailTable
+    htmlMsg = htmlMsg + emailTable + spacer
     emailTable = create_email_table(archList,'spiff', 'SPIFFs')
-    htmlMsg = htmlMsg + emailTable
+    htmlMsg = htmlMsg + emailTable + spacer
     return htmlMsg
+
+def add_html_component(component):
+    if component == "spacer":
+        htmlComponent = "</br>"
+    elif component == "divider":
+        htmlComponent = """ <span style= "color:red;font-family:ciscosans,sans-serif;font-size:12pt;">*********************(Internal use only – Don’t send below to customers)*********************</span> """
+    return htmlComponent
        
