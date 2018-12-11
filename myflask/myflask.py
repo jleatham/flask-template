@@ -341,7 +341,7 @@ def eventAdd():
         for i in data['addRow']:
             print("{}    {}".format(i['name'],i['value']))  
 
-           if i['name'] == 'date':
+            if i['name'] == 'date':
                 date = i['value']                        
             if i['name'] == 'arch':
                 arch = i['value']
