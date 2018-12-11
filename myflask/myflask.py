@@ -334,7 +334,7 @@ def eventRemove():
         for i in data['removeRows']:
             #print(i)  
             removeRows.append(i)      
-        if data['function'] == 'remove':
+        if data['function'] == 'eventRemove':
             ss_remove_rows(ss_client,eventSheet,removeRows)
             return jsonify({"status":"Updated successfully"})
 
