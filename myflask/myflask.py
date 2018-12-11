@@ -2,7 +2,7 @@ from flask import Flask, render_template, flash, redirect, url_for, request, jso
 from config import Config
 from forms import LoginForm, archWeekForm, removeArchWeekForm
 from test import testFunction
-from myMarshmallow import Architecture, ArchitectureSchema
+from myMarshmallow import Architecture, ArchitectureSchema, Event, EventSchema
 from mySmartSheet import access_token, archSheet, eventSheet, ss_get_client, ss_get_sheet_parsed, ss_update_row, ss_remove_rows, ss_get_events_parsed
 from myEmail import create_html_msg
 from datetime import datetime
@@ -367,7 +367,7 @@ def eventAdd():
             eventObject = Event(date, arch, region, city, address, content, summary, reg, email, rowID)
             schema = EventSchema()
             eventDict, errors = schema.dump(eventObject)
-            rowAddResult = ss_update_row(ss_client,archSheet, eventDict)    
+            rowAddResult = ss_update_row(ss_client,eventSheet, eventDict)    
 
 
             return jsonify({"status":"Updated successfully"})            
