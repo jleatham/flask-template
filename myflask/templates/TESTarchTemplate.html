@@ -12,12 +12,17 @@
         </div>-->
 
         <div class="large reveal" id="exampleModal1" data-reveal>
-
-                {{ emailData|safe }}
+                <div class="grid-x grid-margin-x">
+                        <div class="medium-2 large-2 small-12 cell"></div>
+                        <div class="medium-8 large-8 small-12 cell">
+                                        {{ emailData|safe }}
+                        </div>
+                        <div class="medium-2 large-2 small-12 cell"></div>
 
                         <button class="close-button" data-close aria-label="Close modal" type="button">
                                 <span aria-hidden="true">&times;</span>
                         </button>
+                </div>
         </div>
 
         <p><button class="button" data-open="exampleModal1">View Email Layout</button></p>

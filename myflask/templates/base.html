@@ -18,37 +18,45 @@
   </head>
   <body>
 
-    <div class="top-bar">
-        <div class="top-bar-left">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Architecture Week</li>
-            <li>
-                    <a href="{{ url_for('index') }}">Home</a>
-            </li>
-            <li>
-                    <a href="#">Architecture</a>
-                    <ul class="menu">
-                        <li><a href="{{ url_for('EN') }}">EN</a></li>
-                        <li><a href="{{ url_for('SEC') }}">SEC</a></li>
-                        <li><a href="{{ url_for('DC') }}">DC</a></li>
-                        <li><a href="{{ url_for('COLLAB') }}">COLLAB</a></li>
-                        <li><a href="{{ url_for('APP') }}">APP</a></li>
-                        <li><a href="{{ url_for('emailTest') }}">Email Test</a></li>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-2 large-2 small-12 cell"></div>
+      <div class="medium-8 large-8 small-12 cell">
+          <div class="top-bar">
+              <div class="top-bar-left">
+                <ul class="dropdown menu" data-dropdown-menu>
+                  <li class="menu-text">Architecture Week</li>
+                  <li>
+                          <a href="{{ url_for('index') }}">Home</a>
+                  </li>
+                  <li>
+                          <a href="#">Architecture</a>
+                          <ul class="menu">
+                              <li><a href="{{ url_for('EN') }}">EN</a></li>
+                              <li><a href="{{ url_for('SEC') }}">SEC</a></li>
+                              <li><a href="{{ url_for('DC') }}">DC</a></li>
+                              <li><a href="{{ url_for('COLLAB') }}">COLLAB</a></li>
+                              <li><a href="{{ url_for('APP') }}">APP</a></li>
+                              <li><a href="{{ url_for('emailTest') }}">Email Test</a></li>
+      
+                          </ul>
+                  </li> 
+                  <li>
+                          <a href="{{ url_for('eventTemplate') }}">Events</a>
+                  </li>
+      
+             
+                </ul>
+              </div>
+              <div class="top-bar-right">
+                <ul class="menu">
+                </ul>
+              </div>
+            </div>
 
-                    </ul>
-            </li> 
-            <li>
-                    <a href="{{ url_for('eventTemplate') }}">Events</a>
-            </li>
+      </div>
+      <div class="medium-2 large-2 small-12 cell"></div>
 
-       
-          </ul>
-        </div>
-        <div class="top-bar-right">
-          <ul class="menu">
-          </ul>
-        </div>
-      </div>  
+  
       
       <!--
       <hr>
