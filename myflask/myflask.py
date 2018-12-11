@@ -328,6 +328,7 @@ def eventRemove():
 
 @app.route('/eventAdd', methods=['POST'])
 def eventAdd():
+    ss_client = ss_get_client(access_token)
     print('eventAdd Route')
 
     if request.method=='POST': #if one of the forms is submitted
