@@ -19,7 +19,7 @@ def create_email_table(archList,category, header):
                             <ul {{ ulStyle }}>
 
                                 <li {{ liStyle }}>
-                                    <span {{ spanStyle }}> {{ i.bullet }} {% if i.sbLink %}  -- <a href="{{ i.bLink|urlencode }}" {{ aStyle }}>Link</a>{% endif %}</span>
+                                    <span {{ spanStyle }}> {{ i.bullet }} {% if i.sbLink %}  -- <a href="{{ i.bLink }}" {{ aStyle }}>Link</a>{% endif %}</span>
                                 {% if i.subBullet1 %} 
                                     <ul {{ ulStyle }}>
                                         <li {{ liStyle }}>
