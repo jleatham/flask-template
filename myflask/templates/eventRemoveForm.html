@@ -1,6 +1,6 @@
 <form action="{{ url_for('eventRemove') }}" method="post" id="eventRemove">    
-        <h2>Debug to removeForm</h2>
-        <table class="table-scroll" style="width:100%;">
+        <div class="table-scroll" >
+        <table style="width:100%;">
                 <tbody>
                 {% if eventList %}
         <!-- Header  --><tr>
@@ -40,6 +40,7 @@
                                       
                 </tbody>
         </table>
+        </div>
         <input class="button round alert" type="submit" value="Delete" id="submit">
 </form>
 
