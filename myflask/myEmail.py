@@ -5,13 +5,14 @@ def create_email_table(archList,category, header):
     htmlTemplate = """
 
             <table {{ tableStyle }} >
-                <tbody {{ tbodyStyle }}>
+                <thead>
                     <tr {{ trStyle }}>
-                        <td {{ tdStyleHeader }}>
+                        <th {{ tdStyleHeader }}>
                             <span {{ spanStyleBlue }}>{{ header }}</span>
-                        </td>
+                        </th>
                     </tr>
-
+                </thead>
+                <tbody {{ tbodyStyle }}>
                     <tr {{ trStyle }}>
                         <td {{ tdStyleBody }}>
             {% for i in archList %}
@@ -52,9 +53,10 @@ def create_email_table(archList,category, header):
                                 </li>
 
                             </ul>
-                        </td>
+                        
             {% endif %}
-            {% endfor %}        
+            {% endfor %}  
+                    </td>      
                     </tr>
 
                 </tbody>
