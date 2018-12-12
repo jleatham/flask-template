@@ -4,7 +4,7 @@
         {% for i in archList %}
         {% if i.category == 'news' %}
                 <ul class="first">
-                <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> <strong style="font-size:70%">[ {{ i.date }} ] </strong>- {{ i.bullet }}</li>
+                <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> <strong style="font-size:70%">{{ i.date }}</strong> - {{ i.bullet }}</li>
                 {% if i.subBullet1 %}
                         <ul class="second">
                         <li class="second">{{ i.subBullet1 }}</li>
