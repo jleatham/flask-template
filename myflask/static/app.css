@@ -23,6 +23,11 @@ ul.first{
 }
 li.first {
     margin-bottom: 0.5em;
+    display: block;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;    
 }
 ul.second{
     list-style-type: none;
