@@ -1,6 +1,6 @@
 
 p.internal { margin: 0 !important; 
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: normal;
     text-align: left;
     border-bottom: 2px solid red;
@@ -8,7 +8,7 @@ p.internal { margin: 0 !important;
 }
 
 p.external { margin: 0 !important; 
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: normal;
     text-align: left;
     border-bottom: 2px solid black;
@@ -19,7 +19,7 @@ p.external { margin: 0 !important;
 }
 ul.first{
     list-style-type: none;
-    margin-bottom: 1.5em;
+    margin-bottom: 1.2em;
     margin-top: 0.5em
 
 }
