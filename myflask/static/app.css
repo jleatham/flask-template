@@ -1,20 +1,20 @@
 
-p.internal { margin: 0 !important; 
+p.internal { 
     font-size: 1.2em;
     font-weight: normal;
     text-align: left;
     border-bottom: 2px solid red;
     padding: 0em;
-    margin-top:1.2em;
+    margin-top:1em;
 }
 
-p.external { margin: 0 !important; 
+p.external { 
     font-size: 1.2em;
     font-weight: normal;
     text-align: left;
     border-bottom: 2px solid black;
     padding: 0em;
-    margin-top:1.2em;
+    margin-top:1em;
 }
 .inputCSS input{
     margin-bottom: 0em;
@@ -25,7 +25,7 @@ ul.first{
 
 }
 li.first {
-    margin-bottom: 0em;
+    margin-bottom: -0.5em;
     display: block;
     width: 350px;
     overflow: hidden;
@@ -38,7 +38,7 @@ ul.second{
 
 }
 li.second {
-    margin-bottom: 0em;
+    margin-bottom: -0.5em;
     display: block;
     width: 300px;
     overflow: hidden;
@@ -54,8 +54,4 @@ ul#radio li{
 
 ul {
     line-height:100%
-}
-
-li {
-    margin:0 0 2px 0;
 }
