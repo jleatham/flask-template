@@ -35,7 +35,11 @@
        {% include 'jQuery.html' %}
        <script>
            $(document).ready( function () {
-                $('#eventTable').DataTable();
+                $('#eventTable').DataTable({
+                    "scrollY": "200px",
+                    "scrollCollapse": true,
+                    "paging": false
+                });
 
                 $('#date').fdatepicker();
                 } );

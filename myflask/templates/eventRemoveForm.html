@@ -1,5 +1,5 @@
 <form action="{{ url_for('eventRemove') }}" method="post" id="eventRemove">    
-        <div>
+        <div class="table-scroll">
         <table id="eventTable">
                 <thead>
                 {% if eventList %}
@@ -31,8 +31,8 @@
                                 <td style="width: 1px;white-space: nowrap;">{{ i.city }}</td>
                                 <td style="width: 1px;white-space: nowrap;">{{ i.address }}</td>
                                 <td style="width: 1px;white-space: nowrap;">{{ i.content }}</td>
-                                <td style="width: 1px;white-space: nowrap;">{{ i.reg }}</td>
-                                <td style="width: 1px;white-space: nowrap;">{{ i.email }}</td>
+                                <td style="width: 20px;">{{ i.reg }}</td>
+                                <td style="width: 20px;">{{ i.email }}</td>
 
                                         
                                 
