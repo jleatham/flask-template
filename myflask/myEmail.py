@@ -103,13 +103,13 @@ def create_email_event_table(eventList,region, header):
                     <table {{ tableStyle }} >
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Architecture</th>
-                                <th>Summary</th>
-                                <th>City</th>
-                                <th>Address</th>
-                                <th>Content</th>
-                                <th>Registration</th>
+                                <th style="width:5%;">Date</th>
+                                <th style="width:5%;">Architecture</th>
+                                <th style="width:40%;">Summary</th>
+                                <th style="width:5%;">City</th>
+                                <th style="width:30%;">Address</th>
+                                <th style="width:5%;">Content</th>
+                                <th style="width:10%;">Registration</th>
                             </tr>
                         </thead>
                         
