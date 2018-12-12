@@ -14,6 +14,7 @@
     <link rel="stylesheet" href={{ url_for('static', filename='app.css') }}>
     <link rel="stylesheet" href={{ url_for('static', filename='foundation-icons.css') }}>
     <link rel="shortcut icon" href={{ url_for('static', filename='favicon.ico') }} />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.foundation.min.css" />
     
   </head>
   <body>
@@ -77,6 +78,9 @@
       <script src={{ url_for('static', filename='vendor/foundation.util.box.js') }}></script>
       <script src={{ url_for('static', filename='vendor/foundation.util.keyboard.js') }}></script>
       <script src={{ url_for('static', filename='vendor/foundation.util.nest.js') }}></script>  
+      <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.18/js/dataTables.foundation.min.js"></script>
+
       {% block javascript %} {% endblock %}
     </body>
 </html>

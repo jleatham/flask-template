@@ -1,16 +1,16 @@
 <form action="{{ url_for('eventRemove') }}" method="post" id="eventRemove">    
-        <div class="table-scroll" >
-        <table style="width:100%;">
+        <div>
+        <table id="eventTable">
                 <tbody>
                 {% if eventList %}
         <!-- Header  --><tr>
                                 <th>Remove</th>
                                 <th>Region</th>
                                 <th>Date</th>
-                                <th>City</th>
-                                <th>Address</th>
                                 <th>Architecture</th>
                                 <th>Summary</th>
+                                <th>City</th>
+                                <th>Address</th>
                                 <th>Content</th>
                                 <th>Registration</th>
                                 <th>Email Template</th>
@@ -26,10 +26,10 @@
                                 <td style="width: 1px;white-space: nowrap;"><input type="checkbox" name="rowID" value="{{ i.rowID }}"></td>
                                 <td style="width: 1px;white-space: nowrap;">{{ i.region }}</td>
                                 <td style="width: 1px;white-space: nowrap;">{{ i.date }}</td>
-                                <td style="width: 1px;white-space: nowrap;">{{ i.city }}</td>
-                                <td style="width: 1px;white-space: nowrap;">{{ i.address }}</td>
                                 <td style="width: 1px;white-space: nowrap;">{{ i.arch }}</td>
                                 <td style="width: 1px;white-space: nowrap;">{{ i.summary }}</td>
+                                <td style="width: 1px;white-space: nowrap;">{{ i.city }}</td>
+                                <td style="width: 1px;white-space: nowrap;">{{ i.address }}</td>
                                 <td style="width: 1px;white-space: nowrap;">{{ i.content }}</td>
                                 <td style="width: 1px;white-space: nowrap;">{{ i.reg }}</td>
                                 <td style="width: 1px;white-space: nowrap;">{{ i.email }}</td>

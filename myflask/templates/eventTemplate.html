@@ -33,5 +33,10 @@
     {% block javascript %}
        <!--  needs to be pure js, not jquery   <script src={{ url_for('static', filename='allForms.js') }}></script> -->
        {% include 'jQuery.html' %}
+       <script>
+           $(document).ready( function () {
+                $('#eventTable').DataTable();
+                } );
+       </script>
     {% endblock %}        
 
