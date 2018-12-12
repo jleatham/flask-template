@@ -1,8 +1,8 @@
 <form action="{{ url_for('remove') }}" method="post" id="remove">    
 
-        <p class="external"><strong>news</strong></p>
+        <p class="external"><strong>News</strong></p>
         {% for i in archList %}
-        {% if i.category == 'News' %}
+        {% if i.category == 'news' %}
                 <ul class="first">
                 <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>
                 {% if i.subBullet1 %}
@@ -161,12 +161,13 @@
         
         {% endfor %}  
         <div class="grid-x grid-margin-x">
+                        <div class="medium-1 large-1 small-12 cell"></div> 
                 <div class="medium-3 large-3 small-12 cell">
                         <input class="button round alert" type="submit" value="Delete" id="submit">
                 </div>  
                 <div class="medium-7 large-7 small-12 cell">
                         <button class="button" data-open="exampleModal1">View Email Layout</button>
                 </div>    
-                <div class="medium-2 large-2 small-12 cell"></div>     
+                <div class="medium-1 large-1 small-12 cell"></div>     
         </div>                
 </form>

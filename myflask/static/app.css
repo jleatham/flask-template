@@ -17,7 +17,8 @@ p.external { margin: 0 !important;
 }
 ul.first{
     list-style-type: none;
-    margin-bottom: 1.5em
+    margin-bottom: 1.5em;
+    margin-top: 0.2em
 
 }
 li.first {
