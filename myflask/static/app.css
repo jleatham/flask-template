@@ -5,6 +5,7 @@ p.internal { margin: 0 !important;
     text-align: left;
     border-bottom: 2px solid red;
     padding: 0em;
+    margin-top:1.2em;
 }
 
 p.external { margin: 0 !important; 
@@ -13,18 +14,18 @@ p.external { margin: 0 !important;
     text-align: left;
     border-bottom: 2px solid black;
     padding: 0em;
+    margin-top:1.2em;
 }
 .inputCSS input{
-    margin-bottom: 0em
+    margin-bottom: 0em;
 }
 ul.first{
     list-style-type: none;
-    margin-bottom: 1.2em;
     margin-top: 0.5em
 
 }
 li.first {
-    margin-bottom: 0.5em;
+    margin-bottom: 0em;
     display: block;
     width: 350px;
     overflow: hidden;
@@ -37,7 +38,7 @@ ul.second{
 
 }
 li.second {
-    margin-bottom: 0.5em;
+    margin-bottom: 0em;
     display: block;
     width: 300px;
     overflow: hidden;
