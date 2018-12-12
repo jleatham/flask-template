@@ -89,9 +89,9 @@ def create_email_event_table(eventList,region, header):
                 
                 <thead {{ tbodyStyle }}>
                     <tr {{ trStyle }}>
-                        <td {{ tdStyleHeader }}>
+                        <th {{ tdStyleHeader }}>
                             <span {{ spanStyleBlue }}>{{ header }}</span>
-                        </td>
+                        </th>
                     </tr>
                 </thead>
 
@@ -125,10 +125,10 @@ def create_email_event_table(eventList,region, header):
                                         <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.content }} </span></td>
                                         <td {{ tdStyleBody }}> <span {{ spanStyle }}> {% if i.reg %}<a href="{{ i.reg }}" {{ aStyle }}>Link</a>{% endif %}</span></td>
                                                     
-                                        
+                                    </tr>   
                         {% endif %}
                         {% endfor %}        
-                                    </tr>
+                                    
                             </tbody>
                             </table>
                 

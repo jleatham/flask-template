@@ -324,8 +324,10 @@ def add():
 def emailTest():
     #add an 'all' for archSelect and return ENList, SECList, etc all at once
     ss_client = ss_get_client(access_token)
-    archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='EN')    
-    emailData = create_html_msg(archList)
+    archList = ss_get_sheet_parsed(ss_client,archSheet,archSelect='EN') 
+    eventList = ss_get_events_parsed(ss_client,eventSheet,eventSelect='ALL')  
+    region = {'eventList':eventList,'region':'NTXSelect'} 
+    emailData = create_html_msg(archList, region)
 
     return render_template('emailTest.html', title='email', metaID='email', emailData=emailData)
 
