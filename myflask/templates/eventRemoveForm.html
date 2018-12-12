@@ -1,7 +1,7 @@
 <form action="{{ url_for('eventRemove') }}" method="post" id="eventRemove">    
         <div>
         <table id="eventTable">
-                <tbody>
+                <thead>
                 {% if eventList %}
         <!-- Header  --><tr>
                                 <th>Remove</th>
@@ -17,8 +17,8 @@
 
                         </tr>
                         
-
-
+                </thead>
+                <tbody>
                         {% for i in eventList %}
         <!-- Body    --><tr>
                         
