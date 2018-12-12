@@ -11,11 +11,13 @@ def create_email_table(archList,category, header):
                             <span {{ spanStyleBlue }}>{{ header }}</span>
                         </td>
                     </tr>
-            {% for i in archList %}
-            {% if i.category == category %}
 
                     <tr {{ trStyle }}>
                         <td {{ tdStyleBody }}>
+            {% for i in archList %}
+            {% if i.category == category %}
+
+
                             <ul {{ ulStyle }}>
 
                                 <li {{ liStyle }}>
