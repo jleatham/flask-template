@@ -96,6 +96,7 @@ def create_email_event_table(eventList,region, header):
                 </thead>
 
                 <tbody {{ tbodyStyle }}>
+                    <tr>
 
 
 
@@ -133,7 +134,7 @@ def create_email_event_table(eventList,region, header):
                             </table>
                 
     <!-- End Inner Table -->            
-                
+                </tr>
                 </tbody>
             </table>
         """
