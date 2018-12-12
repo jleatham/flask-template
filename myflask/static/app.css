@@ -25,7 +25,7 @@ ul.first{
 
 }
 li.first {
-    margin-bottom: -0.5em;
+    margin-bottom: 0em;
     display: block;
     width: 350px;
     overflow: hidden;
@@ -38,7 +38,7 @@ ul.second{
 
 }
 li.second {
-    margin-bottom: -0.5em;
+    margin-bottom: 0em;
     display: block;
     width: 300px;
     overflow: hidden;
