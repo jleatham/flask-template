@@ -24,7 +24,7 @@ ul.first{
 li.first {
     margin-bottom: 0.5em;
     display: block;
-    width: 100px;
+    width: 350px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;    
@@ -33,6 +33,14 @@ ul.second{
     list-style-type: none;
     padding-left: 2em;
 
+}
+li.second {
+    margin-bottom: 0.5em;
+    display: block;
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;      
 }
 ul.radio{
     list-style-type: none;
