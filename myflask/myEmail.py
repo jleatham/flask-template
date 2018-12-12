@@ -122,7 +122,7 @@ def create_email_event_table(eventList,region, header):
                                         <td> <span {{ spanStyle }}> {{ i.arch }} </span></td>
                                         <td> <span {{ spanStyle }}> {{ i.summary }} </span></td>
                                         <td> <span {{ spanStyle }}> {{ i.city }} </span></td>
-                                        <td> <span {{ spanStyle }}> Directions <a {{ aStyle }} href="http://maps.google.com/?q={{ i.address }}"></a> </span></td>
+                                        <td> <span {{ spanStyle }}> <a {{ aStyle }} href="http://maps.google.com/?q={{ i.address }}">Directions</a> </span></td>
                                         <td> <span {{ spanStyle }}> {{ i.content }} </span></td>
                                         <td> <span {{ spanStyle }}> {% if i.reg %}<a href="{{ i.reg }}" {{ aStyle }}>Link</a>{% endif %}</span></td>
                                                     
