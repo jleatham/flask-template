@@ -35,10 +35,11 @@ li.first {
 ul.second{
     list-style-type: none;
     padding-left: 2em;
+    margin-top:0.5em
 
 }
 li.second {
-    margin-bottom: 0em;
+    margin-bottom: -0.5em;
     display: block;
     width: 300px;
     overflow: hidden;
