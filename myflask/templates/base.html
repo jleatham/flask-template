@@ -15,6 +15,8 @@
     <link rel="stylesheet" href={{ url_for('static', filename='foundation-icons.css') }}>
     <link rel="shortcut icon" href={{ url_for('static', filename='favicon.ico') }} />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.foundation.min.css" />
+    <link rel="stylesheet" href={{ url_for('static', filename='foundation-datepicker.min.css') }}>
+    
     
   </head>
   <body>
@@ -80,6 +82,8 @@
       <script src={{ url_for('static', filename='vendor/foundation.util.nest.js') }}></script>  
       <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.10.18/js/dataTables.foundation.min.js"></script>
+      <script src={{ url_for('static', filename='vendor/foundation-datepicker.min.js') }}></script>
+      
 
       {% block javascript %} {% endblock %}
     </body>
