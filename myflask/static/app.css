@@ -1,15 +1,17 @@
 
 p.internal { margin: 0 !important; 
     font-size: 1.5em;
+    font-weight: normal;
     text-align: left;
-    border-bottom: 5px solid red;
+    border-bottom: 2px solid red;
     padding: 0em;
 }
 
 p.external { margin: 0 !important; 
     font-size: 1.5em;
+    font-weight: normal;
     text-align: left;
-    border-bottom: 5px solid black;
+    border-bottom: 2px solid black;
     padding: 0em;
 }
 .inputCSS input{
@@ -18,7 +20,7 @@ p.external { margin: 0 !important;
 ul.first{
     list-style-type: none;
     margin-bottom: 1.5em;
-    margin-top: 0.2em
+    margin-top: 0.5em
 
 }
 li.first {
