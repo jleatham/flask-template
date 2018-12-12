@@ -76,12 +76,94 @@ def create_email_table(archList,category, header):
     #print (htmlMsg)
     return htmlMsg
 
-def create_html_msg(archList):
+
+#still need to modify this
+def create_email_event_table(eventList,region, header):
+    htmlTemplate = """
+
+            <table {{ tableStyle }} >
+                
+                <thead {{ tbodyStyle }}>
+                    <tr {{ trStyle }}>
+                        <td {{ tdStyleHeader }}>
+                            <span {{ spanStyleBlue }}>{{ header }}</span>
+                        </td>
+                    </tr>
+                </thead>
+
+                <tbody {{ tbodyStyle }}>
+
+
+
+    <!-- Inner Table -->
+                    <table {{ tableStyle }} >
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Architecture</th>
+                                <th>Summary</th>
+                                <th>City</th>
+                                <th>Address</th>
+                                <th>Content</th>
+                                <th>Registration</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody {{ tbodyStyle }}>
+                        {% for i in eventList %}
+                        {% if i.region == region %}
+                                    <tr {{ trStyle }}>
+                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.date }} </span></td>
+                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.arch }} </span></td>
+                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.summary }} </span></td>
+                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.city }} </span></td>
+                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.address }} </span></td>
+                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.content }} </span></td>
+                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {% if i.reg %}<a href="{{ i.reg }}" {{ aStyle }}>Link</a>{% endif %}</span></td>
+                                                    
+                                        
+                        {% endif %}
+                        {% endfor %}        
+                                    </tr>
+                            </tbody>
+                            </table>
+                
+    <!-- End Inner Table -->            
+                
+                </tbody>
+            </table>
+        """
+    htmlMsg = Environment().from_string(htmlTemplate).render(
+        eventList = eventList,
+        header = header,
+        region = region,
+        trStyle = 'style="background-color:transparent;"',
+        spanStyle =  'style= "color:black;font-family:ciscosans,sans-serif;font-size:12pt;"',
+        tableStyle = 'style="margin:5px;width:70%;border:2pt solid;cellpadding=0;cellspacing=0;border-radius:1px;font-family:-webkit-standard;letter-spacing:normal;orphans:auto;text-indent:0px;text-transform:none;widows:auto;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px;text-decoration:none;border-collapse:collapse;"',
+        tdStyleHeader = 'style="width:100%;border:1pt solid windowtext;padding:0in 5.4pt;vertical-align:top;"',
+        tdStyleBody = 'style="width:100%;border-style:none solid;border-left-width:1pt;border-right-width:1pt;padding:0in 5.4pt;vertical-align:top;"',
+        spanStyleBlue = 'style="color:#00b0f0;font-family:ciscosans,sans-serif;font-size:12pt;"',
+        aStyle = 'style="color:rgb(149, 79, 114);text-decoration:underline;"',
+        tbodyStyle = 'style=""',
+        ulStyle = 'style=""',
+        liStyle = 'style=""'
+    )
+    #print (htmlMsg)
+    return htmlMsg
+
+
+
+def create_html_msg(archList, local={'eventList':'','region':''}):
     spacer = add_html_component("spacer")
     divider = add_html_component("divider")
     htmlMsg = ""
     emailTable = create_email_table(archList,'news', 'News')
     htmlMsg = htmlMsg + emailTable + spacer
+    #event Table
+    if local['eventList']:
+        eventTable = create_email_event_table(local['eventList'],local['region'], 'Local Events')
+        htmlMsg = htmlMsg + eventTable + spacer
+    #end event Table
     emailTable = create_email_table(archList,'demo', 'Demonstrations')
     htmlMsg = htmlMsg + emailTable + spacer
     emailTable = create_email_table(archList,'services', 'Services')
@@ -97,6 +179,7 @@ def create_html_msg(archList):
     emailTable = create_email_table(archList,'spiff', 'SPIFFs')
     htmlMsg = htmlMsg + emailTable + spacer
     return htmlMsg
+
 
 def add_html_component(component):
     if component == "spacer":
