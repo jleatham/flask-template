@@ -118,13 +118,13 @@ def create_email_event_table(eventList,region, header):
                         {% for i in eventList %}
                         {% if i.region == region %}
                                     <tr {{ trStyle }}>
-                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.date }} </span></td>
-                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.arch }} </span></td>
-                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.summary }} </span></td>
-                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.city }} </span></td>
-                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.address }} </span></td>
-                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {{ i.content }} </span></td>
-                                        <td {{ tdStyleBody }}> <span {{ spanStyle }}> {% if i.reg %}<a href="{{ i.reg }}" {{ aStyle }}>Link</a>{% endif %}</span></td>
+                                        <td> <span {{ spanStyle }}> {{ i.date }} </span></td>
+                                        <td> <span {{ spanStyle }}> {{ i.arch }} </span></td>
+                                        <td> <span {{ spanStyle }}> {{ i.summary }} </span></td>
+                                        <td> <span {{ spanStyle }}> {{ i.city }} </span></td>
+                                        <td> <span {{ spanStyle }}> {{ i.address }} </span></td>
+                                        <td> <span {{ spanStyle }}> {{ i.content }} </span></td>
+                                        <td> <span {{ spanStyle }}> {% if i.reg %}<a href="{{ i.reg }}" {{ aStyle }}>Link</a>{% endif %}</span></td>
                                                     
                                     </tr>   
                         {% endif %}
