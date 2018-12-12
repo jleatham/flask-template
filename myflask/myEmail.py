@@ -183,7 +183,7 @@ def create_html_msg(archList, local={'eventList':'','region':''}):
 
 def add_html_component(component):
     if component == "spacer":
-        htmlComponent = "</br>"
+        htmlComponent = "<br />"
     elif component == "divider":
         htmlComponent = """ <span style= "color:red;font-family:ciscosans,sans-serif;font-size:12pt;">*********************(Internal use only – Don’t send below to customers)*********************</span> """
     return htmlComponent
