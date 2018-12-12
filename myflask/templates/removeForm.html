@@ -2,7 +2,7 @@
 
         <p class="external"><strong>news</strong></p>
         {% for i in archList %}
-        {% if i.category == 'news' %}
+        {% if i.category == 'News' %}
                 <ul class="first">
                 <li class="first"><input type="checkbox" name="rowID" value="{{ i.rowID }}"> - {{ i.bullet }}   --  <strong style="font-size:70%">{{ i.date }} </strong></li>
                 {% if i.subBullet1 %}

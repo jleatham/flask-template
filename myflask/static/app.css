@@ -1,19 +1,15 @@
 
 p.internal { margin: 0 !important; 
-    font-size: 2em;
+    font-size: 1.5em;
     text-align: left;
-    border-bottom:3px; 
-    border-style:solid; 
-    border-color:#FF0000; 
+    border-bottom: 5px solid red;
     padding: 0em;
 }
 
 p.external { margin: 0 !important; 
-    font-size: 2em;
+    font-size: 1.5em;
     text-align: left;
-    border-bottom:3px; 
-    border-style:solid; 
-    border-color:#000000; 
+    border-bottom: 5px solid black;
     padding: 0em;
 }
 .inputCSS input{
@@ -21,6 +17,7 @@ p.external { margin: 0 !important;
 }
 ul.first{
     list-style-type: none;
+    margin-bottom: 1.5em
 
 }
 li.first {
