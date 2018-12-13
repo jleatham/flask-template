@@ -4,16 +4,16 @@
                 <thead>
                 {% if eventList %}
         <!-- Header  --><tr>
-                                <th>Remove</th>
-                                <th>Region</th>
-                                <th>Date</th>
-                                <th>Architecture</th>
-                                <th>Summary</th>
-                                <th>City</th>
-                                <th>Address</th>
-                                <th>Content</th>
-                                <th>Registration</th>
-                                <th>Email Template</th>
+                                <th style="width:5%;">Remove</th>
+                                <th style="width:5%;">Region</th>
+                                <th style="width:5%;">Date</th>
+                                <th style="width:5%;">Architecture</th>
+                                <th style="width:40%;">Summary</th>
+                                <th style="width:5%;">City</th>
+                                <th style="width:30%;">Address</th>
+                                <th style="width:5%;">Content</th>
+                                <th style="width:5%;">Registration</th>
+                                <th style="width:5%;">Email Template</th>
 
                         </tr>
                         
@@ -23,16 +23,16 @@
         <!-- Body    --><tr>
                         
                         
-                                <td style="width: 1px;white-space: nowrap;"><input type="checkbox" name="rowID" value="{{ i.rowID }}"></td>
-                                <td style="width: 1px;white-space: nowrap;">{{ i.region }}</td>
-                                <td style="width: 1px;white-space: nowrap;">{{ i.date }}</td>
-                                <td style="width: 1px;white-space: nowrap;">{{ i.arch }}</td>
-                                <td style="width: 1px;white-space: nowrap;">{{ i.summary }}</td>
-                                <td style="width: 1px;white-space: nowrap;">{{ i.city }}</td>
-                                <td style="width:20px;overflow: hidden; text-overflow: ellipsis">{{ i.address }}</td>
-                                <td style="width: 1px;white-space: nowrap;">{{ i.content }}</td>
-                                <td style="width:20px;overflow: hidden; text-overflow: ellipsis">{{ i.reg }}</td>
-                                <td style="width:20px;overflow: hidden; text-overflow: ellipsis">{{ i.email }}</td>
+                                <td ><input type="checkbox" name="rowID" value="{{ i.rowID }}"></td>
+                                <td >{{ i.region }}</td>
+                                <td >{{ i.date }}</td>
+                                <td >{{ i.arch }}</td>
+                                <td >{{ i.summary }}</td>
+                                <td >{{ i.city }}</td>
+                                <td >{{ i.address }}</td>
+                                <td >{{ i.content }}</td>
+                                <td >{{ i.reg }}</td>
+                                <td >{{ i.email }}</td>
 
                                         
                                 
