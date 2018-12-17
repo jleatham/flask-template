@@ -1,14 +1,14 @@
 <form action="{{ url_for('eventRemove') }}" method="post" id="eventRemove">    
 
-        <table id="eventTable" class="responsive nowrap" style="width:100%">
+        <table id="eventTable" class="display responsive nowrap compact" style="width:100%">
                 <thead>
                 {% if eventList %}
         <!-- Header  --><tr>
-                                <th>Remove</th>
-                                <th>Region</th>
+                                <th data-priority="1">Remove</th>
+                                <th data-priority="2">Region</th>
                                 <th>Date</th>
                                 <th>Architecture</th>
-                                <th>Summary</th>
+                                <th data-priority="3">Summary</th>
                                 <th>City</th>
                                 <th>Address</th>
                                 <th>Content</th>
