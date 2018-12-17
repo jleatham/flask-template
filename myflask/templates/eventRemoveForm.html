@@ -1,19 +1,19 @@
 <form action="{{ url_for('eventRemove') }}" method="post" id="eventRemove">    
-        <div class="table-scroll">
-        <table id="eventTable" style="width: 100%;">
+
+        <table id="eventTable" class="display responsive nowrap" style="width:100%">
                 <thead>
                 {% if eventList %}
         <!-- Header  --><tr>
-                                <th style="width:5%;">Remove</th>
-                                <th style="width:5%;">Region</th>
-                                <th style="width:5%;">Date</th>
-                                <th style="width:5%;">Architecture</th>
-                                <th style="width:40%;">Summary</th>
-                                <th style="width:5%;">City</th>
-                                <th style="width:30%;">Address</th>
-                                <th style="width:5%;">Content</th>
-                                <th style="width:5%;">Registration</th>
-                                <th style="width:5%;">Email Template</th>
+                                <th>Remove</th>
+                                <th>Region</th>
+                                <th>Date</th>
+                                <th>Architecture</th>
+                                <th>Summary</th>
+                                <th>City</th>
+                                <th>Address</th>
+                                <th>Content</th>
+                                <th>Registration</th>
+                                <th>Email Template</th>
 
                         </tr>
                         
@@ -42,7 +42,6 @@
                                       
                 </tbody>
         </table>
-        </div>
         <input class="button round alert" type="submit" value="Delete" id="submit">
 </form>
 
